@@ -1,0 +1,32 @@
+{
+  "name": "meals",
+  "version": "1.0.0",
+  "description": "a diary of cooked meals",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "develop": "npm-run-all --parallel my-server watch:sass",
+    "my-server": "node app.js 192.168.1.10 7777",
+    "local-server": "node app.js localhost 7777",
+    "watch:sass": "node-sass public/stylesheets/main.scss public/stylesheets/style.css -rw --output-style expanded --source-comments",
+    "compile:sass": "node-sass public/stylesheets/main.scss public/stylesheets/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" public/stylesheets/style.comp.css -o public/stylesheets/style.prefix.css",
+    "compress:css": "node-sass public/stylesheets/style.prefix.css public/stylesheets/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "multer": "^1.4.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.4.7",
+    "concat": "^1.0.3",
+    "node-sass": "^4.11.0",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^6.1.1"
+  }
+}

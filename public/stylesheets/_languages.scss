@@ -1,0 +1,36 @@
+// <div> LANGUAGE SWITCHING
+.language {
+  display: flex;
+
+  // <div> BOX FOR RADIO BUTTONS
+  &__radio-button-box {
+    box-sizing: content-box;
+    // border: 1px solid #5e5e5e;
+    box-shadow: 0.2rem 0.2rem 0.2rem rgba(black, 0.5);
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+
+  // <input> RADIO BUTTON
+  &__radio-button {
+    display: none;
+  }
+  // highlight the label if the radio button is checked
+  &__radio-button:checked ~ &__label {
+    filter: brightness(200%);
+  }
+
+  // <label> LABEL FOR RADIO BUTTON
+  &__label {
+    display: block;
+    cursor: pointer;
+
+    // <svg> FLAG PICTURE
+    svg {
+      display: block;
+      width: 4rem;
+      height: 2.5rem;
+    }
+  }
+}
