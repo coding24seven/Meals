@@ -41,10 +41,8 @@ let upload = multer({
 const database = "meals.json"; // storage filename
 let meals; // the array that holds meal objects
 
-// const port = process.env.PORT || process.argv[3];
-// const IP = process.env.IP || process.argv[2];
-const port = process.argv[3] || 43654; // 43654 is mydevil.net reserved tcp port
-const IP = process.argv[2] || 'localhost'; // 'localhost' is mydevil.net proxy address
+const port = process.env.PORT;
+const IP = process.env.IP;
 app.listen(port, IP, function () {
   console.log("Meals server has started on " + this.address().address + ":" + this.address().port);
 });

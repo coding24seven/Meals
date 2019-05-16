@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node app.js",
     "develop": "npm-run-all --parallel my-server watch:sass",
-    "my-server": "node app.js 192.168.1.10 7777",
-    "local-server": "node app.js localhost 7777",
+    "my-server": "cross-env PORT=7777 IP=192.168.1.10 node app.js",
+    "local-server": "cross-env PORT=7777 IP=localhost node app.js",
+    "my-devil-server": "cross-env PORT=43654 IP=localhost nohup node app.js & disown",
     "watch:sass": "node-sass public/stylesheets/main.scss public/stylesheets/style.css -rw --output-style expanded --source-comments",
     "compile:sass": "node-sass public/stylesheets/main.scss public/stylesheets/style.comp.css",
     "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" public/stylesheets/style.comp.css -o public/stylesheets/style.prefix.css",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "autoprefixer": "^9.4.7",
     "concat": "^1.0.3",
+    "cross-env": "^5.2.0",
     "node-sass": "^4.11.0",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^6.1.1"
