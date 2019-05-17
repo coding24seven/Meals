@@ -10,11 +10,12 @@ let express = require("express"); // express.js backend
 let app = express();
 app.set("trust proxy", true); // for req.ip
 const sendEmailAlert = require("./email-alerts/email.js")
+const latestClients = require("./latest-clients.js") // a list of clients connected recently
 
 // TODO: UNCOMMENT
 // middleware for logging (must be placed above other app.use() things that you want logged)
 // app.use(function (req, res, next) {
-//   console.log(req.method + " request from " + req.ip + " at '" + req.url + "'");
+// console.log(req.method + " request from " + req.ip + " at '" + req.url + "'");
 //   next();
 // });
 
@@ -54,7 +55,13 @@ app.listen(port, IP, function () {
 });
 
 /// LOG OUT TO CONSOLE AT A SET INTERVAL
-setInterval(function () { console.log("Status: App online"); }, 60000);
+setInterval(function () {
+  console.log("Status: App online");
+  console.log("Latest clients: ", latestClients.list)
+}, 60000);
+
+/// CLEAR THE CLIENT LIST AT THE SPECIFIED INTERVAL (3600000 ms = 1h)
+latestClients.clear(3600000)
 
 /// ROUTES
 //. ROOT ROUTE to redirect to '/meals'
@@ -66,11 +73,14 @@ app.get("/meals", function (req, res) {
   let mealsShuffled = shuffle(meals);
   res.render("index.ejs", { meals: mealsShuffled });
 
-  //  send an email alert with the subject and body
-  sendEmailAlert(
-    "Meals app requested on '" + process.env.HOSTNAME + "'",
-    "Client " + req.ip + " hit the " + req.url + " route on " + dateAndTime() + " server time."
-  )
+  // if the current client is new and so has been added to the list of new clients
+  if (latestClients.addNewClient(req.ip)) {
+    //  send an email alert with the subject and body
+    sendEmailAlert(
+      "Meals app requested on '" + process.env.HOSTNAME + "'",
+      "Client " + req.ip + " hit the " + req.url + " route on " + dateAndTime() + " server time."
+    )
+  }
 });
 
 //. GET ROUTE to render a new-meal submission form

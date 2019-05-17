@@ -6,7 +6,7 @@ function sendEmailAlert(subject, body) {
   console.log("Checking email-alert configuration files...")
 
   // Check if the main configuration file is readable.
-  fs.access("./server/config/email-env.js", fs.constants.R_OK, (err) => {
+  fs.access("server/config/email-env.js", fs.constants.R_OK, (err) => {
     if (!err) {
       const emailVars = require("../config/email-env.js")
       console.log("Main email-alert configuration file exists.")
@@ -14,7 +14,7 @@ function sendEmailAlert(subject, body) {
     } else {
       console.log("Main email-alert configuration file does not exists.")
       // as the main configuration file was not readable, check if at least the template configuration file is readable.
-      fs.access("./server/config/email-env.template.js", fs.constants.R_OK, (err) => {
+      fs.access("server/config/email-env.template.js", fs.constants.R_OK, (err) => {
         if (!err) {
           const emailVars = require("../config/email-env.template.js")
           console.log("Although the main email-alert configuration file does not exist, the email-alert configuration TEMPLATE file does exist and can be utilized if it contains a valid configuration.")
