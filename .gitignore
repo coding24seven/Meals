@@ -2,4 +2,12 @@ node_modules
 .vscode
 yarn.lock
 package-lock.json
+todos.txt
+
+# output file on linux
 nohup.out
+
+# environment variables for email alerts
+email-env.js
+
+

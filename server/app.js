@@ -1,13 +1,15 @@
-// console.log replacement that prepends date and time
+/// CONSOLE.LOG REPLACEMENT THAT PREPENDS DATE AND TIME
 const originalConsoleLog = console.log;
 console.log = function log() {
   originalConsoleLog.apply(console, [dateAndTime(), ...arguments]);
 };
 
+/// DEPENDENCIES
 let fs = require("fs"); // node.js file system
 let express = require("express"); // express.js backend
 let app = express();
 app.set("trust proxy", true); // for req.ip
+const sendEmailAlert = require("./email-alerts/email.js")
 
 // TODO: UNCOMMENT
 // middleware for logging (must be placed above other app.use() things that you want logged)
@@ -21,7 +23,7 @@ app.use(express.static("public"));
 app.use(express.static("meal-photos"));
 app.use(express.static("images"));
 
-// module for uploads of pictures with a unique file name
+/// MODULE FOR UPLOADS OF PICTURES WITH A UNIQUE FILE NAME
 let multer = require("multer");
 const crypto = require("crypto");
 let upload = multer({
@@ -37,37 +39,48 @@ let upload = multer({
   })
 });
 
-// storage
+/// STORAGE
 const database = "meals.json"; // storage filename
 let meals; // the array that holds meal objects
 
+/// READ THE DATABASE FROM FILE BEFORE THE SERVER STARTS
+readDatabase(database);
+
+/// SERVER START
 const port = process.env.PORT;
 const IP = process.env.IP;
 app.listen(port, IP, function () {
   console.log("Meals server has started on " + this.address().address + ":" + this.address().port);
 });
 
-// log to console at a set interval
+/// LOG OUT TO CONSOLE AT A SET INTERVAL
 setInterval(function () { console.log("Status: App online"); }, 60000);
 
-// ROOT ROUTE to redirect to '/meals'
+/// ROUTES
+//. ROOT ROUTE to redirect to '/meals'
 app.get("/", function (req, res) { res.redirect("/meals"); });
 
-// GET ROUTE to display all meals
+//. GET ROUTE to display all meals
 app.get("/meals", function (req, res) {
   readDatabase(database);
   let mealsShuffled = shuffle(meals);
   res.render("index.ejs", { meals: mealsShuffled });
+
+  //  send an email alert with the subject and body
+  sendEmailAlert(
+    "Meals app requested on '" + process.env.HOSTNAME + "'",
+    "Client " + req.ip + " hit the " + req.url + " route on " + dateAndTime() + " server time."
+  )
 });
 
-//GET ROUTE to render a new-meal submission form
+//. GET ROUTE to render a new-meal submission form
 app.get("/meals/new", function (req, res) {
   res.render("new.ejs");
 });
 
-//POST ROUTE to intercept data from the new-meal submission form
+//. POST ROUTE to intercept data from the new-meal submission form
+// note: req.file is the name="image" file. req.body holds the text fields
 app.post("/meals", upload.single("image"), function (req, res, next) {
-  // req.file is the name="image" file. req.body holds the text fields
   meals.push({
     name: req.body.name,
     lastCookedOn: "N/A",
@@ -79,7 +92,7 @@ app.post("/meals", upload.single("image"), function (req, res, next) {
   res.redirect("/");
 });
 
-//GET ROUTE MEAL PREPARED TODAY
+//. GET ROUTE MEAL PREPARED TODAY
 app.get("/meals/:id/:date", function (req, res) {
   let min = 0;
   let max = meals.length;
@@ -93,12 +106,13 @@ app.get("/meals/:id/:date", function (req, res) {
   }
   res.redirect("/");
 });
-//GET ROUTE to catch all unhandled parameters
+
+//. GET ROUTE to catch all unhandled parameters
 app.get("*", function (req, res) {
   res.redirect("/");
 });
 
-// ======================== FUNCTIONS =========================
+/// ======================== HELPER FUNCTIONS =========================
 
 //copy the content of 'database' file into 'meals' array
 function readDatabase(database) {
