@@ -1,5 +1,5 @@
 /* 
-* the environmental variables are either configured on the host, for example Heroku, or they are provided here
+* the environmental variables are either configured on the host, for example Heroku, or they are provided in this file
 * once you've supplied your email credentials in this file:
 * set EMAIL_ALERT_CONFIGURATION_COMPLETED: true
 * you can also remove the word 'template' from the file name

@@ -17,7 +17,7 @@ function sendEmailAlert(subject, body) {
       fs.access("server/config/email-env.template.js", fs.constants.R_OK, (err) => {
         if (!err) {
           const emailVars = require("../config/email-env.template.js")
-          console.log("Although the main email-alert configuration file does not exist, the email-alert configuration TEMPLATE file does exist and can be utilized if it contains a valid configuration.")
+          console.log("Although the main email-alert configuration file does not exist, the email-alert configuration TEMPLATE file does exist and can be utilized if it contains its own valid configuration or references to the host-configured environment variables.")
           finishSendingEmailAlert(emailVars)
         }
         else {
