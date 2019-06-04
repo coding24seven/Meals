@@ -11,7 +11,7 @@ to run:
 Have: node.js installed  
 Clone or download this project  
 Command 1: npm install  
-Command 2: npm run start-server  
+Command 2: npm run serve  
 
 to edit the meal database manually:  
 Open: /database/meals.json
