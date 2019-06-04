@@ -8,10 +8,10 @@
   },
   {
     "name": "Frytki",
-    "lastCookedOn": "20.10.2018",
+    "lastCookedOn": "24.05.2019",
     "image": "frytki.jpg",
     "id": 1,
-    "count": 1
+    "count": 2
   },
   {
     "name": "Klopsy",
@@ -64,10 +64,10 @@
   },
   {
     "name": "Makaron w sosie bolońskim z mięsem mielonym",
-    "lastCookedOn": "02.05.2019",
+    "lastCookedOn": "23.05.2019",
     "image": "makaron_bolonski_sos.jpg",
     "id": 9,
-    "count": 2
+    "count": 3
   },
   {
     "name": "Pierogi",
@@ -91,7 +91,7 @@
     "count": 6
   },
   {
-    "name": "Paszteciki z barszczem",
+    "name": "Paszteciki",
     "lastCookedOn": "16.11.2018",
     "image": "paszteciki.jpg",
     "id": 13,
@@ -127,10 +127,10 @@
   },
   {
     "name": "Kotlety schabowe",
-    "lastCookedOn": "12.05.2019",
+    "lastCookedOn": "16.05.2019",
     "image": "kotlety.jpg",
     "id": 18,
-    "count": 6
+    "count": 7
   },
   {
     "name": "Zrazy z ogórkiem i słoniną",
@@ -183,10 +183,10 @@
   },
   {
     "name": "Fasolka po bretońsku",
-    "lastCookedOn": "24.05.2019",
+    "lastCookedOn": "12.11.2018",
     "image": "fasolka-po-bretonsku.jpg",
     "id": 26,
-    "count": 2
+    "count": 1
   },
   {
     "name": "Ryż z jabłkami z piekarnika",
@@ -218,10 +218,10 @@
   },
   {
     "name": "Bitki w sosie mięsnym",
-    "lastCookedOn": "24.04.2019",
+    "lastCookedOn": "26.05.2019",
     "image": "bitki.jpg",
     "id": 31,
-    "count": 5
+    "count": 6
   },
   {
     "name": "Placki kartoflane",
@@ -260,10 +260,10 @@
   },
   {
     "name": "Jaja sadzone",
-    "lastCookedOn": "n/a",
+    "lastCookedOn": "25.05.2019",
     "image": "8d34056ec4087887297e263e.jpg",
     "id": 37,
-    "count": 0
+    "count": 1
   },
   {
     "name": "Zupa pieczarkowa",
@@ -288,10 +288,10 @@
   },
   {
     "name": "Naleśniki z twarogiem",
-    "lastCookedOn": "08.05.2019",
+    "lastCookedOn": "29.05.2019",
     "image": "d9c7abd9d04ca3a63f05ce4c.jpg",
     "id": 41,
-    "count": 5
+    "count": 6
   },
   {
     "name": "Sałatka z bobu i jaj",
@@ -330,24 +330,24 @@
   },
   {
     "name": "Kapuśniak",
-    "lastCookedOn": "28.02.2019",
+    "lastCookedOn": "21.05.2019",
     "image": "f5b7c50d1905f7855e700ace.jpg",
     "id": 47,
-    "count": 3
+    "count": 4
   },
   {
     "name": "Kotlety mielone z grzybami",
-    "lastCookedOn": "17.12.2018",
+    "lastCookedOn": "02.06.2019",
     "image": "a16344c6dd8155248be01b86.jpg",
     "id": 48,
-    "count": 5
+    "count": 7
   },
   {
     "name": "Kurczak w cieście z frytkami",
-    "lastCookedOn": "13.02.2019",
+    "lastCookedOn": "31.05.2019",
     "image": "dd4ed0e21e2a970904236638.jpg",
     "id": 49,
-    "count": 3
+    "count": 4
   },
   {
     "name": "Jajecznica",
@@ -358,17 +358,17 @@
   },
   {
     "name": "Wątróbka z pieczarkami",
-    "lastCookedOn": "18.04.2019",
+    "lastCookedOn": "30.05.2019",
     "image": "4cd75787d95b5b9c3a998064.jpg",
     "id": 51,
-    "count": 3
+    "count": 4
   },
   {
     "name": "Risotto warzywa kurczak sos musztardowo miodowy",
-    "lastCookedOn": "05.04.2019",
+    "lastCookedOn": "20.05.2019",
     "image": "fad4f28bf3f129e2a6eb1bbd.jpg",
     "id": 52,
-    "count": 4
+    "count": 5
   },
   {
     "name": "Żurek",
@@ -399,7 +399,7 @@
     "count": 1
   },
   {
-    "name": "Mieso na swieta",
+    "name": "Mięso pieczone",
     "lastCookedOn": "21.04.2019",
     "image": "7ac8967ee3554e888ad877fe.jpg",
     "id": 57,
@@ -407,10 +407,10 @@
   },
   {
     "name": "Filet z kurczaka z pieczarkami i serem",
-    "lastCookedOn": "06.02.2019",
+    "lastCookedOn": "04.06.2019",
     "image": "ccaadba5ca7e453b1ddf3ad0.jpg",
     "id": 58,
-    "count": 2
+    "count": 3
   },
   {
     "name": "Galaretkowiec",
@@ -456,17 +456,17 @@
   },
   {
     "name": "Zupa szczawiowa",
-    "lastCookedOn": "10.05.2019",
+    "lastCookedOn": "28.05.2019",
     "image": "ec49e96a0bb8b71b33096720.jpg",
     "id": 65,
-    "count": 2
+    "count": 3
   },
   {
     "name": "Kurczak w sosie Indyjskim z ryzem",
-    "lastCookedOn": "19.04.2019",
+    "lastCookedOn": "03.06.2019",
     "image": "tando.jpg",
     "id": 66,
-    "count": 2
+    "count": 4
   },
   {
     "name": "Sałatka Warzywna",
@@ -515,6 +515,20 @@
     "lastCookedOn": "07.05.2019",
     "image": "da67b6210e0dfbb90d76067a.jpg",
     "id": 73,
+    "count": 1
+  },
+  {
+    "name": "Bułeczki z dżemem",
+    "lastCookedOn": "17.05.2019",
+    "image": "68e3586499565232c890a7d8.jpg",
+    "id": 74,
+    "count": 1
+  },
+  {
+    "name": "Papryka faszerowana",
+    "lastCookedOn": "17.05.2019",
+    "image": "3e3a92754c34658ba7dd89f4.jpg",
+    "id": 75,
     "count": 1
   }
 ]
