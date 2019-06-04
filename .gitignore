@@ -1,13 +1,14 @@
 node_modules
 .vscode
-yarn.lock
+yarn*
 package-lock.json
-todos.txt
+todos*
+.env
+temp*
+server
+public/bundle.js
+public/main.css
+my-devil
 
 # output file on linux
 nohup.out
-
-# environment variables for email alerts
-email-env.js
-
-

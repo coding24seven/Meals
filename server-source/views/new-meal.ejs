@@ -1,0 +1,59 @@
+<!-- DISPLAYS A SUBMISSION FORM FOR A NEW MEAL -->
+<% include partials/header.ejs %>
+
+<!-- unique page identifier -->
+<div id="page-id-new-meal" style="display: none"></div>
+
+<div class="new-meal-container">
+
+  <h2 class="new-meal-added-message">
+    <!-- new-meal added successfully text placeholder, initially hidden -->
+  </h2>
+
+  <h1 class="new-meal-heading">
+    <!-- 'new meal' heading text placeholder -->
+  </h1>
+
+  <form class="new-meal-form" action="/meals" method="POST" enctype="multipart/form-data">
+
+    <!-- meal-name input. 'placeholder' attribute supplied by js -->
+    <input class="new-meal-form__meal-name" type="text" name="name" autocomplete="off" required>
+
+    <!-- password input. 'placeholder' attribute supplied by js -->
+    <input class="new-meal-form__password" type="password" name="password" required>
+
+    <label class="new-meal-form__label">
+
+      <span class="new-meal-form__pick-image-text">
+        <!-- 'select picture' label-text placeholder -->
+      </span>
+
+      <!-- file picker, triggered by clicking its parent label -->
+      <input type="file" id="file-upload" name="image" style="display: none;">
+    </label>
+
+    <output id="image-preview">
+      <!-- placeholder for the display of the selected image -->
+    </output>
+
+    <!-- box for the submit button and upload progress bar -->
+    <div class="new-meal-form__upload-box">
+
+      <button class="new-meal-form__submit js-submit">
+        <!-- 'submit picture' button-text placeholder. The button is hidden until the picture is selected in the file picker -->
+      </button>
+
+      <!-- progress bar that overlaps the submit button -->
+      <div class="new-meal-form__upload-progress-bar">
+        <!-- progress-bar fill -->
+        <div class="new-meal-form__upload-progress-bar-fill"></div>
+      </div>
+
+    </div>
+
+  </form>
+
+  <a class="go-to-main-page" href="/"></a> <!-- back to main page text placeholder -->
+</div>
+
+<% include partials/footer.ejs %>

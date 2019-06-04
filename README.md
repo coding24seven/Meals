@@ -1,15 +1,17 @@
 <h1 align="center">
-  Meals - a diary of meals cooked
+  Meals - a journal of meals cooked
 </h1>
 
-![ScreenShot](images/screenshot.jpg)
+![ScreenShot](public/images/screenshot.jpg)
 
 to watch the demo:  
 Visit: https://mums-meals.herokuapp.com
 
 to run:  
 Have: node.js installed  
-Command: npm start  
+Clone or download this project  
+Command 1: npm install  
+Command 2: npm run start-server  
 
 to edit the meal database manually:  
-Open: /meals.json
+Open: /database/meals.json
