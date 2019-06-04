@@ -1,9 +1,7 @@
 /// DEPENDENCIES
 let multer = require("multer");
 const crypto = require("crypto");
-
-// TODO: CHANGE THE GLOBAL CONST TO LOCAL
-const maxUploadFileSize = 500000 // in bytes
+import config from '../shared/config.js';
 
 /// ARGUMENT OBJECT FOR THE MAIN MULTER METHOD
 const multerArgument = {
@@ -21,13 +19,13 @@ const multerArgument = {
       cb(null, false)
     }
 
-    req.maxFileSize = maxUploadFileSize // custom max file size
+    req.maxFileSize = config.maxUploadFileSize // custom max file size
   },
 
   //. 'limits' throw an error if exceeded
   limits: {
     files: 1,
-    fileSize: maxUploadFileSize, // in bytes,
+    fileSize: config.maxUploadFileSize, // in bytes,
   },
 
   //. upload the file
