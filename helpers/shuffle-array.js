@@ -1,5 +1,5 @@
 /// RETURN A SHUFFLED COPY OF THE ORIGINAL ARRAY
-export default function shuffleArray(array) {
+function shuffleArray(array) {
   var result = [],
     source = array.concat([]);
   while (source.length) {
@@ -9,3 +9,4 @@ export default function shuffleArray(array) {
   return result;
 }
 
+module.exports = shuffleArray

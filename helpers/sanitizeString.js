@@ -1,7 +1,7 @@
 
 /// SANITIZE A STRING
 
-export default function sanitizeString(string, maxWordCount, maxWordLength) {
+function sanitizeString(string, maxWordCount, maxWordLength) {
 
   // place each word in the string as an array element
   let stringAsArray = string.split(' ');
@@ -21,3 +21,5 @@ export default function sanitizeString(string, maxWordCount, maxWordLength) {
 
   return stringAsArray.join(' ')
 }
+
+module.exports = sanitizeString;
