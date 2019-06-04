@@ -7,16 +7,16 @@ app.set('views', './server-source/views') // ejs templates location
 app.set("trust proxy", true); // for the client ip in req.ip
 app.use(express.json()) // parse request body as JSON without body-parser
 import storage from './disk-operations.js' // reading and writing to files
-import shuffleArray from '../helpers/shuffle-array.js'
-import '../helpers/console.log-replacement.js' // prepend date and time to console.log
+import shuffleArray from '../shared/shuffle-array.js'
+import '../shared/console.log-replacement.js' // prepend date and time to console.log
 import workers from './workers.js' // background workers
 import sendEmailAlert from "./email-alerts/email.js"
 import latestClients from "./latest-clients.js" // a list of clients connected recently
 import upload from './multer.js' // handle file uploads from a client
-import color from '../helpers/console-log-colors' // color console.log
-import sanitizeString from '../helpers/sanitizeString'
-import getDate from '../helpers/getDate'
-import getTime from '../helpers/getTime'
+import color from '../shared/console-log-colors' // color console.log
+import sanitizeString from '../shared/sanitizeString'
+import getDate from '../shared/getDate'
+import getTime from '../shared/getTime'
 
 /// REQUEST-LOGGING MIDDLEWARE (MUST BE PLACED ABOVE OTHER APP.USE() THINGS THAT YOU WANT LOGGED)
 // TODO: UNCOMMENT

@@ -1,5 +1,5 @@
-import getDate from '../helpers/getDate'
-import getTime from '../helpers/getTime'
+import getDate from '../shared/getDate'
+import getTime from '../shared/getTime'
 
 /// CONSOLE.LOG REPLACEMENT THAT PREPENDS DATE AND TIME
 const originalConsoleLog = console.log;

@@ -1,6 +1,6 @@
 import applyEventListeners from './eventListeners'
 import updateLanguage from './updateLanguage'
-import getDate from '../../helpers/getDate'
+import getDate from '../../shared/getDate'
 import state from './state'
 
 /// unique page identifier: page-id-index
