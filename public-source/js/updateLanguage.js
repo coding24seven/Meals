@@ -8,7 +8,9 @@ import { newMealElement } from './elements'
 
 export default function updateLanguage() {
   /// RETRIEVE AND STORE THE CURRENT LANGUAGE BASED ON RADIOBOXES
-  let language = null; // 'pl', 'en', etc.
+  const languagesAvailable = ['en', 'pl'];
+  let language = null;
+
   let checkedRadio; // radio button that is checked
   const allInputElements = document.getElementsByTagName('input');
   //check all input elements and find one that is a radio button and is checked, if any
@@ -16,18 +18,22 @@ export default function updateLanguage() {
     if (allInputElements[i].type === 'radio' && allInputElements[i].checked) {
       checkedRadio = allInputElements[i];
       language = checkedRadio.id;
-      localStorage.language = language; // 'pl', 'en', etc.
+      localStorage.language = language;
       break;
     }
   }
 
-  // assign the default value to 'language' and 'localStorage.language' if no radio button is checked and no local storage exists
-  if (!language && !localStorage.language) {
-    localStorage.language = language = "en";
+  // case no radio button checked, so 'language' == null
+  if (!languagesAvailable.includes(language)) {
+    if (languagesAvailable.includes(localStorage.language)) {
+      // a valid language is in local storage
+      language = localStorage.language;
+    }
+    // neither 'language' nor local storage contain a valid value
+    else {
+      localStorage.language = language = languagesAvailable[0];
+    }
   }
-
-  // assign value to 'language' from local storage if no radio button is checked
-  if (!language) { language = localStorage.language; }
 
   /// CHANGE THE TEXT LANGUAGE
 
