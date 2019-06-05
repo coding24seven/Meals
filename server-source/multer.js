@@ -1,7 +1,8 @@
 /// DEPENDENCIES
 let multer = require("multer");
 const crypto = require("crypto");
-import config from '../shared/config.js';
+import config from '../shared/config.js'; // use variables from the shared config file
+require('dotenv').config() // use env variables from .env file
 
 /// ARGUMENT OBJECT FOR THE MAIN MULTER METHOD
 const multerArgument = {
@@ -10,8 +11,11 @@ const multerArgument = {
 
     console.log("logging out 'req.body' in Multer:", JSON.stringify(req.body, null, 2))
 
+    // user-supplied password is compared against the password from an env variable or against the password defined in the shared config file
+    const validPassword = process.env.SUBMIT_MEAL_PASSWORD || config.submitMealPassword;
+
     // check the client-supplied password against 'demo'
-    if (req.body.password == 'demo') {
+    if (req.body.password === validPassword) {
       cb(null, true)
     }
     else {

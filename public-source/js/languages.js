@@ -39,16 +39,19 @@ const text = {
     pl: "Na pewno ugotowałaś? Potwierdź:",
     en: "Are you sure you made this meal today?"
   },
+
   // 'LAST COOKED ON' PHRASE
   lastCookedOnPhrase: {
     pl: "ostatnio gotowane: ",
     en: "last cooked on: "
   },
+
   // 'COOKED COUNT' PHRASE
   cookedCountPhrase: {
     pl: "gotowane razy: ",
     en: "cooked count: "
   },
+
   // <h2> NEW MEAL ADDED MESSAGE, INITIALLY HIDDEN
   newMealAddedMessage: {
     pl: "Danie jeszcze nie dodane!",
@@ -58,6 +61,7 @@ const text = {
       en: "Added: "
     }
   },
+
   // NEW MEAL HEADING
   newMealHeading: {
     pl: "Nowe Danie",
@@ -72,15 +76,17 @@ const text = {
     pl: "Wpisz nazwę dania",
     en: "meal name"
   },
+
   // MEAL-SUBMISSION PASSWORD-INPUT'S PLACEHOLDER
   passwordInputPlaceholder: {
-    pl: "Wpisz hasło użytkownika",
-    en: "user password",
+    pl: "Wpisz hasło użytkownika ( \"demo\" )",
+    en: "user password ( \"demo\" )",
     "wrong password": {
       pl: "błędne hasło - spróbuj ponownie",
       en: "wrong password - try again"
     }
   },
+
   // <span> 'SELECT IMAGE' TEXT INSIDE THE NEW-MEAL BUTTON-LIKE LABEL
   pickImageText: {
     pl: "Wybierz obrazek",
@@ -94,11 +100,13 @@ const text = {
       en: ["image preview failed", " - select another image"]
     }
   },
+
   // <button> SUBMIT MEAL BUTTON
   submitMealButton: {
     pl: "Zatwierdź danie",
     en: "Submit the meal"
   },
+
   // <a> GO TO MAIN PAGE LINK
   goToMainPage: {
     pl: "&#8592; Wróć na Stronę Głowną",
