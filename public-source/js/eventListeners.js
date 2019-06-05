@@ -1,6 +1,5 @@
 import updateLanguage from './updateLanguage'
 import state from './state'
-import vars from './variables'
 import { headerElement, setElementText } from './elements';
 
 /// apply all site-wide listeners

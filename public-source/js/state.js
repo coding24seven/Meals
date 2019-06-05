@@ -1,10 +1,10 @@
-import vars from './variables'
+import scss_vars from '../sass/_variables.scss'
 
 const state = {
 
   // is the full header being displayed? TRUE OR FALSE
   isHeaderTextFull: function () {
-    return this.getBrowserState().viewportWidth > vars.bp_header ?
+    return this.getBrowserState().viewportWidth > parseFloat(scss_vars.bp_header) ?
       true : false;
   },
 

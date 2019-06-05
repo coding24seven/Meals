@@ -5,5 +5,8 @@ $photo-height: 26.25rem;
 
 $color-meal-box-heading: #253c98;
 
-/// BREAKPOINTS (update JS counterparts!)
+/// BREAKPOINTS (importable in js files)
 $bp-header: 27em; // EMs = 432px
+:export {
+  bp_header: $bp-header;
+}
