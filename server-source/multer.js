@@ -14,7 +14,7 @@ const multerArgument = {
     // user-supplied password is compared against the password from an env variable or against the password defined in the shared config file
     const validPassword = process.env.SUBMIT_MEAL_PASSWORD || config.submitMealPassword;
 
-    // check the client-supplied password against 'demo'
+    // check the user-supplied password
     if (req.body.password === validPassword) {
       cb(null, true)
     }
