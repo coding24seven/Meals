@@ -45,7 +45,6 @@ const multerArgument = {
     destination: (req, file, cb) => { cb(null, "database/meal-photos/"); },
 
     filename: (req, file, cb) => {
-      console.log("buffer:", req.file.buffer);
       const customFileName = crypto.randomBytes(12).toString("hex");
       cb(null, customFileName + "." + file.fileExtension);
     }

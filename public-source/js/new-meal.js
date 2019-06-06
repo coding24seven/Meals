@@ -131,24 +131,12 @@ if (document.getElementById('page-id-new-meal')) {
             },
 
             "file too large": function () {
-              // reset imageIsReadyForUpload state - applies to future upload attempts
-              state.imageIsReadyForUpload = false;
-
-              // display a styled error message inside the file-picker's label
-              newMealElement.pickImageText.classList.add('js-error')
-              // give the element a modifier so the language function can incorporate it
-              setElementText(newMealElement.pickImageText, {
-                type: error,
-                midMessage: parseFloat(message) / 1000
-              });
-              // hide
-              showElement(newMealElement.imagePreview, state.imageIsReadyForUpload);
-              showElement(newMealElement.uploadBox, state.imageIsReadyForUpload);
+              // 'message' being passed is a max file size in kb
+              actOnUnacceptableFile(error, parseFloat(message) / 1000);
             },
 
             "invalid image extension": function () {
-              // TODO: handle this properly
-              console.error("invalid image extension");
+              actOnUnacceptableFile(error, "");
             },
 
             default: function () {
@@ -187,24 +175,13 @@ if (document.getElementById('page-id-new-meal')) {
             // the image preview must have minHeight
             const minHeight = 60 // px
             if (newMealElement.imagePreview.clientHeight > minHeight) {
-              state.imageIsReadyForUpload = true;
+              actOnAcceptableFile();
             }
             // the image is too small or does not display correctly
             else {
-              state.imageIsReadyForUpload = false;
-
-              newMealElement.pickImageText.classList.add('js-error')
-              setElementText(
-                newMealElement.pickImageText,
-                {
-                  type: "image preview failed",
-                  midMessage: ""
-                });
+              const clientError = "image preview failed";
+              actOnUnacceptableFile(clientError, "");
             };
-
-            // show or hide
-            showElement(newMealElement.uploadBox, state.imageIsReadyForUpload)
-            showElement(newMealElement.imagePreview, state.imageIsReadyForUpload)
 
           }, 1); // setTimeout ends
         };
@@ -219,14 +196,39 @@ if (document.getElementById('page-id-new-meal')) {
   }
 
   /// REMOVE RELEVANT ELEMENTS FROM VIEW IF NO VALID FILE SELECTED
-
   function showElement(element, show = true) {
-
     if (show) {
       element.classList.add("js-show")
     } else {
       element.classList.remove("js-show")
     };
+  }
+
+  /// SET STATE, SHOW ERROR MESSAGES, HIDE THE PREVIEW AND SUBMIT BUTTON - WHEN THE FILE IS TOO LARGE, HAS A WRONG EXTENSION, ETC.
+  function actOnUnacceptableFile(error, midMessage) {
+    // reset imageIsReadyForUpload state - applies to future upload attempts
+    state.imageIsReadyForUpload = false;
+
+    // style the error message inside the file-picker's label
+    newMealElement.pickImageText.classList.add('js-error')
+
+    // give the element a modifier so the language function can incorporate it
+    setElementText(newMealElement.pickImageText, {
+      type: error,
+      midMessage
+    });
+
+    // hide
+    showElement(newMealElement.imagePreview, state.imageIsReadyForUpload);
+    showElement(newMealElement.uploadBox, state.imageIsReadyForUpload);
+  }
+
+  /// SET STATE, SHOW THE PREVIEW AND SUBMIT BUTTON - WHEN FILE IS VALID FOR UPLOAD
+  function actOnAcceptableFile() {
+    state.imageIsReadyForUpload = true;
+    // show
+    showElement(newMealElement.uploadBox, state.imageIsReadyForUpload)
+    showElement(newMealElement.imagePreview, state.imageIsReadyForUpload)
   }
 
   ///

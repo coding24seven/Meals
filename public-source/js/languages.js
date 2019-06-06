@@ -98,6 +98,10 @@ const text = {
     "image preview failed": {
       pl: ["obrazek nie da się wyświetlić", " - wybierz inny"],
       en: ["image preview failed", " - select another image"]
+    },
+    "invalid image extension": {
+      pl: ["błędne rozszerzenie pliku", " - wybierz obrazek"],
+      en: ["wrong file extension", " - select an image"]
     }
   },
 
