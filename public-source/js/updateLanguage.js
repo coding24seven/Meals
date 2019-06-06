@@ -59,39 +59,39 @@ export default function updateLanguage() {
     // this element's text will require extra modification (if modifier property present), or it will not
     const modifier = headerElement.brand.modifier
 
-    headerElement.brand.innerText = modifier ?
+    headerElement.brand.innerHTML = modifier ?
       text.headerBrand[modifier.type][language]
       : text.headerBrand[language]
   }
 
   //. ADD A MEAL IN THE HEADER
   if (headerElement.addMeal) {
-    headerElement.addMeal.innerText = text.headerAddMeal[language];
+    headerElement.addMeal.innerHTML = text.headerAddMeal[language];
   }
 
   //. COPYRIGHT IN THE FOOTER
   if (footerElement.copyright) {
-    footerElement.copyright.innerText = text.footerCopyright[language];
+    footerElement.copyright.innerHTML = text.footerCopyright[language];
   }
 
   //. ALL COOKED TODAY BUTTONS
   if (indexElement.allCookedTodayButtons) {
     indexElement.allCookedTodayButtons.forEach(button => {
-      button.innerText = text.allCookedTodayButtons[language];
+      button.innerHTML = text.allCookedTodayButtons[language];
     })
   }
 
   //. 'LAST COOKED ON' PHRASE
   if (indexElement.lastCookedOnPhrases) {
     indexElement.lastCookedOnPhrases.forEach(phrase => {
-      phrase.innerText = text.lastCookedOnPhrase[language];
+      phrase.innerHTML = text.lastCookedOnPhrase[language];
     })
   }
 
   //. 'COOKED COUNT' PHRASE
   if (indexElement.cookedCountPhrases) {
     indexElement.cookedCountPhrases.forEach(phrase => {
-      phrase.innerText = text.cookedCountPhrase[language];
+      phrase.innerHTML = text.cookedCountPhrase[language];
     })
   }
 
@@ -100,7 +100,7 @@ export default function updateLanguage() {
 
     const { modifier } = newMealElement.newMealAddedMessage;
 
-    newMealElement.newMealAddedMessage.innerText = modifier ?
+    newMealElement.newMealAddedMessage.innerHTML = modifier ?
       text.newMealAddedMessage[modifier.type][language]
       + modifier.mealName
       :
@@ -112,7 +112,7 @@ export default function updateLanguage() {
 
     const { modifier } = newMealElement.newMealHeading;
 
-    newMealElement.newMealHeading.innerText = modifier ?
+    newMealElement.newMealHeading.innerHTML = modifier ?
       text.newMealHeading[modifier.type][language]
       :
       text.newMealHeading[language];
@@ -139,7 +139,7 @@ export default function updateLanguage() {
 
     const modifier = newMealElement.pickImageText.modifier
 
-    newMealElement.pickImageText.innerText = modifier ?
+    newMealElement.pickImageText.innerHTML = modifier ?
       text.pickImageText[modifier.type][language][0]
       + modifier.midMessage // optional message from modifier to insert in the middle
       + text.pickImageText[modifier.type][language][1]
@@ -148,12 +148,12 @@ export default function updateLanguage() {
   }
   //. <button> SUBMIT MEAL BUTTON
   if (newMealElement.submitMealButton) {
-    newMealElement.submitMealButton.innerText = text.submitMealButton[language];
+    newMealElement.submitMealButton.innerHTML = text.submitMealButton[language];
   }
 
   //. <a> GO TO MAIN PAGE LINK
   if (newMealElement.goToMainPage) {
-    newMealElement.goToMainPage.innerText = text.goToMainPage[language];
+    newMealElement.goToMainPage.innerHTML = text.goToMainPage[language];
   }
 
   ///
