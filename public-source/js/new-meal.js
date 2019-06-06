@@ -118,8 +118,7 @@ if (document.getElementById('page-id-new-meal')) {
           const error = parsedResponse.error.toLowerCase();
           const { message } = parsedResponse;
 
-          // run the function that corresponds to the error received from the server
-          ({
+          const errorHandlers = {
             "wrong password": function () {
               // display a styled error message as the password input's placeholder
               newMealElement.passwordInput.value = '' // clear the password input
@@ -145,8 +144,19 @@ if (document.getElementById('page-id-new-meal')) {
               // hide
               showElement(newMealElement.imagePreview, state.imageIsReadyForUpload);
               showElement(newMealElement.uploadBox, state.imageIsReadyForUpload);
+            },
+
+            "invalid image extension": function () {
+              // TODO: handle this properly
+              console.error("invalid image extension");
+            },
+
+            default: function () {
+              console.error("unknown error");
             }
-          })[error]();
+          }
+          // run the function that corresponds to the error received from the server, or run the default function if error is unknown
+          errorHandlers.hasOwnProperty(error) ? errorHandlers[error]() : errorHandlers['default']();
 
           console.error("request.statusText:", request.statusText);
         }

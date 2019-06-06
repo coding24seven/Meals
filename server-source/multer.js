@@ -9,21 +9,29 @@ const multerArgument = {
   //. this 'filter' check precedes the 'limits' validation. if this 'filter' check fails, 'limits' will not throw an error even if there is one
   fileFilter: function (req, file, cb) {
 
-    console.log("logging out 'req.body' in Multer:", JSON.stringify(req.body, null, 2))
+    console.log("logging out 'req.body' in Multer:", JSON.stringify(req.body, null, 2));
 
     // user-supplied password is compared against the password from an env variable or against the password defined in the shared config file
     const validPassword = process.env.SUBMIT_MEAL_PASSWORD || config.submitMealPassword;
 
+    // create a custom property 'fileExtension' on 'file'
+    file.fileExtension = file.originalname.split('.').slice().pop();
+
     // check the user-supplied password
     if (req.body.password === validPassword) {
-      cb(null, true)
+      if (checkFileExtension(file.fileExtension)) {
+        cb(null, true);
+      } else {
+        req.fileFilterError = 'invalid image extension';
+        cb(null, false);
+      }
     }
     else {
-      req.fileFilterError = 'wrong password'
-      cb(null, false)
+      req.fileFilterError = 'wrong password';
+      cb(null, false);
     }
 
-    req.maxFileSize = config.maxUploadFileSize // custom max file size
+    req.maxFileSize = config.maxUploadFileSize; // custom max file size
   },
 
   //. 'limits' throw an error if exceeded
@@ -37,17 +45,20 @@ const multerArgument = {
     destination: (req, file, cb) => { cb(null, "database/meal-photos/"); },
 
     filename: (req, file, cb) => {
-      let customFileName = crypto.randomBytes(12).toString("hex");
-      let fileExtension = file.originalname.split(".")[1]; // get file extension from original file name
-      if (fileExtension === "jpg" || fileExtension === "jpeg" || fileExtension === "png") {
-        cb(null, customFileName + "." + fileExtension);
-      } else { cb(null, customFileName); }
+      console.log("buffer:", req.file.buffer);
+      const customFileName = crypto.randomBytes(12).toString("hex");
+      cb(null, customFileName + "." + file.fileExtension);
     }
   })
 }
 
 /// BEGIN MULTERING :-)
 const upload = multer(multerArgument).single("image");
+
+function checkFileExtension(ext) {
+  const correctExtensions = ['jpg', 'jpeg', 'png', 'bmp', 'gif'];
+  return correctExtensions.includes(ext);
+}
 
 /// EXPORT
 export default upload
