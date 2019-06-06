@@ -140,7 +140,7 @@ if (document.getElementById('page-id-new-meal')) {
               // give the element a modifier so the language function can incorporate it
               setElementText(newMealElement.pickImageText, {
                 type: error,
-                midMessage: Number(message) / 1000
+                midMessage: parseFloat(message) / 1000
               });
               // hide
               showElement(newMealElement.imagePreview, state.imageIsReadyForUpload);
