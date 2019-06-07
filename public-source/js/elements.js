@@ -76,15 +76,42 @@ export const newMealElement = {
   goToMainPage: document.querySelector(".go-to-main-page")
 }
 
-/// SET MODIFIED/UNMODIFIED TEXT IN AN ELEMENT
-export function setElementText(element, modifier, preventUpdateLanguage) {
-  // a modifer such as {type: x, message: y} sets the corresponding text
-  // falsy modifier, such as null, restores the original text
-  element.modifier = modifier
+/// A SET OF FUNCTIONS
+const elementTransform = {
 
-  // preventUpdateLanguage is called by default
-  // do not call updateLanguage if preventUpdateLanguage is truthy
-  !preventUpdateLanguage && updateLanguage()
+  //. SET MODIFIED/UNMODIFIED TEXT IN AN ELEMENT
+  setText: function (element, modifier, preventUpdateLanguage) {
+    // a modifer such as {type: x, message: y} sets the corresponding text
+    // falsy modifier, such as null, restores the original text
+    element.modifier = modifier
+
+    // preventUpdateLanguage is called by default
+    // do not call updateLanguage if preventUpdateLanguage is truthy
+    !preventUpdateLanguage && updateLanguage()
+  },
+
+  //. ENABLE/DISABLE AN ELEMENT VIA CSS
+  enable: function (element, enable = true) {
+    if (enable) {
+      element.classList.add('js-enable');
+      element.classList.remove('js-disable');
+    } else {
+      element.classList.add('js-disable');
+      element.classList.remove('js-enable');
+    }
+  },
+
+  //. SHOW/HIDE AN ELEMENT VIA CSS
+  show: function (element, show = true) {
+    // either "js-show" or "js-hide" is used for each element in css, depending on the element's initial visibility
+    if (show) {
+      element.classList.add("js-show");
+      element.classList.remove("js-hide");
+    } else {
+      element.classList.remove("js-show");
+      element.classList.add("js-hide");
+    };
+  }
 }
-
-///
+export default elementTransform;
+/// A SET OF FUNCTIONS ENDS 

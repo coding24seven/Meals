@@ -1,6 +1,6 @@
 import state from './state'
 import text from './languages'
-import { setElementText } from './elements'
+import elementTransform from './elements'
 import { headerElement } from './elements'
 import { footerElement } from './elements'
 import { indexElement } from './elements'
@@ -48,9 +48,9 @@ export default function updateLanguage() {
   if (headerElement.brand) {
 
     // set the header-brand variant according to the header width
-    setElementText(
+    elementTransform.setText(
       headerElement.brand,
-      state.isHeaderTextFull() ?
+      state.headerTextIsFull() ?
         null // long header means no modifications
         : { type: "short" }, // sets the modifier for the short header
       true // prevent calling self (updateLanguage)

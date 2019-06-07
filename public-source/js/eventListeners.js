@@ -1,6 +1,6 @@
 import updateLanguage from './updateLanguage'
 import state from './state'
-import { headerElement, setElementText } from './elements';
+import elementTransform, { headerElement } from './elements';
 
 /// apply all site-wide listeners
 function applyEventListeners() {
@@ -9,8 +9,8 @@ function applyEventListeners() {
   window.addEventListener('resize', function () {
 
     // set the header-brand variant according to the header width
-    setElementText(headerElement.brand,
-      state.isHeaderTextFull() ?
+    elementTransform.setText(headerElement.brand,
+      state.headerTextIsFull() ?
         null // long header means no modification
         : { type: "short" } // the header is short
     )
