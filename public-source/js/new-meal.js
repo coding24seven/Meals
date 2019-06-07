@@ -71,11 +71,10 @@ if (document.getElementById('page-id-new-meal')) {
     }, false);
 
     request.onloadstart = function (e) {
-      showElement(newMealElement.uploadProgressBar);
+      actOnFileStartsUploading();
     }
     request.onloadend = function (e) {
-      newMealElement.uploadProgressBarFill.classList.add('js-retract');
-      newMealElement.uploadProgressBarFill.style.width = 0;
+      actOnFileEndsUploading();
     }
 
     request.onreadystatechange = onreadystatechangeHandler
@@ -197,11 +196,25 @@ if (document.getElementById('page-id-new-meal')) {
 
   /// REMOVE RELEVANT ELEMENTS FROM VIEW IF NO VALID FILE SELECTED
   function showElement(element, show = true) {
+    // either "js-show" or "js-hide" is used for each element in css, depending on the element's initial visibility
     if (show) {
-      element.classList.add("js-show")
+      element.classList.add("js-show");
+      element.classList.remove("js-hide");
     } else {
-      element.classList.remove("js-show")
+      element.classList.remove("js-show");
+      element.classList.add("js-hide");
     };
+  }
+
+  ///
+  function enableElement(element, enable = true) {
+    if (enable) {
+      element.classList.add('js-enable');
+      element.classList.remove('js-disable');
+    } else {
+      element.classList.add('js-disable');
+      element.classList.remove('js-enable');
+    }
   }
 
   /// SET STATE, SHOW ERROR MESSAGES, HIDE THE PREVIEW AND SUBMIT BUTTON - WHEN THE FILE IS TOO LARGE, HAS A WRONG EXTENSION, ETC.
@@ -229,6 +242,23 @@ if (document.getElementById('page-id-new-meal')) {
     // show
     showElement(newMealElement.uploadBox, state.imageIsReadyForUpload)
     showElement(newMealElement.imagePreview, state.imageIsReadyForUpload)
+  }
+
+  /// DO THIT WHEN THE FILE STARTS UPLOADING
+  function actOnFileStartsUploading() {
+    enableElement(newMealElement.pickImageLabel, false);
+    showElement(newMealElement.uploadProgressBar, true);
+  }
+
+  /// DO THIS WHEN THE FILE ENDS UPLOADING
+  function actOnFileEndsUploading() {
+    enableElement(newMealElement.pickImageLabel, true);
+    newMealElement.uploadProgressBarFill.classList.add('js-retract');
+    newMealElement.uploadProgressBarFill.style.width = 0;
+    setTimeout(() => {
+      newMealElement.uploadProgressBarFill.classList.remove('js-retract');
+    }, 1000);
+
   }
 
   ///

@@ -77,7 +77,7 @@
     }
   }
 
-  //, <label> LABEL
+  //, <label> LABEL THAT YOU CLICK TO PICK AN IMAGE
   &__label {
     border: $grey-line;
     background-color: #fafafa;
@@ -86,6 +86,11 @@
     margin-bottom: 1.6rem;
     cursor: pointer;
     border-radius: 0.4rem;
+
+    &.js-disable {
+      pointer-events: none;
+      opacity: 0.4;
+    }
 
     &:hover {
       background-color: #f2f2f2;
