@@ -2,6 +2,17 @@ import state from '../state';
 import elementTransform, { newMealElement } from '../elements';
 
 const actOn = {
+  /// 
+  wrongPassword: function (error) {
+    // display a styled error message as the password input's placeholder
+    newMealElement.passwordInput.value = '' // clear the password input
+    newMealElement.passwordInput.classList.add('js-error')
+    // give the element a modifier so the language function can incorporate it
+    elementTransform.setText(newMealElement.passwordInput, {
+      type: error,
+      message: null
+    })
+  },
 
   /// SET STATE, SHOW THE PREVIEW AND SUBMIT BUTTON - WHEN FILE IS VALID FOR UPLOAD
   acceptableFile: function () {

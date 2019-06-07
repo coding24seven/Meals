@@ -17,7 +17,7 @@ export default function handleSubmit(event) {
     console.log(key + ', ' + value);
   }
 
-  //. REQUEST AND ITS HANDLER
+  //. XML REQUEST AND ITS HANDLER FUNCTION
   const request = new XMLHttpRequest();
   request.open("POST", "/meals");
   request.upload.addEventListener("progress", function (e) {
@@ -34,7 +34,7 @@ export default function handleSubmit(event) {
     actOn.fileEndsUploading();
   }
 
-  request.onreadystatechange = onreadystatechangeHandler
+  request.onreadystatechange = onreadystatechangeHandler;
   request.send(formData);
 
   function onreadystatechangeHandler() {
@@ -76,18 +76,11 @@ export default function handleSubmit(event) {
 
         const errorHandlers = {
           "wrong password": function () {
-            // display a styled error message as the password input's placeholder
-            newMealElement.passwordInput.value = '' // clear the password input
-            newMealElement.passwordInput.classList.add('js-error')
-            // give the element a modifier so the language function can incorporate it
-            elementTransform.setText(newMealElement.passwordInput, {
-              type: error,
-              message: null
-            })
+            actOn.wrongPassword(error);
           },
 
           "file too large": function () {
-            // 'message' being passed is a max file size in kb
+            // the 'message/1000' argument is the max file size in kb
             actOn.unacceptableFile(error, parseFloat(message) / 1000);
           },
 
