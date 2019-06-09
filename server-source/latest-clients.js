@@ -11,10 +11,11 @@ const clients = {
   // add the client and Return true if the client is not already on the list
   addNewClient: function (client) {
     if (!this.list.includes(client)) {
+
       // add the new client
       this.list.push(client)
 
-      // clear the recent-client list after 3600000 ms = 1h has passed
+      // will clear the recent-client list after 3600000 ms = 1h has passed since the last client was added
       this.clear(3600000)
 
       return true // client added
