@@ -15,6 +15,8 @@ export default function reduceImageResolution(uploadableImage, cbs) {
   image.onload = function (imageEvent) {
     let w = image.width;
     let h = image.height;
+    uploadableImage.width = w;
+    uploadableImage.height = h;
 
     // check for the real-time width and height. step out if they are below or equal maxRes
     if (w <= maxRes && h <= maxRes) {
@@ -36,6 +38,9 @@ export default function reduceImageResolution(uploadableImage, cbs) {
         h = maxRes;
       }
     }
+
+    uploadableImage.width = w;
+    uploadableImage.height = h;
 
     const canvas = document.createElement('canvas');
     canvas.width = w;

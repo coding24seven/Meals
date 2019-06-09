@@ -22,8 +22,6 @@ export default function convertToJpg(uploadableImage, cbs) {
     uploadableImage.name = arr.join('.');
 
     uploadableImage.type = 'image/jpeg';
-    uploadableImage.width = image.width;
-    uploadableImage.height = image.height;
 
     const canvas = document.createElement('canvas');
     canvas.width = image.width;
