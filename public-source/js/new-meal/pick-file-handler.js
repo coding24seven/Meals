@@ -39,7 +39,7 @@ export default function handleFilePicked(event) {
           width: null,
           height: null,
           maxRes: 640, // max allowed output image width or height in px
-          maxSize: 80000, // max allowed output image size in bytes
+          maxSize: 100000, // max allowed output image size in bytes
           jpgQuality: 0.9, // reduce jpg quality to this if image size over maxSize
           sizeOfOutputFile: dataURLtoFile(readerEvent.target.result, theFile.name).size, // in kb
           // point to the file in dateURL format

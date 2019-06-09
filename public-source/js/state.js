@@ -30,7 +30,7 @@ const state = {
   //
   pickedImagePath: null,
 
-  // a picked image whose resolution has been reduced to the custom max size
+  // a picked-image object whose resolution has been reduced to the custom max size
   uploadableImage: null
 }
 
