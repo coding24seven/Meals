@@ -18,8 +18,6 @@ export default function handleFilePicked(event) {
   //. file has just been selected in the file picker
   if (pickedFile) {
 
-    state.uploadableImage = null; // TODO: 
-
     const reader = new FileReader();
     reader.readAsDataURL(pickedFile);
     reader.onload = handleOnload(pickedFile);
@@ -41,6 +39,7 @@ export default function handleFilePicked(event) {
           maxRes: 640, // max allowed output image width or height in px
           maxSize: 100000, // max allowed output image size in bytes
           jpgQuality: 0.9, // reduce jpg quality to this if image size over maxSize
+          isReadyForUpload: false, // if image is valid and ready for upload
           sizeOfOutputFile: dataURLtoFile(readerEvent.target.result, theFile.name).size, // in kb
           // point to the file in dateURL format
           _contentAsDataURL: readerEvent.target.result,

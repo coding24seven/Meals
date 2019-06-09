@@ -21,17 +21,11 @@ const state = {
     }
   },
 
-  // MESSAGE PLACEHOLDER FOR THE MEAL-COOKED CONFIRM POPUP
+  // MESSAGE PLACEHOLDER FOR THE MEAL-COOKED TODAY CONFIRM POPUP
   mealCookedConfirmMessage: null,
 
-  // WHETHER OR NOT THE NEW-MEAL USER-SELECTED IMAGE IS VALID AND READY FOR UPLOAD
-  imageIsReadyForUpload: false,
-
-  //
-  pickedImagePath: null,
-
   // a picked-image object whose resolution has been reduced to the custom max size
-  uploadableImage: null
+  uploadableImage: {}
 }
 
 export default state

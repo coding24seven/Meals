@@ -8,7 +8,7 @@ export default function handleSubmit(event) {
   event.preventDefault();
 
   // abort the handler if no valid image has been picked yet
-  if (!state.imageIsReadyForUpload) return
+  if (!state.uploadableImage.isReadyForUpload) return
 
   // new form data object
   const formData = new FormData(newMealElement.newMealForm);
@@ -17,9 +17,7 @@ export default function handleSubmit(event) {
     state.uploadableImage.getContentAsDataURL(),
     state.uploadableImage.name
   );
-  console.log("newFile:", newFile) // TODO: REMOVE
   formData.set("image", newFile);
-  state.uploadableImage = null; // reset
 
   console.log("logging out all keys and values in the form-submit handler:")
   for (const [key, value] of formData.entries()) {
@@ -50,8 +48,8 @@ export default function handleSubmit(event) {
       // image uploaded
       if (request.status === 200) {
 
-        // reset imageIsReadyForUpload state - applies to future upload attempts
-        state.imageIsReadyForUpload = false;
+        // reset uploadableImage.isReadyForUpload state - applies to future upload attempts
+        state.uploadableImage.isReadyForUpload = false;
 
         const parsedResponse = JSON.parse(request.response);
         const type = parsedResponse.type.toLowerCase();
@@ -68,9 +66,10 @@ export default function handleSubmit(event) {
         // change the new-meal heading from 'new meal' to sth like 'add next meal'
         elementTransform.setText(newMealElement.newMealHeading, { type });
 
+       
         // hide
-        elementTransform.show(newMealElement.imagePreview, state.imageIsReadyForUpload);
-        elementTransform.show(newMealElement.uploadBox, state.imageIsReadyForUpload);
+        elementTransform.show(newMealElement.imagePreview, state.uploadableImage.isReadyForUpload);
+        elementTransform.show(newMealElement.uploadBox, state.uploadableImage.isReadyForUpload);
 
         // image not uploaded. some error Returned
       } else {

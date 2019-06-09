@@ -19,9 +19,8 @@ export default function checkImageSizeIsRight(uploadableImage) {
       canvas.toDataURL(uploadableImage.type, uploadableImage.jpgQuality)
     );
 
-    console.log("jpgQuality:", uploadableImage.jpgQuality)
-    console.log("file size:", uploadableImage.sizeOfOutputFile)
-    console.log("")
+    console.log("outgoing-jpg quality:", uploadableImage.jpgQuality)
+    console.log("outgoing-jpg size:", uploadableImage.sizeOfOutputFile)
 
   }
   image.src = uploadableImage.getContentAsDataURL();

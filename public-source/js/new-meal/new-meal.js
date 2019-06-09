@@ -20,7 +20,7 @@ if (document.getElementById('page-id-new-meal')) {
   // essential: reset the input's value on 'click' so 'change' event is triggered even if the input value remained the same
   newMealElement.fileUploadInput.addEventListener('click', function () {
     this.value = null;
-    state.imageIsReadyForUpload = false;
+    state.uploadableImage.isReadyForUpload = false;
 
     // maintenance: remove the styled error message inside the file-picking label
     elementTransform.setText(newMealElement.pickImageText, null);
@@ -28,8 +28,8 @@ if (document.getElementById('page-id-new-meal')) {
 
     // maintenance: hide
     setTimeout(() => {
-      elementTransform.show(newMealElement.imagePreview, state.imageIsReadyForUpload);
-      elementTransform.show(newMealElement.uploadBox, state.imageIsReadyForUpload);
+      elementTransform.show(newMealElement.imagePreview, state.uploadableImage.isReadyForUpload);
+      elementTransform.show(newMealElement.uploadBox, state.uploadableImage.isReadyForUpload);
     }, 500);
 
   }, false);

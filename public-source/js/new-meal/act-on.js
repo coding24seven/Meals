@@ -16,16 +16,16 @@ const actOn = {
 
   /// SET STATE, SHOW THE PREVIEW AND SUBMIT BUTTON - WHEN FILE IS VALID FOR UPLOAD
   acceptableFile: function () {
-    state.imageIsReadyForUpload = true;
+    state.uploadableImage.isReadyForUpload = true;
     // show
-    elementTransform.show(newMealElement.uploadBox, state.imageIsReadyForUpload)
-    elementTransform.show(newMealElement.imagePreview, state.imageIsReadyForUpload)
+    elementTransform.show(newMealElement.uploadBox, state.uploadableImage.isReadyForUpload)
+    elementTransform.show(newMealElement.imagePreview, state.uploadableImage.isReadyForUpload)
   },
 
   /// SET STATE, SHOW ERROR MESSAGES, HIDE THE PREVIEW AND SUBMIT BUTTON - WHEN THE FILE IS TOO LARGE, HAS A WRONG EXTENSION, ETC.
   unacceptableFile: function (error, midMessage) {
-    // reset imageIsReadyForUpload state - applies to future upload attempts
-    state.imageIsReadyForUpload = false;
+    // reset uploadableImage.isReadyForUpload state - applies to future upload attempts
+    state.uploadableImage.isReadyForUpload = false;
 
     // style the error message inside the file-picker's label
     newMealElement.pickImageText.classList.add('js-error')
@@ -37,8 +37,8 @@ const actOn = {
     });
 
     // hide
-    elementTransform.show(newMealElement.imagePreview, state.imageIsReadyForUpload);
-    elementTransform.show(newMealElement.uploadBox, state.imageIsReadyForUpload);
+    elementTransform.show(newMealElement.imagePreview, state.uploadableImage.isReadyForUpload);
+    elementTransform.show(newMealElement.uploadBox, state.uploadableImage.isReadyForUpload);
   },
 
   /// DO THIS WHEN THE FILE STARTS UPLOADING
