@@ -1,15 +1,17 @@
 /// DEPENDENCIES
 let multer = require("multer");
 const crypto = require("crypto");
-import config from '../shared/config.js'; // use variables from the shared config file
+import checkFileExtension from '../shared/check-file-extension';
+import config from '../shared/config'; // use variables from the shared config file
 require('dotenv').config() // use env variables from .env file
 
 /// ARGUMENT OBJECT FOR THE MAIN MULTER METHOD
 const multerArgument = {
   //. this 'filter' check precedes the 'limits' validation. if this 'filter' check fails, 'limits' will not throw an error even if there is one
   fileFilter: function (req, file, cb) {
-
-    console.log("logging out 'req.body' in Multer:", JSON.stringify(req.body, null, 2));
+    // note: Multer ignores all form fields that come after 'image' field
+    const formData = req.body;
+    console.log("logging out formData in Multer:", JSON.stringify(formData, null, 2));
 
     // user-supplied password is compared against the password from an env variable or against the password defined in the shared config file
     const validPassword = process.env.SUBMIT_MEAL_PASSWORD || config.submitMealPassword;
@@ -18,11 +20,12 @@ const multerArgument = {
     file.fileExtension = file.originalname.split('.').slice().pop();
 
     // check the user-supplied password
-    if (req.body.password === validPassword) {
+    if (formData.password === validPassword) {
       if (checkFileExtension(file.fileExtension)) {
         cb(null, true);
       } else {
         req.fileFilterError = 'invalid image extension';
+        req.invalidImageExtension = file.fileExtension; // custom property
         cb(null, false);
       }
     }
@@ -53,11 +56,6 @@ const multerArgument = {
 
 /// BEGIN MULTERING :-)
 const upload = multer(multerArgument).single("image");
-
-function checkFileExtension(ext) {
-  const correctExtensions = ['jpg', 'jpeg', 'png', 'bmp', 'gif'];
-  return correctExtensions.includes(ext);
-}
 
 /// EXPORT
 export default upload

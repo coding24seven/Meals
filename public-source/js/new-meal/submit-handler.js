@@ -1,16 +1,25 @@
 import state from '../state';
 import elementTransform, { newMealElement } from '../elements';
+import dataURLtoFile from '../../../shared/data-url-to-file';
 import actOn from './act-on';
 
 /// NEW-MEAL SUBMIT FORM HANDLER
 export default function handleSubmit(event) {
   event.preventDefault();
 
-  // abort if no valid image has been picked yet
+  // abort the handler if no valid image has been picked yet
   if (!state.imageIsReadyForUpload) return
 
-  //. FORM DATA
-  const formData = new FormData(newMealElement.newMealForm)
+  // new form data object
+  const formData = new FormData(newMealElement.newMealForm);
+  // replace image in the form field with the one stored in state
+  const newFile = dataURLtoFile(
+    state.uploadableImage.getContentAsDataURL(),
+    state.uploadableImage.name
+  );
+  console.log("newFile:", newFile) // TODO: REMOVE
+  formData.set("image", newFile);
+  state.uploadableImage = null; // reset
 
   console.log("logging out all keys and values in the form-submit handler:")
   for (const [key, value] of formData.entries()) {
@@ -27,12 +36,8 @@ export default function handleSubmit(event) {
     }
   }, false);
 
-  request.onloadstart = function (e) {
-    actOn.fileStartsUploading();
-  }
-  request.onloadend = function (e) {
-    actOn.fileEndsUploading();
-  }
+  request.onloadstart = function (e) { actOn.fileStartsUploading(); }
+  request.onloadend = function (e) { actOn.fileEndsUploading(); }
 
   request.onreadystatechange = onreadystatechangeHandler;
   request.send(formData);
@@ -58,7 +63,7 @@ export default function handleSubmit(event) {
           mealName
         })
         // reveal the new-meal-added message
-        newMealElement.newMealAddedMessage.style.display = 'initial';
+        elementTransform.show(newMealElement.newMealAddedMessage, true);
 
         // change the new-meal heading from 'new meal' to sth like 'add next meal'
         elementTransform.setText(newMealElement.newMealHeading, { type });

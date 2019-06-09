@@ -27,7 +27,11 @@ const state = {
   // WHETHER OR NOT THE NEW-MEAL USER-SELECTED IMAGE IS VALID AND READY FOR UPLOAD
   imageIsReadyForUpload: false,
 
-  pickedImagePath: null
+  //
+  pickedImagePath: null,
+
+  // a picked image whose resolution has been reduced to the custom max size
+  uploadableImage: null
 }
 
 export default state
