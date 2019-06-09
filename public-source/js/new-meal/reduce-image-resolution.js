@@ -1,6 +1,6 @@
 // reduce the image resolution if it exceeds max resolution. commit new image to state.
 
-import checkImageSizeIsRight from './checkImageSizeIsRight';
+import conformToMaxImgSize from './conform-to-max-img-size';
 
 export default function reduceImageResolution(uploadableImage) {
   const maxRes = uploadableImage.maxRes;
@@ -8,7 +8,7 @@ export default function reduceImageResolution(uploadableImage) {
   // check for previously populated width and height. step out if they exist and are below maxRes
   if (uploadableImage.width && uploadableImage.width <= maxRes
     && uploadableImage.height && uploadableImage.height <= maxRes) {
-    checkImageSizeIsRight(uploadableImage);
+    conformToMaxImgSize(uploadableImage);
     return;
   }
 
@@ -19,7 +19,7 @@ export default function reduceImageResolution(uploadableImage) {
 
     // check for the real-time width and height. step out if they are below maxRes
     if (w <= maxRes && h <= maxRes) {
-      checkImageSizeIsRight(uploadableImage);
+      conformToMaxImgSize(uploadableImage);
       return;
     }
 
@@ -45,7 +45,7 @@ export default function reduceImageResolution(uploadableImage) {
 
     // update the image object with new DataURL content
     uploadableImage.setContentAsDataURL(canvas.toDataURL(uploadableImage.type, 1.0));
-    checkImageSizeIsRight(uploadableImage);
+    conformToMaxImgSize(uploadableImage);
     return;
   }
   image.src = uploadableImage.getContentAsDataURL();

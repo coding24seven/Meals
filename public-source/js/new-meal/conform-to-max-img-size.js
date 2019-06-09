@@ -2,7 +2,7 @@
 * reduce the image size if it exceeds max allowed size. commit new image to state.
 */
 
-export default function checkImageSizeIsRight(uploadableImage) {
+export default function conformToMaxImgSize(uploadableImage) {
 
   // do not reduce the image quality if its size does not exceed maxSize
   if (uploadableImage.sizeOfOutputFile <= uploadableImage.maxSize) return;
