@@ -4,6 +4,7 @@ import checkFileTypeSlashExtension from '../../../shared/check-file-typeSlashExt
 import dataURLtoFile from '../../../shared/data-url-to-file';
 import reduceImageResolution from './reduce-image-resolution';
 import convertToJpg from './convert-png-to-jpg';
+import conformToMaxImgSize from './conform-to-max-img-size';
 import state from '../state';
 
 /// FILE UPLOAD HANDLER - TRIGGERED BY THE FILE PICKER INPUT'S 'CHANGE' EVENT
@@ -50,13 +51,9 @@ export default function handleFilePicked(event) {
           }
         }
 
-        // warning: async 'Image.onload' inside if...else
-        if (state.uploadableImage.type !== "image/jpeg") {
-          // conversion to jpg with a callback on finish
-          convertToJpg(state.uploadableImage, reduceImageResolution);
-        } else {
-          reduceImageResolution(state.uploadableImage);
-        }
+        // process the image: async 'Image.onload' inside
+        const cbs = [convertToJpg, conformToMaxImgSize]; // callbacks
+        reduceImageResolution(state.uploadableImage, cbs);
 
         // show the image preview (of the unmodified user-picked image )
         newMealElement.imagePreview.innerHTML = ['<img src="',

@@ -3,6 +3,12 @@
 */
 
 export default function convertToJpg(uploadableImage, cb) {
+
+  if (uploadableImage.type === "image/jpeg") {
+    cb(uploadableImage);
+    return;
+  }
+
   const image = new Image();
 
   // 'onload' fires each time the image is applied via the src attribute
@@ -20,15 +26,12 @@ export default function convertToJpg(uploadableImage, cb) {
     const canvas = document.createElement('canvas');
     canvas.width = image.width;
     canvas.height = image.height;
-    canvas.getContext('2d').drawImage(image, 0, 0, image.width, image.height);
+    canvas.getContext('2d').drawImage(image, 0, 0);
 
     // update the image object with new DataURL content
     uploadableImage.setContentAsDataURL(canvas.toDataURL(uploadableImage.type, 1.0));
 
-    cb((uploadableImage));
+    cb(uploadableImage);
   }
   image.src = uploadableImage.getContentAsDataURL();
 }
-
-
-
