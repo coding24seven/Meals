@@ -3,16 +3,22 @@
 */
 
 export default function reduceImageResolution(uploadableImage, cbs) {
+
+  const newCBs = cbs.slice(1); // the callback list without the first one
   const maxRes = uploadableImage.maxRes;
 
   const image = new Image();
+  image.onerror = function () {
+    cbs[cbs.length - 1]();
+    return;
+  }
   image.onload = function (imageEvent) {
     let w = image.width;
     let h = image.height;
 
     // check for the real-time width and height. step out if they are below or equal maxRes
     if (w <= maxRes && h <= maxRes) {
-      cbs[0](uploadableImage, cbs[1]);
+      cbs[0](uploadableImage, newCBs);
       return;
     }
 
@@ -39,7 +45,7 @@ export default function reduceImageResolution(uploadableImage, cbs) {
     // update the image object with new DataURL content
     uploadableImage.setContentAsDataURL(canvas.toDataURL(uploadableImage.type, 1.0));
 
-    cbs[0](uploadableImage, cbs[1]);
+    cbs[0](uploadableImage, newCBs);
   }
   image.src = uploadableImage.getContentAsDataURL();
 }

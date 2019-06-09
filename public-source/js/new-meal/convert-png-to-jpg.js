@@ -2,10 +2,12 @@
 * convert a possible non-jpg image to jpg
 */
 
-export default function convertToJpg(uploadableImage, cb) {
+export default function convertToJpg(uploadableImage, cbs) {
+
+  const newCBs = cbs.slice(1); // the callback list without the first one
 
   if (uploadableImage.type === "image/jpeg") {
-    cb(uploadableImage);
+    cbs[0](uploadableImage, newCBs);
     return;
   }
 
@@ -31,7 +33,7 @@ export default function convertToJpg(uploadableImage, cb) {
     // update the image object with new DataURL content
     uploadableImage.setContentAsDataURL(canvas.toDataURL(uploadableImage.type, 1.0));
 
-    cb(uploadableImage);
+    cbs[0](uploadableImage, newCBs);
   }
   image.src = uploadableImage.getContentAsDataURL();
 }

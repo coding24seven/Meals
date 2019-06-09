@@ -39,7 +39,7 @@ export default function handleFilePicked(event) {
           height: null,
           maxRes: 640, // max allowed output image width or height in px
           maxSize: 100000, // max allowed output image size in bytes
-          jpgQuality: 0.9, // reduce jpg quality to this if image size over maxSize
+          jpgQuality: 0.9, // reduce jpg quality to this if image size is over maxSize
           isReadyForUpload: false, // if image is valid and ready for upload
           sizeOfOutputFile: dataURLtoFile(readerEvent.target.result, theFile.name).size, // in kb
           // point to the file in dateURL format
@@ -51,24 +51,36 @@ export default function handleFilePicked(event) {
           }
         }
 
+        // callbacks
+        const cbs = [
+          convertToJpg,
+          conformToMaxImgSize,
+          showImgPreview, // defined below in this module
+          checkImgPreview // defined below in this module
+        ];
         // process the image: async 'Image.onload' inside
-        const cbs = [convertToJpg, conformToMaxImgSize]; // callbacks
         reduceImageResolution(state.uploadableImage, cbs);
 
         // show the image preview (of the unmodified user-picked image )
-        newMealElement.imagePreview.innerHTML = ['<img src="',
-          state.uploadableImage.getContentAsDataURL(),
-          '" title="',
-          state.uploadableImage.name,
-          '" width="100%" />'].join('');
-        elementTransform.show(newMealElement.imagePreview);
+        function showImgPreview(uploadableImage, cbs) {
 
+          newMealElement.imagePreview.innerHTML = [
+            '<img src="',
+            uploadableImage.getContentAsDataURL(),
+            '" title="',
+            uploadableImage.name,
+            '" width="100%" />'
+          ].join('');
+          elementTransform.show(newMealElement.imagePreview);
+          // allow the imagePreview to update first before you check its height
+          setTimeout(() => cbs[0](), 1);
+        }
 
-        // allow the imagePreview to update first before you check its height
-        setTimeout(() => {
-          // the image preview must have minHeight
+        function checkImgPreview() {
+
+          // the image preview must have at least minHeight
           const minHeight = 100 // px
-          if (newMealElement.imagePreview.clientHeight > minHeight) {
+          if (newMealElement.imagePreview.clientHeight >= minHeight) {
             actOn.acceptableFile();
           }
           // the image is too small or does not display correctly
@@ -76,8 +88,7 @@ export default function handleFilePicked(event) {
             const clientError = "image preview failed";
             actOn.unacceptableFile(clientError, "");
           };
-
-        }, 1); // setTimeout ends
+        }
       };
     }
   }
