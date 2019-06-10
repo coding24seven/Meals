@@ -1,4 +1,4 @@
-import applyEventListeners from '../eventListeners';
+import applyEventListeners from '../event-listeners';
 import updateLanguage from '../updateLanguage';
 import elementTransform, { newMealElement } from '../elements';
 import state from '../state';

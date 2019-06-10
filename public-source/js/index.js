@@ -1,4 +1,4 @@
-import applyEventListeners from './eventListeners'
+import applyEventListeners from './event-listeners'
 import updateLanguage from './updateLanguage'
 import getDate from '../../shared/getDate'
 import state from './state'
