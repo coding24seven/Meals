@@ -9,4 +9,4 @@ function shuffleArray(array) {
   return result;
 }
 
-module.exports = shuffleArray
+export default shuffleArray

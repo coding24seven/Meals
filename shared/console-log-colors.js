@@ -31,4 +31,4 @@ const colors = {
 };
 
 /// EXPORT
-module.exports = colors;
+export default colors;

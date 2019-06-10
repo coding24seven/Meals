@@ -11,4 +11,4 @@ function getTime() {
   return t;
 }
 
-module.exports = getTime;
+export default getTime;

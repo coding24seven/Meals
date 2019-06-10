@@ -3,4 +3,4 @@ const config = {
   submitMealPassword: "demo"
 }
 
-module.exports = config;
+export default config;

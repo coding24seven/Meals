@@ -22,4 +22,4 @@ function sanitizeString(string, maxWordCount, maxWordLength) {
   return stringAsArray.join(' ')
 }
 
-module.exports = sanitizeString;
+export default sanitizeString;

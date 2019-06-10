@@ -11,4 +11,4 @@ function getDate() {
   return d;
 }
 
-module.exports = getDate;
+export default getDate;

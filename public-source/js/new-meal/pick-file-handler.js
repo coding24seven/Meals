@@ -42,7 +42,8 @@ export default function handleFilePicked(event) {
           maxSize: config.maxUploadFileSize, // max allowed output image size in bytes
           jpgQuality: 0.9, // reduce jpg quality to this if jpg size is over maxSize
           isReadyForUpload: false, // if image is valid and ready for upload
-          sizeOfOutputFile: dataURLtoFile(readerEvent.target.result, theFile.name).size, // in kb
+          // (in kb) initialize 'sizeOfOutputFile' from the user-picked file
+          sizeOfOutputFile: dataURLtoFile(readerEvent.target.result, theFile.name).size,
           // point to the file in dateURL format
           _contentAsDataURL: readerEvent.target.result,
           getContentAsDataURL: function () { return this._contentAsDataURL; },
