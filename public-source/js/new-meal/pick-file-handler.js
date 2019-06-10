@@ -6,6 +6,7 @@ import reduceImageResolution from './reduce-image-resolution';
 import convertToJpg from './convert-png-to-jpg';
 import conformToMaxImgSize from './conform-to-max-img-size';
 import state from '../state';
+import config from '../../../shared/config'; // use variables from the shared config file
 
 /// FILE UPLOAD HANDLER - TRIGGERED BY THE FILE PICKER INPUT'S 'CHANGE' EVENT
 export default function handleFilePicked(event) {
@@ -16,7 +17,8 @@ export default function handleFilePicked(event) {
   //. file has just been selected in the file picker
   if (pickedFile) {
 
-    actOn.fileLoading(); // set the appropriate message. disable file-picking label
+    // set the 'file loading...' message. disable the file-picking label.
+    actOn.fileLoading();
 
     const reader = new FileReader();
     reader.readAsDataURL(pickedFile);
@@ -33,12 +35,12 @@ export default function handleFilePicked(event) {
         // this object stores the image data used for upload
         state.uploadableImage = {
           name: theFile.name,
-          type: theFile.type,
-          width: null,
-          height: null,
+          type: theFile.type, // such as 'image/jpeg', 'image/png'
+          width: null, // populated with Image object
+          height: null, // populated with Image object
           maxRes: 640, // max allowed output image width or height in px
-          maxSize: 100000, // max allowed output image size in bytes
-          jpgQuality: 0.9, // reduce jpg quality to this if image size is over maxSize
+          maxSize: config.maxUploadFileSize, // max allowed output image size in bytes
+          jpgQuality: 0.9, // reduce jpg quality to this if jpg size is over maxSize
           isReadyForUpload: false, // if image is valid and ready for upload
           sizeOfOutputFile: dataURLtoFile(readerEvent.target.result, theFile.name).size, // in kb
           // point to the file in dateURL format
@@ -60,7 +62,8 @@ export default function handleFilePicked(event) {
           /*4*/ function () { showImgPreview(this, 5) }, // defined below in this module
           /*5*/ function () { checkImgPreview() }, // defined below in this module
         ];
-        cbRunner[1](); // start the chain of callbacks: async 'Image.onload' inside
+        // start the chain of callbacks: async 'Image.onload' inside
+        cbRunner[1](); // cbRunner[4]() to skip image processing
 
         // show the image preview
         function showImgPreview(cbRunner, cbIndex) {

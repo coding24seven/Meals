@@ -40,7 +40,7 @@ const multerArgument = {
   //. 'limits' throw an error if exceeded
   limits: {
     files: 1,
-    fileSize: config.maxUploadFileSize, // in bytes,
+    fileSize: config.maxUploadFileSize, // in bytes
   },
 
   //. upload the file
