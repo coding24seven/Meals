@@ -14,7 +14,7 @@ import sendEmailAlert from "./email-alerts/email.js";
 import latestClients from "./latest-clients.js"; // a list of clients connected recently
 import upload from './multer.js'; // handle file uploads from a client
 import color from '../shared/console-log-colors'; // color console.log
-import sanitizeString from '../shared/sanitizeString';
+import sanitizeString from '../shared/sanitize-string';
 import getDate from '../shared/get-date';
 import getTime from '../shared/get-time';
 
