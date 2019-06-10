@@ -2,14 +2,14 @@
 * reduce the image resolution if it exceeds max resolution. commit new image to state.
 */
 
-export default function reduceImageResolution(uploadableImage, cbs) {
+export default function reduceImageResolution(cbRunner, cbIndex) {
 
-  const newCBs = cbs.slice(1); // the callback list without the first one
+  const uploadableImage = cbRunner[0];
   const maxRes = uploadableImage.maxRes;
 
   const image = new Image();
   image.onerror = function () {
-    cbs[cbs.length - 1]();
+    cbRunner[cbRunner.length - 1]();
     return;
   }
   image.onload = function (imageEvent) {
@@ -20,7 +20,7 @@ export default function reduceImageResolution(uploadableImage, cbs) {
 
     // check for the real-time width and height. step out if they are below or equal maxRes
     if (w <= maxRes && h <= maxRes) {
-      cbs[0](uploadableImage, newCBs);
+     cbRunner[cbIndex]();
       return;
     }
 
@@ -50,7 +50,7 @@ export default function reduceImageResolution(uploadableImage, cbs) {
     // update the image object with new DataURL content
     uploadableImage.setContentAsDataURL(canvas.toDataURL(uploadableImage.type, 1.0));
 
-    cbs[0](uploadableImage, newCBs);
+   cbRunner[cbIndex]();
   }
   image.src = uploadableImage.getContentAsDataURL();
 }

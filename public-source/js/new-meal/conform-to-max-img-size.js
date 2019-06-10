@@ -2,13 +2,13 @@
 * reduce the image size if it exceeds max allowed size. commit new image to state.
 */
 
-export default function conformToMaxImgSize(uploadableImage, cbs) {
+export default function conformToMaxImgSize(cbRunner, cbIndex) {
 
-  const newCBs = cbs.slice(1); // the callback list without the first one
+  const uploadableImage = cbRunner[0];
 
   // do not reduce the image quality if its size does not exceed maxSize
   if (uploadableImage.sizeOfOutputFile <= uploadableImage.maxSize) {
-    cbs[0](uploadableImage, newCBs);
+    cbRunner[cbIndex]();
     return;
   }
   const image = new Image();
@@ -26,7 +26,7 @@ export default function conformToMaxImgSize(uploadableImage, cbs) {
     console.log("outgoing-jpg quality:", uploadableImage.jpgQuality)
     console.log("outgoing-jpg size:", uploadableImage.sizeOfOutputFile)
 
-    cbs[0](uploadableImage, newCBs);
+    cbRunner[cbIndex]();
   }
   image.src = uploadableImage.getContentAsDataURL();
 }

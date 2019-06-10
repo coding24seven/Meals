@@ -51,18 +51,21 @@ export default function handleFilePicked(event) {
           }
         }
 
-        // callbacks
-        const cbs = [
-          convertToJpg,
-          conformToMaxImgSize,
-          showImgPreview, // defined below in this module
-          checkImgPreview // defined below in this module
+        // array contains a shared argument followed by callbacks
+        const cbRunner = [
+          /*0*/ state.uploadableImage,
+          // function arguments: this array, callback index
+          /*1*/ function () { reduceImageResolution(this, 2) },
+          /*2*/ function () { convertToJpg(this, 3) },
+          /*3*/ function () { conformToMaxImgSize(this, 4) },
+          /*4*/ function () { showImgPreview(this, 5) }, // defined below in this module
+          /*5*/ function () { checkImgPreview() }, // defined below in this module
         ];
-        // process the image: async 'Image.onload' inside
-        reduceImageResolution(state.uploadableImage, cbs);
+        cbRunner[1](); // start the chain of callbacks: async 'Image.onload' inside
 
         // show the image preview (of the unmodified user-picked image )
-        function showImgPreview(uploadableImage, cbs) {
+        function showImgPreview(cbRunner, cbIndex) {
+          const uploadableImage = cbRunner[0];
 
           newMealElement.imagePreview.innerHTML = [
             '<img src="',
@@ -73,7 +76,7 @@ export default function handleFilePicked(event) {
           ].join('');
           elementTransform.show(newMealElement.imagePreview);
           // allow the imagePreview to update first before you check its height
-          setTimeout(() => cbs[0](), 1);
+          setTimeout(() => cbRunner[cbIndex](), 1);
         }
 
         function checkImgPreview() {
