@@ -10,14 +10,13 @@ import state from '../state';
 /// FILE UPLOAD HANDLER - TRIGGERED BY THE FILE PICKER INPUT'S 'CHANGE' EVENT
 export default function handleFilePicked(event) {
 
-  // maintenance: remove the "added: example meal" message from view
-  elementTransform.show(newMealElement.newMealAddedMessage, false);
-
   // retrieve the user-picked file
   const pickedFile = event.target.files[0];
 
   //. file has just been selected in the file picker
   if (pickedFile) {
+
+    actOn.fileLoading(); // set the appropriate message. disable file-picking label
 
     const reader = new FileReader();
     reader.readAsDataURL(pickedFile);
@@ -63,7 +62,7 @@ export default function handleFilePicked(event) {
         ];
         cbRunner[1](); // start the chain of callbacks: async 'Image.onload' inside
 
-        // show the image preview (of the unmodified user-picked image )
+        // show the image preview
         function showImgPreview(cbRunner, cbIndex) {
           const uploadableImage = cbRunner[0];
 
@@ -79,6 +78,7 @@ export default function handleFilePicked(event) {
           setTimeout(() => cbRunner[cbIndex](), 1);
         }
 
+        // makes sure the image preview has displayed correctly
         function checkImgPreview() {
 
           // the image preview must have at least minHeight

@@ -83,6 +83,7 @@
   //, <label> LABEL THAT YOU CLICK TO PICK AN IMAGE
   &__label {
     border: $grey-line;
+    color: #5e5e5e;
     background-color: #fafafa;
     padding: 1.3rem;
     font-weight: 400;
@@ -90,9 +91,20 @@
     cursor: pointer;
     border-radius: 0.4rem;
 
+    // this <label>'s class has its counterpart on the <span> inside
+    &.js-progress {
+      pointer-events: none;
+      color: #28a30a;
+      font-weight: 500;
+    }
+
     &.js-disable {
       pointer-events: none;
       opacity: 0.4;
+    }
+
+    &.js-error {
+      color: red;
     }
 
     &:hover {
@@ -100,10 +112,12 @@
     }
   }
 
-  //, <span> PICK IMAGE TEXT INSIDE THE LABEL
+  // <span> PICK IMAGE TEXT INSIDE THE LABEL
   &__pick-image-text {
-    &.js-error {
-      color: red;
+    color: currentColor;
+
+    &.js-progress {
+      animation: blinker 2s infinite ease-in;
     }
   }
 
@@ -152,33 +166,12 @@
 
   // <div> PROGRESS BAR THAT OVERLAPS THE SUBMIT BUTTON
   &__upload-progress-bar {
-    width: 0;
-    opacity: 0;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 0.1rem;
-    background-color: inherit;
-    transition: all 0.1s 1s;
-    &.js-show {
-      opacity: 1;
-      width: 100%;
-      transition: all 0.1s;
-    }
+    @include progress-bar;
   }
 
   // THE FILL INSIDE THE PROGRESS BAR
   &__upload-progress-bar-fill {
-    width: 0%;
-    height: 100%;
-    background-color: #75d75c;
-    transition: width 0.1s;
-
-    // while the fill Returns back to 0 width
-    &.js-retract {
-      transition: width 1s;
-    }
+    @include progress-bar-fill;
   }
 
   //,

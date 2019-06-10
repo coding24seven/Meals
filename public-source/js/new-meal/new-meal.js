@@ -22,15 +22,15 @@ if (document.getElementById('page-id-new-meal')) {
     this.value = null;
     state.uploadableImage.isReadyForUpload = false;
 
-    // maintenance: remove the styled error message inside the file-picking label
-    elementTransform.setText(newMealElement.pickImageText, null);
-    newMealElement.pickImageText.classList.remove('js-error');
-
-    // maintenance: hide
     setTimeout(() => {
+      // maintenance: remove the styled error message inside the file-picking label
+      elementTransform.setText(newMealElement.pickImageText, null);
+      newMealElement.pickImageLabel.classList.remove('js-error');
+
+      // maintenance: hide the image preview
       elementTransform.show(newMealElement.imagePreview, state.uploadableImage.isReadyForUpload);
       elementTransform.show(newMealElement.uploadBox, state.uploadableImage.isReadyForUpload);
-    }, 500);
+    }, 1000);
 
   }, false);
 

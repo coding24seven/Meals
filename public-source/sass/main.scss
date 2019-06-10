@@ -1,9 +1,10 @@
-@import "variables.scss";
+@import "variables";
+@import "./mixins/progress-bar";
 @import "functions";
-@import "base.scss";
-@import "navbar.scss";
-@import "meals.scss";
-@import "new-meal.scss";
-@import "footer.scss";
+@import "base";
+@import "navbar";
+@import "meals";
+@import "new-meal";
+@import "footer";
 @import "languages";
 @import "animations";

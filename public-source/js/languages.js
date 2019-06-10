@@ -95,6 +95,10 @@ const text = {
       pl: ["Max wielkość pliku ", " kb - wybierz inny"],
       en: ["Max allowed file size is ", " kb - select again"]
     },
+    "image loading": {
+      pl: ["obrazek", " się ładuje..."],
+      en: ["image", " loading..."]
+    },
     "image preview failed": {
       pl: ["obrazek nie da się wyświetlić", " - wybierz inny"],
       en: ["image preview failed", " - select another image"]

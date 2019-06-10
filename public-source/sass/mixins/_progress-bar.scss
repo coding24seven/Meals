@@ -1,0 +1,28 @@
+@mixin progress-bar {
+  width: 0;
+  opacity: 0;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0.1rem;
+  background-color: inherit;
+  transition: all 0.1s 1s;
+  &.js-show {
+    opacity: 1;
+    width: 100%;
+    transition: all 0.1s;
+  }
+}
+
+@mixin progress-bar-fill {
+  width: 0%;
+  height: 100%;
+  background-color: #75d75c;
+  transition: width 0.1s;
+
+  // while the fill Returns back to 0 width
+  &.js-retract {
+    transition: width 1s;
+  }
+}

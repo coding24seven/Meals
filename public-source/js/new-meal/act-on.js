@@ -1,8 +1,13 @@
+/*
+* sets state
+* sets appropriate user messages
+*/
+
 import state from '../state';
 import elementTransform, { newMealElement } from '../elements';
 
 const actOn = {
-  /// 
+  /// WHEN THE SUPPLIED PASSWORD IS WRONG
   wrongPassword: function (error) {
     // display a styled error message as the password input's placeholder
     newMealElement.passwordInput.value = '' // clear the password input
@@ -14,29 +19,54 @@ const actOn = {
     })
   },
 
-  /// SET STATE, SHOW THE PREVIEW AND SUBMIT BUTTON - WHEN FILE IS VALID FOR UPLOAD
-  acceptableFile: function () {
-    state.uploadableImage.isReadyForUpload = true;
-    // show
-    elementTransform.show(newMealElement.uploadBox, state.uploadableImage.isReadyForUpload)
-    elementTransform.show(newMealElement.imagePreview, state.uploadableImage.isReadyForUpload)
+  /// USER-PICKED FILE BEGINS TO LOAD...
+  fileLoading: function () {
+
+    // maintenance: remove the "added: example meal" message from view
+    elementTransform.show(newMealElement.newMealAddedMessage, false);
+
+    // style the 'image loading' message inside the file-picker's label
+    newMealElement.pickImageLabel.classList.add('js-progress');
+    newMealElement.pickImageText.classList.add('js-progress');
+
+    // display 'image loading...' message on the file-picking label
+    elementTransform.setText(newMealElement.pickImageText, {
+      type: "image loading", midMessage: ""
+    });
   },
 
-  /// SET STATE, SHOW ERROR MESSAGES, HIDE THE PREVIEW AND SUBMIT BUTTON - WHEN THE FILE IS TOO LARGE, HAS A WRONG EXTENSION, ETC.
+  /// WHEN THE USER-PICKED FILE TURNS OUT TO BE A VALID IMAGE FOR UPLOAD
+  acceptableFile: function () {
+    state.uploadableImage.isReadyForUpload = true;
+
+    // show the preview and submit button
+    elementTransform.show(newMealElement.uploadBox, state.uploadableImage.isReadyForUpload)
+    elementTransform.show(newMealElement.imagePreview, state.uploadableImage.isReadyForUpload)
+
+    newMealElement.pickImageLabel.classList.remove('js-progress');
+    newMealElement.pickImageText.classList.remove('js-progress');
+
+    // restore the original text on the file-picking label
+    elementTransform.setText(newMealElement.pickImageText, null);
+  },
+
+  /// WHEN THE USER-PICKED FILE TURNS OUT TO BE TOO LARGE, HAS A WRONG EXTENSION, ETC.
   unacceptableFile: function (error, midMessage) {
     // reset uploadableImage.isReadyForUpload state - applies to future upload attempts
     state.uploadableImage.isReadyForUpload = false;
 
     // style the error message inside the file-picker's label
-    newMealElement.pickImageText.classList.add('js-error')
+    newMealElement.pickImageLabel.classList.remove('js-progress');
+    newMealElement.pickImageText.classList.remove('js-progress');
+    newMealElement.pickImageLabel.classList.add('js-error');
 
-    // give the element a modifier so the language function can incorporate it
+    // show error message by giving the element a modifier so the language function can incorporate it
     elementTransform.setText(newMealElement.pickImageText, {
       type: error,
       midMessage
     });
 
-    // hide
+    // hide the preview and submit button 
     elementTransform.show(newMealElement.imagePreview, state.uploadableImage.isReadyForUpload);
     elementTransform.show(newMealElement.uploadBox, state.uploadableImage.isReadyForUpload);
   },
