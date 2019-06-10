@@ -35,7 +35,7 @@ export default function convertToJpg(uploadableImage, cbs) {
 
     cbs[0](uploadableImage, newCBs);
   }
-  image.src = uploadableImage.getContentAsDataURL(uploadableImage.type, 1.0);
+  image.src = uploadableImage.getContentAsDataURL();
 }
 
 function colorCanvasBackground(canvas, backgroundColor) {
