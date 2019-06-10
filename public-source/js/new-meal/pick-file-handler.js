@@ -1,7 +1,7 @@
 import elementTransform, { newMealElement } from '../elements';
 import actOn from './act-on';
 import checkFileTypeSlashExtension from '../../../shared/check-file-typeSlashExtension';
-import dataURLtoFile from '../../../shared/data-url-to-file';
+import dataURLtoFile from './data-url-to-file';
 import reduceImageResolution from './reduce-image-resolution';
 import convertToJpg from './convert-png-to-jpg';
 import conformToMaxImgSize from './conform-to-max-img-size';

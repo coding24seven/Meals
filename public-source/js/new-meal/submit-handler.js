@@ -1,6 +1,6 @@
 import state from '../state';
 import elementTransform, { newMealElement } from '../elements';
-import dataURLtoFile from '../../../shared/data-url-to-file';
+import dataURLtoFile from './data-url-to-file';
 import actOn from './act-on';
 
 /// NEW-MEAL SUBMIT FORM HANDLER
