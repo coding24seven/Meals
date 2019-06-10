@@ -3,7 +3,7 @@ import actOn from './act-on';
 import checkFileTypeSlashExtension from '../../../shared/check-file-typeSlashExtension';
 import dataURLtoFile from './data-url-to-file';
 import reduceImageResolution from './reduce-image-resolution';
-import convertToJpg from './convert-png-to-jpg';
+import convertToJpg from './convert-to-jpg';
 import conformToMaxImgSize from './conform-to-max-img-size';
 import state from '../state';
 import config from '../../../shared/config'; // use variables from the shared config file
