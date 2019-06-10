@@ -15,8 +15,8 @@ import latestClients from "./latest-clients.js"; // a list of clients connected 
 import upload from './multer.js'; // handle file uploads from a client
 import color from '../shared/console-log-colors'; // color console.log
 import sanitizeString from '../shared/sanitizeString';
-import getDate from '../shared/getDate';
-import getTime from '../shared/getTime';
+import getDate from '../shared/get-date';
+import getTime from '../shared/get-time';
 
 /// REQUEST-LOGGING MIDDLEWARE (MUST BE PLACED ABOVE OTHER APP.USE() THINGS THAT YOU WANT LOGGED)
 // TODO: UNCOMMENT
