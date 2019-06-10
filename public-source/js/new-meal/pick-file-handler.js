@@ -40,7 +40,7 @@ export default function handleFilePicked(event) {
           height: null, // populated with Image object
           maxRes: 640, // max allowed output image width or height in px
           maxSize: config.maxUploadFileSize, // max allowed output image size in bytes
-          jpgQuality: 0.9, // reduce jpg quality to this if jpg size is over maxSize
+          jpgQuality: 0.82, // reduce jpg quality to this if jpg size is over maxSize
           isReadyForUpload: false, // if image is valid and ready for upload
           // (in kb) initialize 'sizeOfOutputFile' from the user-picked file
           sizeOfOutputFile: dataURLtoFile(readerEvent.target.result, theFile.name).size,

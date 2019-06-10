@@ -1,5 +1,5 @@
 const config = {
-  maxUploadFileSize: 100000, // in bytes
+  maxUploadFileSize: 150000, // in bytes
   submitMealPassword: "demo"
 }
 

@@ -6,6 +6,8 @@ export default function conformToMaxImgSize(cbRunner, cbIndex) {
 
   const uploadableImage = cbRunner[0];
 
+  console.log("jpg size before quality reduction:", uploadableImage.sizeOfOutputFile);
+
   // do not reduce the image quality if its size does not exceed maxSize
   if (uploadableImage.sizeOfOutputFile <= uploadableImage.maxSize) {
     cbRunner[cbIndex]();
