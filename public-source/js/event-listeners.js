@@ -1,4 +1,4 @@
-import updateLanguage from './updateLanguage'
+import updateLanguage from './update-language'
 import state from './state'
 import elementTransform, { headerElement } from './elements';
 
