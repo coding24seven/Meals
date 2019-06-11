@@ -39,7 +39,7 @@ const actOn = {
   acceptableFile: function () {
     state.uploadableImage.isReadyForUpload = true;
 
-    // show the preview and submit button
+    // show the image preview and submit button
     elementTransform.show(newMealElement.uploadBox, state.uploadableImage.isReadyForUpload)
     elementTransform.show(newMealElement.imagePreview, state.uploadableImage.isReadyForUpload)
 
@@ -48,6 +48,8 @@ const actOn = {
 
     // restore the original text on the file-picking label
     elementTransform.setText(newMealElement.pickImageText, null);
+
+
   },
 
   /// WHEN THE USER-PICKED FILE TURNS OUT TO BE TOO LARGE, HAS A WRONG EXTENSION, ETC.

@@ -20,7 +20,7 @@ export default function reduceImageResolution(cbRunner, cbIndex) {
 
     // check for the real-time width and height. step out if they are below or equal maxRes
     if (w <= maxRes && h <= maxRes) {
-     cbRunner[cbIndex]();
+      cbRunner[cbIndex]();
       return;
     }
 
@@ -50,7 +50,7 @@ export default function reduceImageResolution(cbRunner, cbIndex) {
     // update the image object with new DataURL content
     uploadableImage.setContentAsDataURL(canvas.toDataURL(uploadableImage.type, 1.0));
 
-   cbRunner[cbIndex]();
+    cbRunner[cbIndex]();
   }
   image.src = uploadableImage.getContentAsDataURL();
 }
