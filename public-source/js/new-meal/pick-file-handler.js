@@ -6,7 +6,7 @@ import reduceImageResolution from './reduce-image-resolution';
 import convertToJpg from './convert-to-jpg';
 import conformToMaxImgSize from './conform-to-max-img-size';
 import rotateImage from './rotate-image';
-import state from '../state';
+import { uploadableImage } from '../state';
 import config from '../../../shared/config'; // use variables from the shared config file
 
 /// FILE UPLOAD HANDLER - TRIGGERED BY THE FILE PICKER INPUT'S 'CHANGE' EVENT
@@ -32,7 +32,7 @@ export default function handleFilePicked(event) {
 
         // array contains a shared argument followed by callbacks
         const cbRunner = [
-          /*0*/ state.uploadableImage,
+          /*0*/ uploadableImage,
           // function arguments: this array, callback index
           /*1*/ function () { initiate(this, 2) }, // defined below in this module
           /*2*/ function () { reduceImageResolution(this, 3) },
@@ -42,38 +42,38 @@ export default function handleFilePicked(event) {
           /*6*/ function () { checkImgPreview(this, 7) }, // defined below in this module
           /*7*/ function () { rotateImage(this, 5) }
         ];
-        // start the chain of callbacks: async 'Image.onload' inside
-        console.log(cbRunner[0])
+        // start the chain of callbacks
         cbRunner[1](); // cbRunner[5]() to skip image processing
 
         function initiate(cbRunner, cbIndex) {
           // set the 'file loading...' message. disable the file-picking label.
           actOn.fileLoading();
 
-          // this object stores the image data used for upload
-          state.uploadableImage = {
-            name: theFile.name,
-            type: theFile.type, // such as 'image/jpeg', 'image/png'
-            width: null, // populated with Image object
-            height: null, // populated with Image object
-            maxRes: 640, // max allowed output image width or height in px
-            maxSize: config.maxUploadFileSize, // max allowed output image size in bytes
-            jpgQuality: 0.82, // reduce jpg quality to this if jpg size is over maxSize
-            rotationCounter: 0,
-            isReadyForUpload: false, // if image is valid and ready for upload
+          // give DOM time to render before heavy processing kicks in
+          setTimeout(() => {
+            // 'uploadableImage' is a state object that stores the image data used for upload
+            uploadableImage.name = theFile.name
+            uploadableImage.type = theFile.type; // such as 'image/jpeg', 'image/png'
+            uploadableImage.width = null; // populated with Image object
+            uploadableImage.height = null; // populated with Image object
+            uploadableImage.maxRes = 640; // max allowed output image width or height in px
+            uploadableImage.maxSize = config.maxUploadFileSize; // max allowed output image size in bytes
+            uploadableImage.jpgQuality = 0.82; // reduce jpg quality to this if jpg size is over maxSize
+            uploadableImage.rotationCounter = 0;
+            uploadableImage.isReadyForUpload = false; // if image is valid and ready for upload
             // (in kb) initialize 'sizeOfOutputFile' from the user-picked file
-            sizeOfOutputFile: dataURLtoFile(readerEvent.target.result, theFile.name).size,
+            uploadableImage.sizeOfOutputFile = dataURLtoFile(readerEvent.target.result, theFile.name).size;
             // point to the file in dateURL format
-            originalContentAsDataURL: readerEvent.target.result,
-            _contentAsDataURL: readerEvent.target.result,
-            getContentAsDataURL: function () { return this._contentAsDataURL; },
-            setContentAsDataURL: function (dataURLContent) {
+            uploadableImage.originalContentAsDataURL = readerEvent.target.result;
+            uploadableImage._contentAsDataURL = readerEvent.target.result;
+            uploadableImage.getContentAsDataURL = function () { return this._contentAsDataURL; };
+            uploadableImage.setContentAsDataURL = function (dataURLContent) {
               this._contentAsDataURL = dataURLContent;
               this.sizeOfOutputFile = dataURLtoFile(dataURLContent, this.name).size;
             }
-          }
 
-          cbRunner[cbIndex](); // call the first image-processing function
+            cbRunner[cbIndex](); // call the first image-processing function
+          }, 50);
         }
 
         // show the image preview
@@ -94,13 +94,13 @@ export default function handleFilePicked(event) {
 
         // makes sure the image preview has displayed correctly
         function checkImgPreview(cbRunner, cbIndex) {
-          const uploadableImage = cbRunner[0];
+          // const uploadableImage = cbRunner[0];
 
           // the image preview must have at least minHeight
           const minHeight = 100 // px
           if (newMealElement.imagePreview.clientHeight >= minHeight) {
             actOn.acceptableFile();
-            //TODO: rotate the image on click
+            // rotate the image on click
             newMealElement.imagePreview.onclick = function () {
               cbRunner[cbIndex]();
             }

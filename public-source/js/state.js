@@ -28,4 +28,5 @@ const state = {
   uploadableImage: {}
 }
 
-export default state
+export default state;
+export const { uploadableImage } = state;

@@ -23,7 +23,6 @@ export default function rotateImage(cbRunner, cbIndex) {
     uploadableImage.setContentAsDataURL(canvas.toDataURL(uploadableImage.type, uploadableImage.jpgQuality));
 
     uploadableImage.rotationCounter++;
-    console.log(uploadableImage.rotationCounter)
 
     // if the image is back at the original rotation (rotationCounter === 4), go back and re-process the original image. otherwise keep working on the same image.
     cbRunner[uploadableImage.rotationCounter === 4 ? [1] : cbIndex]();

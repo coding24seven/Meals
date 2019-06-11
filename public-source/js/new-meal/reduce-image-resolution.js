@@ -9,7 +9,7 @@ export default function reduceImageResolution(cbRunner, cbIndex) {
 
   const image = new Image();
   image.onerror = function () {
-    cbRunner[cbRunner.length - 1]();
+    cbRunner[cbRunner.length - 2]();
     return;
   }
   image.onload = function (imageEvent) {
