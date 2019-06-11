@@ -58,7 +58,7 @@ export default function handleFilePicked(event) {
             uploadableImage.height = null; // populated with Image object
             uploadableImage.maxRes = 640; // max allowed output image width or height in px
             uploadableImage.maxSize = config.maxUploadFileSize; // max allowed output image size in bytes
-            uploadableImage.jpgQuality = 0.82; // reduce jpg quality to this if jpg size is over maxSize
+            uploadableImage.jpgQuality = 0.9; // reduce jpg quality to this if jpg size is over maxSize
             uploadableImage.rotationCounter = 0;
             uploadableImage.isReadyForUpload = false; // if image is valid and ready for upload
             // (in kb) initialize 'sizeOfOutputFile' from the user-picked file
@@ -85,7 +85,8 @@ export default function handleFilePicked(event) {
             uploadableImage.getContentAsDataURL(),
             '" title="',
             uploadableImage.name,
-            '" width="100%" />'
+            '" width="100%" />',
+            '<span>&cudarrr;</span>'
           ].join('');
           elementTransform.show(newMealElement.imagePreview);
           // allow the imagePreview to update first before you check its height

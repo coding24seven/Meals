@@ -22,3 +22,15 @@
     transform: scale(1);
   }
 }
+
+@keyframes animate-image-rotator-opacity-change {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes animate-image-rotator-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
