@@ -35,7 +35,7 @@ export default function handleFilePicked(event) {
           /*0*/ uploadableImage,
           // function arguments: this array, callback index
           /*1*/ function () { initiate(this, 2) }, // defined below in this module
-          /*2*/ function () { reduceImageResolution(this, 3) },
+          /*2*/ function () { reduceImageResolution(this, 3, 6) }, // this, onload, onerror
           /*3*/ function () { convertToJpg(this, 4) },
           /*4*/ function () { conformToMaxImgSize(this, 5) },
           /*5*/ function () { showImgPreview(this, 6) }, // defined below in this module

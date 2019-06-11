@@ -2,14 +2,14 @@
 * reduce the image resolution if it exceeds max resolution. commit new image to state.
 */
 
-export default function reduceImageResolution(cbRunner, cbIndex) {
+export default function reduceImageResolution(cbRunner, cbIndex, cb2Index) {
 
   const uploadableImage = cbRunner[0];
   const maxRes = uploadableImage.maxRes;
 
   const image = new Image();
   image.onerror = function () {
-    cbRunner[cbRunner.length - 2]();
+    cbRunner[cb2Index]();
     return;
   }
   image.onload = function (imageEvent) {
