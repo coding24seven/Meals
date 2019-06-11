@@ -1,5 +1,5 @@
 import elementTransform, { newMealElement } from '../elements';
-import actOn from './act-on';
+import updateDomOn from './update-dom-on';
 import checkFileTypeSlashExtension from '../../../shared/check-file-type-slash-extension';
 import dataURLtoFile from './data-url-to-file';
 import reduceImageResolution from './reduce-image-resolution';
@@ -26,7 +26,7 @@ export default function handleFilePicked(event) {
       return function (readerEvent) {
         // if the file has a type/extension that does not match image/jpg, etc.
         if (!checkFileTypeSlashExtension(pickedFile.type)) {
-          actOn.unacceptableFile("invalid image extension", "");
+          updateDomOn.unacceptableFile("invalid image extension", "");
           return;
         }
 
@@ -47,7 +47,7 @@ export default function handleFilePicked(event) {
 
         function initiate(cbRunner, cbIndex) {
           // set the 'file loading...' message. disable the file-picking label.
-          actOn.fileLoading();
+          updateDomOn.fileLoading();
 
           // give DOM time to render before heavy processing kicks in
           setTimeout(() => {
@@ -100,7 +100,7 @@ export default function handleFilePicked(event) {
           // the image preview must have at least minHeight
           const minHeight = 100 // px
           if (newMealElement.imagePreview.clientHeight >= minHeight) {
-            actOn.acceptableFile();
+            updateDomOn.acceptableFile();
             // rotate the image on click
             newMealElement.imagePreview.onclick = function () {
               cbRunner[cbIndex]();
@@ -109,7 +109,7 @@ export default function handleFilePicked(event) {
           // the image is too small or does not display correctly
           else {
             const clientError = "image preview failed";
-            actOn.unacceptableFile(clientError, "");
+            updateDomOn.unacceptableFile(clientError, "");
           };
         }
       };

@@ -6,7 +6,7 @@
 import state from '../state';
 import elementTransform, { newMealElement } from '../elements';
 
-const actOn = {
+const updateDomOn = {
   /// WHEN THE SUPPLIED PASSWORD IS WRONG
   wrongPassword: function (error) {
     // display a styled error message as the password input's placeholder
@@ -48,8 +48,6 @@ const actOn = {
 
     // restore the original text on the file-picking label
     elementTransform.setText(newMealElement.pickImageText, null);
-
-
   },
 
   /// WHEN THE USER-PICKED FILE TURNS OUT TO BE TOO LARGE, HAS A WRONG EXTENSION, ETC.
@@ -91,4 +89,4 @@ const actOn = {
 
   ///
 }
-export default actOn;
+export default updateDomOn;

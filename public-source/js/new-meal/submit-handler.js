@@ -1,7 +1,7 @@
 import state from '../state';
 import elementTransform, { newMealElement } from '../elements';
 import dataURLtoFile from './data-url-to-file';
-import actOn from './act-on';
+import updateDomOn from './update-dom-on';
 
 /// NEW-MEAL SUBMIT FORM HANDLER
 export default function handleSubmit(event) {
@@ -34,8 +34,8 @@ export default function handleSubmit(event) {
     }
   }, false);
 
-  request.onloadstart = function (e) { actOn.fileStartsUploading(); }
-  request.onloadend = function (e) { actOn.fileEndsUploading(); }
+  request.onloadstart = function (e) { updateDomOn.fileStartsUploading(); }
+  request.onloadend = function (e) { updateDomOn.fileEndsUploading(); }
 
   request.onreadystatechange = onreadystatechangeHandler;
   request.send(formData);
@@ -80,16 +80,16 @@ export default function handleSubmit(event) {
 
         const errorHandlers = {
           "wrong password": function () {
-            actOn.wrongPassword(error);
+            updateDomOn.wrongPassword(error);
           },
 
           "file too large": function () {
             // the 'message/1000' argument is the max file size in kb
-            actOn.unacceptableFile(error, parseFloat(message) / 1000);
+            updateDomOn.unacceptableFile(error, parseFloat(message) / 1000);
           },
 
           "invalid image extension": function () {
-            actOn.unacceptableFile(error, "");
+            updateDomOn.unacceptableFile(error, "");
           },
 
           default: function () {
