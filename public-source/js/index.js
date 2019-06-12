@@ -1,39 +1,41 @@
-import applyEventListeners from './event-listeners'
-import updateLanguage from './update-language'
-import getDate from '../../shared/get-date'
-import state from './state'
+import applyEventListeners from './event-listeners';
+import updateLanguage from './update-language';
+import getDate from '../../shared/get-date';
+import state from './state';
 
 /// unique page identifier: page-id-index
 
 /// WHEN PAGE IS LOADED
 document.addEventListener("DOMContentLoaded", function () {
-  
+
   // abort the function if a mismatching page has been loaded
-  if (!document.getElementById('page-id-index')) return
-  
-  console.log('page-id-index loaded')
+  if (!document.getElementById('page-id-index')) return;
+
+  console.log('page-id-index loaded');
 
   //. ADD ALL EVENT LISTENERS
   applyEventListeners();
 
   //. SWITCH TO THE STORED FOREIGN LANGUAGE
-  let language = updateLanguage();
+  updateLanguage();
 
   //. COOKED TODAY handled here
-  const today = getDate();
-  const links = document.getElementsByClassName("js-cooked-today");
+  const todaysDate = getDate();
 
-  for (let link of links) {
-    if (link.dataset.lastCookedOn === today) {
-      link.setAttribute("hidden", true);
+  // all 'made today' buttons
+  const buttons = document.getElementsByClassName("js-made-today");
+
+  for (let button of buttons) {
+    if (button.dataset.lastMadeOn === todaysDate) {
+      button.setAttribute("hidden", true);
     } else {
-      link.addEventListener("click", function (event) {
+      button.addEventListener("click", function (event) {
         event.preventDefault();
         if (!this.getAttribute("disabled")) {
           const confirmed = confirm(state.mealCookedConfirmMessage);
           if (confirmed) {
             const id = this.dataset.mealId;
-            window.location = `/meals/${id}/${today}`;
+            window.location = `/meals/${id}/${todaysDate}`;
           }
         }
       });

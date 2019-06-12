@@ -71,15 +71,15 @@
   },
   {
     "name": "Pierogi",
-    "lastCookedOn": "14.02.2019",
+    "lastCookedOn": "10.06.2019",
     "image": "pierogi.jpg",
     "id": 10,
-    "count": 4
+    "count": 5
   },
   {
-    "name": "Gulasz z serduszek",
-    "lastCookedOn": "15.11.2018",
-    "image": "gulasz serduszka.jpg",
+    "name": "Bułeczki z dżemem",
+    "lastCookedOn": "17.05.2019",
+    "image": "68e3586499565232c890a7d8.jpg",
     "id": 11,
     "count": 1
   },
@@ -99,10 +99,10 @@
   },
   {
     "name": "Zupa jarzynowa",
-    "lastCookedOn": "14.12.2018",
+    "lastCookedOn": "05.06.2019",
     "image": "zupa jarzynowa.jpg",
     "id": 14,
-    "count": 2
+    "count": 3
   },
   {
     "name": "Zupa buraczkowa",
@@ -127,10 +127,10 @@
   },
   {
     "name": "Kotlety schabowe",
-    "lastCookedOn": "16.05.2019",
+    "lastCookedOn": "09.06.2019",
     "image": "kotlety.jpg",
     "id": 18,
-    "count": 7
+    "count": 8
   },
   {
     "name": "Zrazy z ogórkiem i słoniną",
@@ -231,11 +231,11 @@
     "count": 3
   },
   {
-    "name": "Ryba smażona",
-    "lastCookedOn": "24.12.2018",
-    "image": "ryba zmazona.jpg",
+    "name": "Papryka faszerowana",
+    "lastCookedOn": "17.05.2019",
+    "image": "3e3a92754c34658ba7dd89f4.jpg",
     "id": 33,
-    "count": 2
+    "count": 1
   },
   {
     "name": "Gulasz z żołądków",
@@ -323,10 +323,10 @@
   },
   {
     "name": "Spaghetti",
-    "lastCookedOn": "01.02.2019",
+    "lastCookedOn": "06.06.2019",
     "image": "e0efd1d4721cde0b16c4e61c.jpg",
     "id": 46,
-    "count": 5
+    "count": 6
   },
   {
     "name": "Kapuśniak",
@@ -365,10 +365,10 @@
   },
   {
     "name": "Risotto warzywa kurczak sos musztardowo miodowy",
-    "lastCookedOn": "20.05.2019",
+    "lastCookedOn": "07.06.2019",
     "image": "fad4f28bf3f129e2a6eb1bbd.jpg",
     "id": 52,
-    "count": 5
+    "count": 6
   },
   {
     "name": "Żurek",
@@ -424,7 +424,7 @@
     "lastCookedOn": "22.01.2019",
     "image": "6434f976fec3464b0763de06.jpg",
     "id": 60,
-    "count": 1
+    "count": 3
   },
   {
     "name": "Krupnik z kapustą kiszoną",
@@ -491,10 +491,10 @@
   },
   {
     "name": "Botwinka",
-    "lastCookedOn": "30.04.2019",
+    "lastCookedOn": "11.06.2019",
     "image": "06332d491ccb923f170ab674.jpg",
     "id": 70,
-    "count": 1
+    "count": 2
   },
   {
     "name": "Żeberka w kiszonej kapuście",
@@ -515,20 +515,6 @@
     "lastCookedOn": "07.05.2019",
     "image": "da67b6210e0dfbb90d76067a.jpg",
     "id": 73,
-    "count": 1
-  },
-  {
-    "name": "Bułeczki z dżemem",
-    "lastCookedOn": "17.05.2019",
-    "image": "68e3586499565232c890a7d8.jpg",
-    "id": 74,
-    "count": 1
-  },
-  {
-    "name": "Papryka faszerowana",
-    "lastCookedOn": "17.05.2019",
-    "image": "3e3a92754c34658ba7dd89f4.jpg",
-    "id": 75,
     "count": 1
   }
 ]

@@ -31,7 +31,7 @@ app.use(express.static("database/meal-photos"));
 
 /// STORAGE
 const databaseFile = "database/meals.json";
-let meals = []; // the array that holds meal objects
+let meals = []; // this array holds meal objects
 
 /// READ THE DATABASE FROM FILE INTO THE ARRAY BEFORE THE SERVER STARTS
 meals = storage.readDatabase(databaseFile);
@@ -142,10 +142,10 @@ app.post("/meals", function (req, res, next) {
 
 //. GET ROUTE MEAL PREPARED TODAY
 app.get("/meals/:id/:date", function (req, res) {
-  let min = 0;
-  let max = meals.length;
-  let id = parseInt(req.params.id);
-  let clientDate = req.params.date;
+  const min = 0;
+  const max = meals.length;
+  const id = parseInt(req.params.id);
+  const clientDate = req.params.date;
   if (Number.isInteger(id) && id >= min && id < max && meals[id].lastCookedOn != clientDate) {
     meals[id].lastCookedOn = clientDate;
     meals[id].count++;
