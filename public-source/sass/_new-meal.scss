@@ -33,15 +33,16 @@
 
   // <h1> HEADING SAYING 'NEW MEAL'
   & .new-meal-heading {
+    padding: 1.2rem 0 1.7rem;
     font-size: 2.8rem;
     font-weight: 500;
-    padding: 2.6rem 1.3rem;
     color: #5e5e5e;
     text-transform: uppercase;
   }
 
   // <a> RETURN TO THE MAIN PAGE LINK
   & .go-to-main-page {
+    margin-top: 3rem;
     padding: 1rem;
     text-decoration: none;
     font-size: 1.6rem;
@@ -59,13 +60,16 @@
   //, <input> INPUT FOR THE MEAL NAME AND PASSWORD
   &__meal-name,
   &__password {
+    padding: 2.6rem;
+    margin-bottom: 1rem;
     height: 2rem;
     border: $grey-line;
     outline: none;
-    margin-bottom: 1rem;
-    padding: 2rem;
     border-radius: 0.4rem;
     font-size: 1.6rem;
+    @media(pointer:fine){
+      padding: 2rem;
+    }
 
     &::placeholder {
       font-size: 1.6rem;
@@ -82,14 +86,18 @@
 
   //, <label> LABEL THAT YOU CLICK TO PICK AN IMAGE
   &__label {
+    padding: 2rem;
     border: $grey-line;
     color: #5e5e5e;
     background-color: #fafafa;
-    padding: 1.3rem;
     font-weight: 400;
     margin-bottom: 1.6rem;
     cursor: pointer;
     border-radius: 0.4rem;
+
+    @media(pointer:fine){
+      padding: 1.3rem;
+    }
 
     // this <label>'s class has its counterpart on the <span> inside
     &.js-progress {
@@ -173,13 +181,17 @@
 
   // <button> SUBMIT THE MEAL BUTTON THAT IS INVISIBLE BEFORE AN IMAGE IS CHOSEN
   &__submit {
-    padding: 0.8rem;
+    padding: 2rem;
     width: 100%;
     border: none;
     cursor: pointer;
     font-size: 1.6rem;
     background-color: inherit;
     color: currentColor;
+
+    @media (pointer: fine) {
+      padding: 1rem;
+    }
   }
 
   // <div> PROGRESS BAR THAT OVERLAPS THE SUBMIT BUTTON

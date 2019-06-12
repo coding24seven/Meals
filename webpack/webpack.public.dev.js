@@ -7,13 +7,16 @@ module.exports = merge(common, {
   devServer: {
     // host: 'localhost',
     port: '8080', // devserver errors and does not refresh without 'port' property!
-    // 'contentBase' is directories served and auto-refreshed
-    contentBase: [path.join(process.cwd(), 'server-source/views')],
+    // 'contentBase' is directories served and auto refreshed
+    contentBase: [
+      path.join(process.cwd(), 'server-source/views'),
+      path.join(process.cwd(), 'public/images')
+    ],
     // 'watchContentBase' enables auto-refresh contentBase on changes
     watchContentBase: true,
     // publicPath: '/', // url path where compiled files are served
     writeToDisk: true,
     compress: false,
-  } 
+  }
 }
 ) // merge ends
