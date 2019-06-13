@@ -8,7 +8,7 @@ export default function createMasonryLayout() {
 
   items.forEach(item => {
 
-    grid.style.alignItems = "start"; // so items do not stretch vertically
+    grid.style.alignItems = "start"; // without it, 'item.clientHeight' Returns wrong values
 
     // the number of rows for each particular item to span
     const noOfRowsToSpan = Math.ceil((item.clientHeight + rowGapHeight) / (rowHeight + rowGapHeight)) + 1;
