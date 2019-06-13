@@ -6,7 +6,14 @@ $max-photo-height: 50rem;
 $color-meal-box-heading: #253c98;
 
 /// BREAKPOINTS (importable in js files)
+// below this value, a shorter header is being displayed
 $bp-header: 27em; // EMs = 432px
 :export {
   bp_header: $bp-header;
+}
+
+// below this value, only one column is being displayed
+$bp-one-column: 46.875em; // = 750px
+:export {
+  bp_one_column: $bp-one-column;
 }

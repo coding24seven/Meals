@@ -31,7 +31,8 @@
     margin-left: 0;
   }
 
-  @media (max-width: em(750)) {
+  // one column
+  @media (max-width: $bp-one-column) {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

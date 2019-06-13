@@ -8,6 +8,11 @@ const state = {
       true : false;
   },
 
+  // Return true if only one column is being displayed
+  oneColumnIsDisplayed: function () {
+    return (this.getBrowserState().viewportWidth <= parseFloat(scss_vars.bp_one_column));
+  },
+
   // get browser viewport width in 'em' unit, font size in 'px' unit
   getBrowserState: function () {
 

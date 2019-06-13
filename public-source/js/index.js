@@ -17,8 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
   //. ADD ALL EVENT LISTENERS
   applyEventListeners();
 
-  window.onload = createMasonryLayout;
-  window.onresize = createMasonryLayout;
+  // for creating a masonry layout
+  ['load', 'resize'].forEach(e =>
+    window.addEventListener(e, function () {
+      // abort if only one column is being displayed
+      if (state.oneColumnIsDisplayed()) return;
+      createMasonryLayout();
+    }, false)
+  );
 
   //. SWITCH TO THE STORED FOREIGN LANGUAGE
   updateLanguage();
