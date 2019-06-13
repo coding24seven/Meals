@@ -6,14 +6,36 @@
   margin: 6rem auto 1rem; // compensate for the fixed navbar
   margin: 6rem auto 1rem; // compensate for the fixed navbar
   animation: opacityChange 3s 1s forwards;
-  // display: flex;
-  // justify-content: center;
-  // flex-wrap: wrap;
   display: grid;
   grid-gap: 10px;
   grid-auto-rows: 20px;
   grid-template-columns: repeat(auto-fill, minmax(36rem, 1fr));
 
+  @media(max-width: em(1200)){
+    margin-right: 15rem;
+    margin-left: 15rem;
+  }
+
+  @media(max-width: em(1060)){
+    margin-right: 12rem;
+    margin-left: 12rem;
+  }
+
+  @media(max-width: em(1000)){
+    margin-right: 6rem;
+    margin-left: 6rem;
+  }
+
+  @media(max-width: em(900)){
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  @media (max-width: em(750)) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 
 //. <figure> MEAL BOX - FRAMES EACH INDIVIDUAL MEAL
@@ -22,13 +44,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // width: 36rem;
   border: $grey-line;
   margin: 1rem;
   padding: 0.4rem;
   border-radius: 0.4rem;
   cursor: crosshair;
   overflow: hidden;
+
+  @media (max-width: em(750)) {
+    width: 36rem;
+  }
 
   @media only screen and (max-width: em(400)) {
     width: 100%;
@@ -55,7 +80,6 @@
     position: relative;
     width: 100%;
     max-height: $max-photo-height;
-    overflow: hidden;
     @media only screen and (max-width: em(400)) {
       height: auto;
     }

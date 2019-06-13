@@ -11,10 +11,10 @@ export default function createMasonryLayout() {
     grid.style.alignItems = "start"; // so items do not stretch vertically
 
     // the number of rows for each particular item to span
-    const noOfRowsToSpan = Math.ceil((item.clientHeight + rowGapHeight) / (rowHeight + rowGapHeight));
+    const noOfRowsToSpan = Math.ceil((item.clientHeight + rowGapHeight) / (rowHeight + rowGapHeight)) + 1;
 
     item.style.gridRowEnd = "span " + noOfRowsToSpan;
-    
+
   })
 
   grid.removeAttribute("style"); // so all column gaps are the same size
