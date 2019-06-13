@@ -7,8 +7,8 @@
   margin: 6rem auto 1rem; // compensate for the fixed navbar
   animation: opacityChange 3s 1s forwards;
   display: grid;
-  grid-gap: 10px;
-  grid-auto-rows: 20px;
+  grid-gap: 1rem;
+  grid-auto-rows: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(36rem, 1fr));
 
   @media(max-width: em(1200)){
@@ -179,7 +179,7 @@
   // <p> COOKED TIMES COUNTER
   &__cooked-times-counter {
     padding-top: 0.3rem;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.1rem;
     color: #531445;
     font-size: 1.6rem;
 
