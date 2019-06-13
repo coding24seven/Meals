@@ -48,7 +48,7 @@
   &__photo-box {
     position: relative;
     width: 100%;
-    height: $photo-height;
+    max-height: $photo-height;
     overflow: hidden;
     @media only screen and (max-width: em(400)) {
       height: auto;
@@ -59,7 +59,7 @@
   &__photo {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: all 0.4s;
     // trying for smoother effects
     filter: blur(0.0000001px) brightness(100%);
