@@ -9,7 +9,8 @@ server
 public/bundle.js
 public/main.css
 my-devil
-database/meal-photos
+meals.json
+meal-photos
 
 # output file on linux
 nohup.out
