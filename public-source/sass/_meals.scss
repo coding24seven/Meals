@@ -54,7 +54,7 @@
   &__photo-box {
     position: relative;
     width: 100%;
-    max-height: $photo-height;
+    max-height: $max-photo-height;
     overflow: hidden;
     @media only screen and (max-width: em(400)) {
       height: auto;
