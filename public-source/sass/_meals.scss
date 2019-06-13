@@ -4,10 +4,16 @@
   opacity: 0;
   max-width: 117rem;
   margin: 6rem auto 1rem; // compensate for the fixed navbar
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  margin: 6rem auto 1rem; // compensate for the fixed navbar
   animation: opacityChange 3s forwards;
+  // display: flex;
+  // justify-content: center;
+  // flex-wrap: wrap;
+  display: grid;
+  grid-gap: 10px;
+  grid-auto-rows: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(36rem, 1fr));
+
 }
 
 //. <figure> MEAL BOX - FRAMES EACH INDIVIDUAL MEAL
@@ -16,7 +22,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 36rem;
+  // width: 36rem;
   border: $grey-line;
   margin: 1rem;
   padding: 0.4rem;

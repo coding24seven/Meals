@@ -2,6 +2,7 @@ import applyEventListeners from './event-listeners';
 import updateLanguage from './update-language';
 import getDate from '../../shared/get-date';
 import state from './state';
+import createMasonryLayout from './masonry';
 
 /// unique page identifier: page-id-index
 
@@ -15,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //. ADD ALL EVENT LISTENERS
   applyEventListeners();
+
+  window.onload = createMasonryLayout;
+  window.onresize = createMasonryLayout;
 
   //. SWITCH TO THE STORED FOREIGN LANGUAGE
   updateLanguage();
@@ -42,3 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 });
+
+
+
