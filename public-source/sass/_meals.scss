@@ -93,7 +93,7 @@
     text-align: center;
     letter-spacing: 0.1rem;
 
-    // touchscreen only mode: the button is permanently displayed (to be overriden if mouse is present)
+    // touchscreen only mode: the button is permanently displayed (to be overriden if a mouse is present)
     width: 100%;
     padding: 1rem 0 0.6rem;
     background: linear-gradient(to right, $color-meal-box-heading, #254b98);
@@ -106,8 +106,8 @@
       font-size: 1.7rem;
     }
 
-    // if a mouse is present and the screen is larger than 400px - the button slides down the photo instead of being permanently displayed
-    @media (pointer: fine) and (min-width: em(400)) {
+    // if a mouse is present and the viewport >= min-width - the button slides down the photo instead of being permanently displayed
+    @media (pointer: fine) and (min-width: em(401)) {
       width: 97%; // so it does not stretch beyond the photo
       padding: 1rem 0 0.7rem;
       opacity: 0.4;
