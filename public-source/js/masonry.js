@@ -1,21 +1,38 @@
 
-export default function createMasonryLayout() {
+export default function createMasonryLayout(noOfColumnsDisplayed) {
 
-  const grid = document.querySelector(".meals-container");
-  const items = document.querySelectorAll(".meal-box");
-  const rowHeight = parseInt(getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-  const rowGapHeight = parseInt(getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+  const container = document.querySelector(".meals-container");
+
+  // abort if only one column is being displayed
+  if (noOfColumnsDisplayed === 1) {
+    container.style = "";
+    return;
+  }
+
+  const items = Array.from(container.children);
+
+  let heightOfAllItems = 0;
 
   items.forEach(item => {
 
-    grid.style.alignItems = "start"; // without it, 'item.clientHeight' Returns wrong values
+    const height = item.clientHeight;
 
-    // the number of rows for each particular item to span
-    const noOfRowsToSpan = Math.ceil((item.clientHeight + rowGapHeight) / (rowHeight + rowGapHeight)) + 1;
+    let margins = 0;
+    ['marginTop', 'marginBottom'].forEach(margin => margins += parseFloat(getComputedStyle(item)[margin]))
 
-    item.style.gridRowEnd = "span " + noOfRowsToSpan;
+    let paddings = 0;
+    ['paddingTop', 'paddingBottom'].forEach(padding => paddings += parseFloat(getComputedStyle(item)[padding]))
+
+    let borders = 0;
+    ['borderTop', 'borderBottom'].forEach(border => borders += parseFloat(getComputedStyle(item)[border]))
+
+    heightOfAllItems += height + borders + paddings + margins;
 
   })
 
-  grid.removeAttribute("style"); // so all column gaps are the same size
+  // to make sure the last element fits without an extra column getting auto created
+  const safetyNet = 50; // px
+
+  container.style.height = Math.ceil(heightOfAllItems / noOfColumnsDisplayed) + safetyNet + "px";
+
 }

@@ -20,9 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // for creating a masonry layout
   ['load', 'resize'].forEach(e =>
     window.addEventListener(e, function () {
+      const noOfColumnsDisplayed = state.getNoOfColumnsDisplayed();
+      console.log("noOfColumnsDisplayed", noOfColumnsDisplayed)
       // abort if only one column is being displayed
-      if (state.oneColumnIsDisplayed()) return;
-      createMasonryLayout();
+      // if (noOfColumnsDisplayed === 1) return;
+      createMasonryLayout(noOfColumnsDisplayed);
     }, false)
   );
 

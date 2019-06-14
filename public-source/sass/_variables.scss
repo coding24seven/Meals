@@ -6,14 +6,21 @@ $max-photo-height: 50rem;
 $color-meal-box-heading: #253c98;
 
 /// BREAKPOINTS (importable in js files)
-// below this value, a shorter header is being displayed
+// from this value down, a shorter header is being displayed
 $bp-header: 27em; // EMs = 432px
 :export {
   bp_header: $bp-header;
 }
 
-// below this value, only one column is being displayed
-$bp-one-column: 46.875em; // = 750px
+// from this value down to the next bp, two colums are being displayed
+// $bp-two-columns: 72.25em; // = 1156px
+$bp-two-columns: 76.25em; // = 1220px
+:export {
+  bp_two_columns: $bp-two-columns;
+}
+
+// from this value down, only one column is being displayed
+$bp-one-column: 48.75em; // = 780px
 :export {
   bp_one_column: $bp-one-column;
 }

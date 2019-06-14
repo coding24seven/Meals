@@ -3,39 +3,23 @@
 .meals-container {
   opacity: 0;
   max-width: 117rem;
-  margin: 6rem auto 1rem; // compensate for the fixed navbar
-  margin: 6rem auto 1rem; // compensate for the fixed navbar
+  margin: 6rem auto 1rem; // margin-top: compensate for the fixed navbar
   animation: opacityChange 3s 1s forwards;
-  display: grid;
-  grid-gap: 1rem;
-  grid-auto-rows: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(36rem, 1fr));
 
-  @media(max-width: em(1200)){
-    margin-right: 15rem;
-    margin-left: 15rem;
-  }
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
 
-  @media(max-width: em(1060)){
-    margin-right: 12rem;
-    margin-left: 12rem;
-  }
-
-  @media(max-width: em(1000)){
-    margin-right: 6rem;
-    margin-left: 6rem;
-  }
-
-  @media(max-width: em(900)){
-    margin-right: 0;
-    margin-left: 0;
+  // two columns
+  @media (max-width: $bp-two-columns) {
+    max-width: $bp-two-columns;
   }
 
   // one column
   @media (max-width: $bp-one-column) {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    max-width: $bp-one-column;
   }
 }
 
@@ -51,13 +35,13 @@
   border-radius: 0.4rem;
   cursor: crosshair;
   overflow: hidden;
+  width: 36rem;
 
-  @media (max-width: em(750)) {
-    width: 36rem;
+  @media (max-width: $bp-one-column) {
   }
 
   @media only screen and (max-width: em(400)) {
-    width: 100%;
+    width: 98%; // 100% does not fit in
     margin: 0.4rem;
   }
 
@@ -76,13 +60,14 @@
     }
   }
 
-  //, <div> PHOTO BOX CONTAINS PHOTO, BUTTON
+  //, <div> PHOTO BOX CONTAINS PHOTO, FLOATING BUTTON
   &__photo-box {
     position: relative;
     width: 100%;
     max-height: $max-photo-height;
-    @media only screen and (max-width: em(400)) {
-      height: auto;
+    overflow: hidden;
+    @media only (max-width: 400) {
+      // max-height: auto;
     }
   }
 
@@ -95,10 +80,6 @@
     // trying for smoother effects
     filter: blur(0.0000001px) brightness(100%);
     transform: scale(1);
-
-    @media only screen and (max-width: em(400)) {
-      object-fit: contain;
-    }
   }
 
   // <button> BUTTON COOKED TODAY
