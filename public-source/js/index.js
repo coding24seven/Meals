@@ -1,3 +1,4 @@
+import { indexElement } from './elements';
 import applyEventListeners from './event-listeners';
 import updateLanguage from './update-language';
 import getDate from '../../shared/get-date';
@@ -14,24 +15,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log('page-id-index loaded');
 
-  //. ADD ALL EVENT LISTENERS
+  //. SWITCH TO THE STORED FOREIGN LANGUAGE
+  updateLanguage();
+
+  //. ADD EVENT LISTENERS
+
+  //, SITE-WIDE EVENT LISTENERS
   applyEventListeners();
 
-  // for creating a masonry layout
+  //, FOR CREATING A MASONRY LAYOUT
   ['load', 'resize'].forEach(e =>
     window.addEventListener(e, function () {
       const noOfColumnsDisplayed = state.getNoOfColumnsDisplayed();
       console.log("noOfColumnsDisplayed", noOfColumnsDisplayed)
-      // abort if only one column is being displayed
-      // if (noOfColumnsDisplayed === 1) return;
       createMasonryLayout(noOfColumnsDisplayed);
     }, false)
   );
 
-  //. SWITCH TO THE STORED FOREIGN LANGUAGE
-  updateLanguage();
+  //, ALL MEAL BOXES
+  indexElement.allMealBoxes.forEach(mealBox => {
+    // when the mouse enters a meal box, the button moves into view and slides down the image
+    mealBox.onmouseenter = function (e) {
+      const button = e.target.querySelector(".meal-box__button");
+      const image = e.target.querySelector(".meal-box__photo");
+      const offset = image.clientHeight / 2 + 46;
+      button.style.transform = "translateY(" + offset + "px)";
+    }
 
-  //. COOKED TODAY handled here
+    // when the mouse leaves a meal box, the button moves out of view
+    mealBox.onmouseleave = function (e) {
+      const button = e.target.querySelector(".meal-box__button");
+      button.style.transform = "translateY(0)";
+    }
+  });
+
+  //, 'MADE TODAY' BUTTON LOGIC
   const todaysDate = getDate();
 
   // all 'made today' buttons

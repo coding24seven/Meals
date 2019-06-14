@@ -56,7 +56,6 @@
     @media (pointer: fine) and (min-width: em(400)) {
       visibility: visible;
       opacity: 1;
-      transform: translateY(18rem);
     }
   }
 
@@ -82,7 +81,7 @@
     transform: scale(1);
   }
 
-  // <button> BUTTON COOKED TODAY
+  // <button> BUTTON COOKED TODAY - shows up when a meal box is hovered. slide effect handled by js
   &__button {
     color: white;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);

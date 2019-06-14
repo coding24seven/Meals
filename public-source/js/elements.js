@@ -15,8 +15,11 @@ export const footerElement = {
   copyright: document.querySelector(".footer-copyright")
 }
 
-/// INDEX PAGE ELEMENTS
+/// INDEX (MEALS) PAGE ELEMENTS
 export const indexElement = {
+  // ALL MEAL BOXES
+  allMealBoxes: document.querySelectorAll(".meal-box"),
+
   // ALL 'MEAL MADE TODAY' BUTTONS
   allCookedTodayButtons: document.querySelectorAll(".meal-box__button"),
 
@@ -114,4 +117,4 @@ const elementTransform = {
   }
 }
 export default elementTransform;
-/// A SET OF FUNCTIONS ENDS 
+/// A SET OF FUNCTIONS ENDS
