@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener(e, function () {
       //, WHEN A MEAL BOX IS HOVERED
-      const buttonIsHidden = state.getBrowserState().viewportWidth >= parseFloat(scss_vars.bp_hidden_button);
-      console.log(buttonIsHidden);
+      const pointerIsFine = matchMedia('(pointer:fine)').matches;
+      const buttonIsHidden = state.getBrowserState().viewportWidth >= parseFloat(scss_vars.bp_hidden_button) && pointerIsFine;
 
       indexElement.allMealBoxes.forEach(mealBox => {
         // when the mouse enters a meal box, the hidden button moves into view and slides down the image
