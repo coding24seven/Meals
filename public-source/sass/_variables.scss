@@ -6,8 +6,16 @@ $max-photo-height: 50rem;
 $color-meal-box-heading: #253c98;
 
 /// BREAKPOINTS (importable in js files)
+
+// from this value up, a permanent 'made today' button is being displayed
+// below this value, the 'made today' button is hidden
+$bp-hidden-button: 25em; // = 400px
+:export {
+  bp_hidden_button: $bp-hidden-button;
+}
+
 // from this value down, a shorter header is being displayed
-$bp-header: 27em; // EMs = 432px
+$bp-header: 27em; // = 432px
 :export {
   bp_header: $bp-header;
 }

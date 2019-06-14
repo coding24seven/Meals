@@ -40,20 +40,21 @@
   @media (max-width: $bp-one-column) {
   }
 
-  @media only screen and (max-width: em(400)) {
+  @media only screen and (max-width: $bp-hidden-button) {
     width: 98%; // 100% does not fit in
     margin: 0.4rem;
   }
 
-  // transform a meal photo when hovered
+  // transform a meal image when meal box hovered
   &:hover &__photo {
-    @media (pointer: fine) and (min-width: em(400)) {
+    @media (pointer: fine) and (min-width: $bp-hidden-button) {
       filter: blur(2px) brightness(60%);
       transform: scale(1.1);
     }
   }
+  // transform a meal button when meal box hovered
   &:hover &__button {
-    @media (pointer: fine) and (min-width: em(400)) {
+    @media (pointer: fine) and (min-width: $bp-hidden-button) {
       visibility: visible;
       opacity: 1;
     }
@@ -65,9 +66,6 @@
     width: 100%;
     max-height: $max-photo-height;
     overflow: hidden;
-    @media only (max-width: 400) {
-      // max-height: auto;
-    }
   }
 
   // <img> MEAL PHOTO
@@ -101,12 +99,12 @@
     border-bottom-left-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
     outline: none;
-    @media (max-width: em(400)) {
+    @media (max-width: $bp-hidden-button) {
       font-size: 1.7rem;
     }
 
     // if a mouse is present and the viewport >= min-width - the button slides down the photo instead of being permanently displayed
-    @media (pointer: fine) and (min-width: em(401)) {
+    @media (pointer: fine) and (min-width: $bp-hidden-button) {
       width: 97%; // so it does not stretch beyond the photo
       padding: 1rem 0 0.7rem;
       opacity: 0.4;

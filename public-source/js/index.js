@@ -3,11 +3,12 @@ import applyEventListeners from './event-listeners';
 import updateLanguage from './update-language';
 import getDate from '../../shared/get-date';
 import state from './state';
+import scss_vars from '../sass/_variables.scss'
 import createMasonryLayout from './masonry';
 
 /// unique page identifier: page-id-index
 
-/// WHEN PAGE IS LOADED
+/// WHEN THE PAGE MARKUP IS LOADED
 document.addEventListener("DOMContentLoaded", function () {
 
   // abort the function if a mismatching page has been loaded
@@ -18,38 +19,44 @@ document.addEventListener("DOMContentLoaded", function () {
   //. SWITCH TO THE STORED FOREIGN LANGUAGE
   updateLanguage();
 
-  //. ADD EVENT LISTENERS
-
-  //, SITE-WIDE EVENT LISTENERS
+  //. SITE-WIDE EVENT LISTENERS
   applyEventListeners();
 
-  //, FOR CREATING A MASONRY LAYOUT
-  ['load', 'resize'].forEach(e =>
+  //. WHEN THE PAGE IS FULLY LOADED OR RESIZED
+  ['load', 'resize'].forEach(e => {
+
     window.addEventListener(e, function () {
+      //, WHEN A MEAL BOX IS HOVERED
+      const buttonIsHidden = state.getBrowserState().viewportWidth >= parseFloat(scss_vars.bp_hidden_button);
+      console.log(buttonIsHidden);
+
+      indexElement.allMealBoxes.forEach(mealBox => {
+        // when the mouse enters a meal box, the hidden button moves into view and slides down the image
+        mealBox.onmouseenter = buttonIsHidden ?
+          function (e) {
+            const button = e.target.querySelector(".meal-box__button");
+            const image = e.target.querySelector(".meal-box__photo");
+            const offset = image.clientHeight / 2 + 46;
+            button.style.transform = "translateY(" + offset + "px)";
+          }
+          : null; // remove event listener if button permanent
+
+        // when the mouse leaves a meal box, the button moves out of view
+        mealBox.onmouseleave = buttonIsHidden ?
+          function (e) {
+            const button = e.target.querySelector(".meal-box__button");
+            button.style.transform = "translateY(0)";
+          }
+          : null; // remove event listener if button permanent
+      });
+      //, FOR CREATING A MASONRY LAYOUT
       const noOfColumnsDisplayed = state.getNoOfColumnsDisplayed();
       console.log("noOfColumnsDisplayed", noOfColumnsDisplayed)
       createMasonryLayout(noOfColumnsDisplayed);
     }, false)
-  );
-
-  //, ALL MEAL BOXES
-  indexElement.allMealBoxes.forEach(mealBox => {
-    // when the mouse enters a meal box, the button moves into view and slides down the image
-    mealBox.onmouseenter = function (e) {
-      const button = e.target.querySelector(".meal-box__button");
-      const image = e.target.querySelector(".meal-box__photo");
-      const offset = image.clientHeight / 2 + 46;
-      button.style.transform = "translateY(" + offset + "px)";
-    }
-
-    // when the mouse leaves a meal box, the button moves out of view
-    mealBox.onmouseleave = function (e) {
-      const button = e.target.querySelector(".meal-box__button");
-      button.style.transform = "translateY(0)";
-    }
   });
 
-  //, 'MADE TODAY' BUTTON LOGIC
+  //. 'MADE TODAY' BUTTON LOGIC
   const todaysDate = getDate();
 
   // all 'made today' buttons
