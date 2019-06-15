@@ -24,7 +24,9 @@ export default function createMasonryLayout(noOfColumnsDisplayed) {
     ['paddingTop', 'paddingBottom'].forEach(padding => paddings += parseFloat(getComputedStyle(item)[padding]))
 
     let borders = 0;
-    ['borderTop', 'borderBottom'].forEach(border => borders += parseFloat(getComputedStyle(item)[border]))
+    ['borderTop', 'borderBottom'].forEach(border => borders += getComputedStyle(item)[border] ?
+      parseFloat(getComputedStyle(item)[border])
+      : 1) // '1' because glitchy firefox Returns no value for 'borderTop'
 
     heightOfAllItems += height + borders + paddings + margins;
 
@@ -32,7 +34,6 @@ export default function createMasonryLayout(noOfColumnsDisplayed) {
 
   // to make sure the last element fits without an extra column getting auto created
   const safetyNet = 50; // px
-
   container.style.height = Math.ceil(heightOfAllItems / noOfColumnsDisplayed) + safetyNet + "px";
 
 }
