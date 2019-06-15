@@ -2,14 +2,14 @@
 export default function createMasonryLayout(noOfColumnsDisplayed) {
 
   const container = document.querySelector(".meals-container");
+  const items = Array.from(container.children);
 
   // reset masonry-critical 'container height' if only one column is being displayed
-  if (noOfColumnsDisplayed === 1) {
+  if (noOfColumnsDisplayed === 1 || items.length === 1) {
     container.style.height = "";
   }
   // build the masonry layout since at least two columns are being displayed
   else {
-    const items = Array.from(container.children);
 
     let heightOfAllItems = 0;
 
@@ -29,11 +29,20 @@ export default function createMasonryLayout(noOfColumnsDisplayed) {
       heightOfAllItems += height + borders + paddings + margins;
     })
 
-    // to make sure the last element fits without an extra column getting auto created
-    const safetyNet = 50; // px
-    container.style.height = Math.ceil(heightOfAllItems / noOfColumnsDisplayed) + safetyNet + "px";
+    // make sure the container height is enough for all elements to fit in without an extra column getting auto created
+    let mHsK = 0; // a.k.a. 'merciless horizontal-scrollbar killer' in px
+    do {
+      container.style.height = Math.ceil(heightOfAllItems / noOfColumnsDisplayed) + mHsK + "px";
+      mHsK += 40;
+    } while (detectHorizontalScrollbar());
   }
 
-  // make the container visible, whether masonry layout or single-column layout
+  // make the container visible regardless of the applied layout
   container.style.visibility = "visible"; // 'hidden' in css
+
+  function detectHorizontalScrollbar() {
+    const root = document.compatMode === 'BackCompat' ?
+      document.body : document.documentElement;
+    return root.scrollWidth > root.clientWidth;
+  }
 }
