@@ -83,14 +83,11 @@ export const newMealElement = {
 const elementTransform = {
 
   //. SET MODIFIED/UNMODIFIED TEXT IN AN ELEMENT
-  setText: function (element, modifier, preventUpdateLanguage) {
+  setText: function (element, modifier) {
     // a modifer such as {type: x, message: y} sets the corresponding text
     // falsy modifier, such as null, restores the original text
-    element.modifier = modifier
-
-    // preventUpdateLanguage is called by default
-    // do not call updateLanguage if preventUpdateLanguage is truthy
-    !preventUpdateLanguage && updateLanguage()
+    element.modifier = modifier;
+    updateLanguage();
   },
 
   //. ENABLE/DISABLE AN ELEMENT VIA CSS

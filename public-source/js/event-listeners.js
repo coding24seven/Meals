@@ -6,17 +6,17 @@ import elementTransform, { headerElement } from './elements';
 function applyEventListeners() {
 
   //. viewport resized
-  window.addEventListener('resize', function () {
+  ['DOMContentLoaded', 'resize'].forEach(e => {
 
-    // set the header-brand variant according to the header width
-    elementTransform.setText(headerElement.brand,
-      state.headerTextIsFull() ?
-        null // long header means no modification
-        : { type: "short" } // the header is short
-    )
-  });
-
-
+    window.addEventListener(e, function () {
+      elementTransform.setText(
+        headerElement.brand,
+        state.headerTextIsFull() ?
+          null // long header means no modifications
+          : { type: "short" } // sets the modifier for the short header
+      )
+    }, false);
+  })
   //. all clickable language labels such as country flags
   const allLanguageLabels = document.querySelectorAll(".language__label");
   allLanguageLabels.forEach(label => {

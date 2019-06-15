@@ -46,25 +46,15 @@ export default function updateLanguage() {
   //. THE BRAND NAME IN THE HEADER
   // check if the element(s) exists on the currently loaded page before you place any text in it
   if (headerElement.brand) {
-
-    // set the header-brand variant according to the header width
-    elementTransform.setText(
-      headerElement.brand,
-      state.headerTextIsFull() ?
-        null // long header means no modifications
-        : { type: "short" }, // sets the modifier for the short header
-      true // prevent calling self (updateLanguage)
-    )
-
-    // this element's text will require extra modification (if modifier property present), or it will not
-    const modifier = headerElement.brand.modifier
+    // this element's text will require extra modification if modifier property present, or it will not
+    const modifier = headerElement.brand.modifier;
 
     headerElement.brand.innerHTML = modifier ?
       text.headerBrand[modifier.type][language]
       : text.headerBrand[language]
   }
 
-  //. ADD A MEAL IN THE HEADER
+  //. 'ADD A MEAL' IN THE HEADER
   if (headerElement.addMeal) {
     headerElement.addMeal.innerHTML = text.headerAddMeal[language];
   }

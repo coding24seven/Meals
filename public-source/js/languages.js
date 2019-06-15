@@ -13,7 +13,7 @@ const text = {
     short: {
       pl: "Kuchnia",
       en: "Meals"
-    },
+    }
   },
 
   // ADD A MEAL IN THE HEADER 

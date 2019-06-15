@@ -31,7 +31,8 @@ const updateDomOn = {
 
     // display 'image loading...' message on the file-picking label
     elementTransform.setText(newMealElement.pickImageText, {
-      type: "image loading", midMessage: ""
+      type: "image loading",
+      midMessage: ""
     });
   },
 
