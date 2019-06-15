@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       //, FOR CREATING A MASONRY LAYOUT
       const noOfColumnsDisplayed = state.getNoOfColumnsDisplayed();
-      console.log("noOfColumnsDisplayed", noOfColumnsDisplayed)
+      console.log("noOfColumnsDisplayed:", noOfColumnsDisplayed)
       createMasonryLayout(noOfColumnsDisplayed);
     }, false)
   });
