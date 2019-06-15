@@ -22,7 +22,7 @@ function applyEventListeners() {
   allLanguageLabels.forEach(label => {
     label.addEventListener("click", () => {
       // give a radio button time to toggle before your function checks which one is checked now
-      setTimeout(() => { updateLanguage(); }, 1);
+      setTimeout(updateLanguage(), 1);
     });
   });
 }

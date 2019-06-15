@@ -24,9 +24,7 @@ const clients = {
 
   // clears the client list after the time specified
   clear: function (interval) {
-    setTimeout(() => {
-      this.list = []
-    }, interval)
+    setTimeout(this.list = [], interval)
   }
 }
 

@@ -90,7 +90,7 @@ export default function handleFilePicked(event) {
           ].join('');
           elementTransform.show(newMealElement.imagePreview);
           // allow the imagePreview to update first before you check its height
-          setTimeout(() => cbRunner[cbIndex](), 1);
+          setTimeout(cbRunner[cbIndex](), 1);
         }
 
         // makes sure the image preview has displayed correctly

@@ -82,9 +82,7 @@ const updateDomOn = {
     elementTransform.enable(newMealElement.pickImageLabel, true);
     newMealElement.uploadProgressBarFill.classList.add('js-retract');
     newMealElement.uploadProgressBarFill.style.width = 0;
-    setTimeout(() => {
-      newMealElement.uploadProgressBarFill.classList.remove('js-retract');
-    }, 1000);
+    setTimeout(newMealElement.uploadProgressBarFill.classList.remove('js-retract'), 1000);
   }
 
   ///
