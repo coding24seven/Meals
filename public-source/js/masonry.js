@@ -24,12 +24,9 @@ export default function createMasonryLayout(noOfColumnsDisplayed) {
     ['paddingTop', 'paddingBottom'].forEach(padding => paddings += parseFloat(getComputedStyle(item)[padding]))
 
     let borders = 0;
-    ['borderTop', 'borderBottom'].forEach(border => borders += getComputedStyle(item)[border] ?
-      parseFloat(getComputedStyle(item)[border])
-      : 1) // '1' because glitchy firefox Returns no value for 'borderTop'
+    ['borderTop', 'borderBottom'].forEach(border => borders += parseFloat(getComputedStyle(item)[border]) || 1) // '1' because glitchy firefox Returns no value for 'borderTop'
 
     heightOfAllItems += height + borders + paddings + margins;
-
   })
 
   // to make sure the last element fits without an extra column getting auto created

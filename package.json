@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "develop": "npm-run-all --parallel develop-client develop-server",
-    "develop-server": "cross-env PORT=7777 IP=192.168.1.10 nodemon --watch server-source  --exec babel-node ./server-source/app.js",
+    "develop-server": "cross-env PORT=7777 IP=192.168.1.10 nodemon --watch server-source --exec babel-node ./server-source/app.js",
     "develop-client": "webpack-dev-server --config ./webpack/webpack.public.dev.js",
     "build-client": "webpack --config ./webpack/webpack.public.prod.js",
     "build-server": "webpack --config ./webpack/webpack.server.js",
