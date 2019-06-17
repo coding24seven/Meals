@@ -85,10 +85,10 @@
   },
   {
     "name": "Rosół",
-    "lastCookedOn": "22.04.2019",
+    "lastCookedOn": "15.06.2019",
     "image": "rosol.jpg",
     "id": 12,
-    "count": 6
+    "count": 7
   },
   {
     "name": "Paszteciki",
@@ -260,10 +260,10 @@
   },
   {
     "name": "Jaja sadzone",
-    "lastCookedOn": "25.05.2019",
-    "image": "8d34056ec4087887297e263e.jpg",
+    "lastCookedOn": "14.06.2019",
+    "image": "4c3f700aa810d0375008410f.jpg",
     "id": 37,
-    "count": 1
+    "count": 3
   },
   {
     "name": "Zupa pieczarkowa",
@@ -365,10 +365,17 @@
   },
   {
     "name": "Risotto warzywa kurczak sos musztardowo miodowy",
+<<<<<<< HEAD
+    "lastCookedOn": "17.06.2019",
+    "image": "fad4f28bf3f129e2a6eb1bbd.jpg",
+    "id": 52,
+    "count": 7
+=======
     "lastCookedOn": "07.06.2019",
     "image": "fad4f28bf3f129e2a6eb1bbd.jpg",
     "id": 52,
     "count": 6
+>>>>>>> 9d8374e287ac186a3d399538bd5cba0b4e9346c5
   },
   {
     "name": "Żurek",
@@ -463,10 +470,10 @@
   },
   {
     "name": "Kurczak w sosie Indyjskim z ryzem",
-    "lastCookedOn": "03.06.2019",
+    "lastCookedOn": "14.06.2019",
     "image": "tando.jpg",
     "id": 66,
-    "count": 4
+    "count": 5
   },
   {
     "name": "Sałatka Warzywna",
@@ -516,6 +523,8 @@
     "image": "da67b6210e0dfbb90d76067a.jpg",
     "id": 73,
     "count": 1
+<<<<<<< HEAD
+=======
   },
   {
     "name": "test",
@@ -523,5 +532,6 @@
     "image": "47fdd0d4bb2554a940bea8c3.jpg",
     "id": 75,
     "count": 0
+>>>>>>> 9d8374e287ac186a3d399538bd5cba0b4e9346c5
   }
 ]
