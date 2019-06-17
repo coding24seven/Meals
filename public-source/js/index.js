@@ -24,11 +24,11 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener(e, function () {
       //, WHEN A MEAL BOX IS HOVERED
       const pointerIsFine = matchMedia('(pointer:fine)').matches;
-      const buttonIsHidden = pointerIsFine && state.getBrowserState().viewportWidth >= parseFloat(scss_vars.bp_hidden_button);
+      const buttonIsReadyToEmerge = pointerIsFine && state.getBrowserState().viewportWidth >= parseFloat(scss_vars.bp_hidden_button);
 
       indexElement.allMealBoxes.forEach(mealBox => {
         // when the mouse enters a meal box, the hidden button moves into view and slides down the image
-        mealBox.onmouseenter = buttonIsHidden ?
+        mealBox.onmouseenter = buttonIsReadyToEmerge ?
           function (e) {
             const button = e.target.querySelector(".meal-box__button");
             const image = e.target.querySelector(".meal-box__photo");
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
           : null; // remove event listener if button permanent
 
         // when the mouse leaves a meal box, the button moves out of view
-        mealBox.onmouseleave = buttonIsHidden ?
+        mealBox.onmouseleave = buttonIsReadyToEmerge ?
           function (e) {
             const button = e.target.querySelector(".meal-box__button");
             button.style.transform = "translateY(0)";
