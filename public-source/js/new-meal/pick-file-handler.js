@@ -35,12 +35,13 @@ export default function handleFilePicked(event) {
           /*0*/ uploadableImage,
           // function arguments: this array, callback index
           /*1*/ function () { initiate(this, 2) }, // defined below in this module
-          /*2*/ function () { reduceImageResolution(this, 3, 6) }, // this, onload, onerror
+          /*2*/ function () { reduceImageResolution(this, 3, 7) }, // this, onload, onerror
           /*3*/ function () { convertToJpg(this, 4) },
           /*4*/ function () { conformToMaxImgSize(this, 5) },
-          /*5*/ function () { showImgPreview(this, 6) }, // defined below in this module
-          /*6*/ function () { checkImgPreview(this, 7) }, // defined below in this module
-          /*7*/ function () { rotateImage(this, 5) }
+          /*5*/ function () { changeFileExtToLowercaseJpg(this, 6) }, // in this module
+          /*6*/ function () { showImgPreview(this, 7) }, // in this module
+          /*7*/ function () { checkImgPreview(this, 8) }, // in this module
+          /*8*/ function () { rotateImage(this, 6) }
         ];
         // start the chain of callbacks
         cbRunner[1](); // cbRunner[5]() to skip image processing
@@ -74,6 +75,15 @@ export default function handleFilePicked(event) {
 
             cbRunner[cbIndex](); // call the first image-processing function
           }, 50);
+        }
+
+        // replaces the file extension with 'jpg'
+        function changeFileExtToLowercaseJpg(cbRunner, cbIndex) {
+          const uploadableImage = cbRunner[0];
+          let arr = uploadableImage.name.split('.')
+          arr[arr.length - 1] = 'jpg';
+          uploadableImage.name = arr.join('.');
+          cbRunner[cbIndex]();
         }
 
         // show the image preview

@@ -16,10 +16,7 @@ export default function convertToJpg(cbRunner, cbIndex) {
   // 'onload' fires each time the image is applied via the src attribute
   image.onload = function (imageEvent) {
 
-    // replace the file extension with 'jpg'
-    let arr = uploadableImage.name.split('.')
-    arr[arr.length - 1] = 'jpg';
-    uploadableImage.name = arr.join('.');
+    // warning: don't forget to replace the file extension with 'jpg' if this function is used outside of the context of this particular app, which handles that in another function
 
     uploadableImage.type = 'image/jpeg';
 
