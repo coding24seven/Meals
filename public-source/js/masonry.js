@@ -10,6 +10,8 @@ export default function createMasonryLayout(noOfColumnsDisplayed) {
   }
   // build the masonry layout since at least two columns are being displayed
   else {
+    // adjust the number of columns to divide by if there are more columns than items
+    if (noOfColumnsDisplayed > items.length) noOfColumnsDisplayed = items.length;
 
     let heightOfAllItems = 0;
 
