@@ -1,3 +1,4 @@
+export const languagesAvailable = ['en', 'pl'];
 
 const text = {
   // TITLE

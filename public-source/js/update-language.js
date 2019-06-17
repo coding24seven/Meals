@@ -1,30 +1,14 @@
-import state from './state'
-import text from './languages'
-import { headerElement } from './elements'
-import { footerElement } from './elements'
-import { indexElement } from './elements'
-import { newMealElement } from './elements'
-
-/// RETRIEVE AND STORE THE CURRENT LANGUAGE BASED ON RADIOBOXES
-const languagesAvailable = ['en', 'pl'];
-
-function getCurrentLanguage() {
-  return getCurrentLanguageFromRadios() || getCurrentLanguageFromLocalStorage() || languagesAvailable[0];
-}
-
-function getCurrentLanguageFromRadios() {
-  const radio = document.querySelector('input[type=radio]:checked');
-  const language = radio && radio.id;
-  return languagesAvailable.includes(language) && language;
-}
-
-function getCurrentLanguageFromLocalStorage() {
-  const { language } = localStorage;
-  return languagesAvailable.includes(language) && language;
-}
+import state from './state';
+import text from './languages';
+import { headerElement } from './elements';
+import { footerElement } from './elements';
+import { indexElement } from './elements';
+import { newMealElement } from './elements';
+import getCurrentLanguage from './get-language';
 
 /// CHANGE THE TEXT LANGUAGE
 export default function updateLanguage() {
+  
   const language = getCurrentLanguage();
   localStorage.language = language;
 
