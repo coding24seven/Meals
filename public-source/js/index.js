@@ -16,9 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log('page-id-index loaded');
 
-  //. SWITCH TO THE STORED FOREIGN LANGUAGE
-  updateLanguage();
-
   //. SITE-WIDE EVENT LISTENERS
   applyEventListeners();
 

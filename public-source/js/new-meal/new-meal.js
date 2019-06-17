@@ -43,8 +43,5 @@ if (document.getElementById('page-id-new-meal')) {
     this.classList.remove('js-error');
   })
 
-  //. UPDATE THE LANGUAGE (LOCALLY STORED OR DEFAULT)
-  updateLanguage();
-
   ///
 } //  end of 'if the matching page has been loaded'

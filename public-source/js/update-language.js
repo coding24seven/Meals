@@ -1,41 +1,32 @@
 import state from './state'
 import text from './languages'
-import elementTransform from './elements'
 import { headerElement } from './elements'
 import { footerElement } from './elements'
 import { indexElement } from './elements'
 import { newMealElement } from './elements'
 
+/// RETRIEVE AND STORE THE CURRENT LANGUAGE BASED ON RADIOBOXES
+const languagesAvailable = ['en', 'pl'];
+
+function getCurrentLanguage() {
+  return getCurrentLanguageFromRadios() || getCurrentLanguageFromLocalStorage() || languagesAvailable[0];
+}
+
+function getCurrentLanguageFromRadios() {
+  const radio = document.querySelector('input[type=radio]:checked');
+  const language = radio && radio.id;
+  return languagesAvailable.includes(language) && language;
+}
+
+function getCurrentLanguageFromLocalStorage() {
+  const { language } = localStorage;
+  return languagesAvailable.includes(language) && language;
+}
+
+/// CHANGE THE TEXT LANGUAGE
 export default function updateLanguage() {
-  /// RETRIEVE AND STORE THE CURRENT LANGUAGE BASED ON RADIOBOXES
-  const languagesAvailable = ['en', 'pl'];
-  let language = null;
-
-  let checkedRadio; // radio button that is checked
-  const allInputElements = document.getElementsByTagName('input');
-  //check all input elements and find one that is a radio button and is checked, if any
-  for (let i = 0; i < allInputElements.length; i++) {
-    if (allInputElements[i].type === 'radio' && allInputElements[i].checked) {
-      checkedRadio = allInputElements[i];
-      language = checkedRadio.id;
-      localStorage.language = language;
-      break;
-    }
-  }
-
-  // case no radio button checked, so 'language' == null
-  if (!languagesAvailable.includes(language)) {
-    if (languagesAvailable.includes(localStorage.language)) {
-      // a valid language is in local storage
-      language = localStorage.language;
-    }
-    // neither 'language' nor local storage contain a valid value
-    else {
-      localStorage.language = language = languagesAvailable[0];
-    }
-  }
-
-  /// CHANGE THE TEXT LANGUAGE
+  const language = getCurrentLanguage();
+  localStorage.language = language;
 
   //. TITLE
   document.title = text.title[language];

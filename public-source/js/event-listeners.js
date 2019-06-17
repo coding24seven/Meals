@@ -5,7 +5,7 @@ import elementTransform, { headerElement } from './elements';
 /// apply all site-wide listeners
 function applyEventListeners() {
 
-  //. viewport resized
+  //. DOMContentLoaded or viewport resized: language is updated
   ['DOMContentLoaded', 'resize'].forEach(e => {
 
     window.addEventListener(e, function () {
