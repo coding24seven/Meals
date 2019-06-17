@@ -48,14 +48,13 @@
   &__photo-box {
     position: relative;
     width: 100%;
-    max-height: $max-photo-height;
     overflow: hidden;
   }
-
+  
   // <img> MEAL PHOTO
   &__photo {
     width: 100%;
-    height: 100%;
+    max-height: $max-image-height;
     object-fit: contain;
     transition: all 0.4s;
     // trying for smoother effects
