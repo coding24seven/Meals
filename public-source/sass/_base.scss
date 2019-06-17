@@ -17,5 +17,8 @@ html {
 /// <body>
 body {
   font-family: $font-family;
-  min-height: 100vh; // to push down the footer on small-height pages
+  min-height: 100vh; // to push down the footer on low-height pages
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

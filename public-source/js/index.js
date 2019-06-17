@@ -1,6 +1,5 @@
 import { indexElement } from './elements';
 import applyEventListeners from './event-listeners';
-import updateLanguage from './update-language';
 import getDate from '../../shared/get-date';
 import state from './state';
 import scss_vars from '../sass/_variables.scss'

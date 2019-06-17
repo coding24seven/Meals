@@ -2,23 +2,12 @@
 /// CONTAINER WITH ALL MEAL BOXES
 .meals-container {
   visibility: hidden; // set to visible by 'masonry.js/
-  max-width: 117rem;
   margin: 6rem auto 1rem; // margin-top: compensate for the fixed navbar
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-
-  // two columns
-  @media (max-width: $bp-two-columns) {
-    max-width: $bp-two-columns;
-  }
-
-  // one column
-  @media (max-width: $bp-one-column) {
-    max-width: $bp-one-column;
-  }
 }
 
 //. <figure> MEAL BOX - FRAMES EACH INDIVIDUAL MEAL
@@ -35,11 +24,8 @@
   overflow: hidden;
   width: 36rem;
 
-  @media (max-width: $bp-one-column) {
-  }
-
   @media only screen and (max-width: $bp-hidden-button) {
-    width: 98%; // 100% does not fit in
+    width: 100%;
     margin: 0.4rem;
   }
 
