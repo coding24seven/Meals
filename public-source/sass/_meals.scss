@@ -47,19 +47,16 @@
   //, <div> PHOTO BOX CONTAINS PHOTO, FLOATING BUTTON
   &__photo-box {
     position: relative;
-    width: 100%;
     overflow: hidden;
   }
-  
-  // <img> MEAL PHOTO
+
+  // <img> MEAL PHOTO - transformed when a meal box is hovered
   &__photo {
+    display: block;
     width: 100%;
     max-height: $max-image-height;
     object-fit: contain;
-    transition: all 0.4s;
-    // trying for smoother effects
-    filter: blur(0.0000001px) brightness(100%);
-    transform: scale(1);
+    transition: all 0.4s linear; // 'linear' fixes shaky filter: blur on hover
   }
 
   // <button> BUTTON COOKED TODAY - shows up when a meal box is hovered. slide effect handled by js
