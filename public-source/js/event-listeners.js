@@ -1,6 +1,7 @@
 import updateLanguage from './update-language'
 import state from './state'
 import elementTransform, { headerElement } from './elements';
+import throttle from 'lodash.throttle';
 
 /// apply all site-wide listeners
 function applyEventListeners() {
@@ -8,14 +9,14 @@ function applyEventListeners() {
   //. DOMContentLoaded or viewport resized: language is updated
   ['DOMContentLoaded', 'resize'].forEach(e => {
 
-    window.addEventListener(e, function () {
+    window.addEventListener(e, throttle(function () {
       elementTransform.setText(
         headerElement.brand,
         state.headerTextIsFull() ?
           null // long header means no modifications
           : { type: "short" } // sets the modifier for the short header
       )
-    }, false);
+    }, 1000), false);
   })
   //. all clickable language labels such as country flags
   const allLanguageLabels = document.querySelectorAll(".language__label");
