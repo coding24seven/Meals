@@ -5,15 +5,15 @@ import getDate from '../../../shared/get-date';
 import state from '../state';
 import { screenLoader } from '../elements';
 
-/// unique page identifier: page-id-index
+/// unique page identifier: page-id-meals
 
 /// WHEN THE PAGE MARKUP IS LOADED
 document.addEventListener("DOMContentLoaded", function () {
 
   // abort the function if a mismatching page has been loaded
-  if (!document.getElementById('page-id-index')) return;
+  if (!document.getElementById('page-id-meals')) return;
 
-  console.log('page-id-index loaded');
+  console.log('page-id-meals loaded');
 
   //. WHEN THE PAGE IS FULLY LOADED OR RESIZED
   ['load', 'resize'].forEach(e => {
