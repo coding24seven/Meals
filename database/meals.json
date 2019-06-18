@@ -246,10 +246,10 @@
   },
   {
     "name": "Roladki z mielonego z papryką i cebulą",
-    "date": "18.06.2019",
+    "date": "09.05.2019",
     "image": "3da84c4bb125f38f56824e0a.jpg",
     "id": 35,
-    "count": 2
+    "count": 1
   },
   {
     "name": "Pierogi pieczone",
@@ -428,17 +428,17 @@
   },
   {
     "name": "Krupnik z kapustą kiszoną",
-    "date": "06.05.2019",
+    "date": "18.06.2019",
     "image": "5161b100ea4c406c550d80ba.jpg",
     "id": 61,
-    "count": 2
+    "count": 3
   },
   {
     "name": "Makaron ze szpinakiem i serem",
-    "date": "23.02.2019",
+    "date": "17.06.2019",
     "image": "8272c496257d0de7cb7b0b74.jpg",
     "id": 62,
-    "count": 2
+    "count": 3
   },
   {
     "name": "Kotleciki z kurczaka, pieczarek i sera",
@@ -523,5 +523,12 @@
     "image": "0110e62b7caf651ab574fa0e.jpg",
     "id": 74,
     "count": 9
+  },
+  {
+    "name": "kieszonki drobiowe z serem i szpinakiem",
+    "date": "17.06.2019",
+    "image": "a8d25fd4ad41cd29cb6f5ca2.jpg",
+    "id": 75,
+    "count": 1
   }
 ]
