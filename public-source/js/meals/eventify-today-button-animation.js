@@ -2,9 +2,9 @@
 * adds functions that will animate the 'today' button on mouseenter and mouseleave 
 */
 
-import state from './state';
-import scss_vars from '../sass/_variables.scss'
-import { indexElement } from './elements';
+import state from '../state';
+import { indexElement } from '../elements';
+import scss_vars from '../../sass/_variables.scss'
 
 export default function eventifyTodayButtonAnimation() {
   const pointerIsFine = matchMedia('(pointer:fine)').matches;

@@ -1,4 +1,4 @@
-import updateLanguage from "./update-language";
+import updateLanguage from "./lang/update-language";
 
 /// HEADER ELEMENTS
 export const headerElement = {

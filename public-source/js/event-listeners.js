@@ -1,7 +1,7 @@
-import updateLanguage from './update-language'
+import throttle from 'lodash.throttle';
+import updateLanguage from './lang/update-language'
 import state from './state'
 import elementTransform, { headerElement } from './elements';
-import throttle from 'lodash.throttle';
 
 /// apply all site-wide listeners
 function applyEventListeners() {

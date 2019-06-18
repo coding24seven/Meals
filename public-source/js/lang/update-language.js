@@ -1,10 +1,10 @@
-import state from './state';
+import state from '../state';
 import text from './languages';
-import { headerElement } from './elements';
-import { footerElement } from './elements';
-import { indexElement } from './elements';
-import { newMealElement } from './elements';
 import getCurrentLanguage from './get-language';
+import { headerElement } from '../elements';
+import { footerElement } from '../elements';
+import { indexElement } from '../elements';
+import { newMealElement } from '../elements';
 
 /// CHANGE THE TEXT LANGUAGE
 export default function updateLanguage() {

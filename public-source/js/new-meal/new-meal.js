@@ -1,5 +1,4 @@
 import applyEventListeners from '../event-listeners';
-import updateLanguage from '../update-language';
 import elementTransform, { newMealElement } from '../elements';
 import state from '../state';
 import handleFilePicked from './pick-file-handler';
