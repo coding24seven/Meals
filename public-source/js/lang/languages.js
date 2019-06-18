@@ -4,13 +4,13 @@ const text = {
   // TITLE
   title: {
     pl: "Kuchnia",
-    en: "Mum's Meals"
+    en: "Meals"
   },
 
   // FULL BRAND IN THE FULL-WIDTH HEADER
   headerBrand: {
-    pl: process.env.BRAND_PL || "Kuchnia Pani Bożeny",
-    en: "Meals from Ms Bozena",
+    pl: process.env.BRAND_PL || "Nasza Kuchnia",
+    en: process.env.BRAND_EN || "Our Meals",
     short: {
       pl: "Kuchnia",
       en: "Meals"
@@ -80,8 +80,9 @@ const text = {
 
   // MEAL-SUBMISSION PASSWORD-INPUT'S PLACEHOLDER
   passwordInputPlaceholder: {
-    pl: "Wpisz hasło użytkownika ( \"demo\" )",
-    en: "user password ( \"demo\" )",
+    get passwordHint() { return process.env.SUBMIT_MEAL_PASSWORD_HINT || "( \"demo\" )" },
+    get pl() { return "Wpisz hasło użytkownika " + this.passwordHint },
+    get en() { return "user password " + this.passwordHint },
     "wrong password": {
       pl: "błędne hasło - spróbuj ponownie",
       en: "wrong password - try again"

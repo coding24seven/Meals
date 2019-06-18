@@ -2,6 +2,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 const webpack = require("webpack");
 const autoprefixer = require("autoprefixer");
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './public-source/entry.js',
@@ -20,7 +21,8 @@ module.exports = {
           autoprefixer()
         ]
       }
-    })
+    }),
+    new Dotenv()
   ],
   module: {
     rules: [{
