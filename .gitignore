@@ -9,6 +9,7 @@ server
 public/bundle.js
 public/main.css
 my-devil
+start-mydevil
 
 # output file on linux
 nohup.out
