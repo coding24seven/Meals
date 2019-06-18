@@ -6,7 +6,7 @@
 import throttle from 'lodash.throttle';
 import updateLanguage from './lang/update-language'
 import state from './state'
-import elementTransform, { headerElement, screenLoader } from './elements';
+import elementTransform, { headerElement } from './elements';
 
 /// DOMCONTENTLOADED OR VIEWPORT RESIZED: TEXT/LANGUAGE IS UPDATED
 ['DOMContentLoaded', 'resize'].forEach(e => {
@@ -29,10 +29,3 @@ allLanguageLabels.forEach(label => {
   });
 });
 
-/// SCREEN LOADER
-window.addEventListener('DOMContentLoaded', function () {
-  screenLoader.classList.add('show');
-  window.onload = function () {
-    screenLoader.classList.remove('show');
-  }
-}, false);

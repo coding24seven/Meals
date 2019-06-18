@@ -3,6 +3,7 @@ import createMasonryLayout from './masonry';
 import eventifyTodayButtonAnimation from './eventify-today-button-animation';
 import getDate from '../../../shared/get-date';
 import state from '../state';
+import { screenLoader } from '../elements';
 
 /// unique page identifier: page-id-index
 
@@ -51,7 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   }
+
+  //. SCREEN LOADER
+  screenLoader.classList.add('show');
+  window.addEventListener('load', function () {
+    screenLoader.classList.remove('show');
+  }, false)
 });
-
-
-
