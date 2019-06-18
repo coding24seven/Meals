@@ -24,7 +24,7 @@ export const indexElement = {
   allCookedTodayButtons: document.querySelectorAll(".meal-box__button"),
 
   // ALL 'LAST COOKED ON' PHRASES
-  lastCookedOnPhrases: document.querySelectorAll(".last-cooked-on-phrase"),
+  lastCookedOnPhrases: document.querySelectorAll(".date-phrase"),
 
   // ALL 'COOKED COUNT' PHRASES
   cookedCountPhrases: document.querySelectorAll(".cooked-count-phrase")

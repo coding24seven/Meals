@@ -116,7 +116,7 @@ app.post("/meals", function (req, res, next) {
 
       meals.push({
         name: mealName,
-        lastCookedOn: "N/A",
+        date: "N/A",
         image: req.file.filename,
         id: meals.length,
         count: 0
@@ -146,8 +146,8 @@ app.get("/meals/:id/:date", function (req, res) {
   const max = meals.length;
   const id = parseInt(req.params.id);
   const clientDate = req.params.date;
-  if (Number.isInteger(id) && id >= min && id < max && meals[id].lastCookedOn != clientDate) {
-    meals[id].lastCookedOn = clientDate;
+  if (Number.isInteger(id) && id >= min && id < max && meals[id].date != clientDate) {
+    meals[id].date = clientDate;
     meals[id].count++;
     storage.writeDatabase(meals, databaseFile);
     console.log(meals[id].name, "has been prepared");

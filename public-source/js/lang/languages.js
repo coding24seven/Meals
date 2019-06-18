@@ -9,7 +9,7 @@ const text = {
 
   // FULL BRAND IN THE FULL-WIDTH HEADER
   headerBrand: {
-    pl: "Kuchnia Pani Bożeny",
+    pl: process.env.BRAND_PL || "Kuchnia Pani Bożeny",
     en: "Meals from Ms Bozena",
     short: {
       pl: "Kuchnia",
@@ -31,8 +31,8 @@ const text = {
 
   // ALL COOKED TODAY BUTTONS
   allCookedTodayButtons: {
-    pl: "Zrobiłam Dziś",
-    en: "Made today"
+    pl: "Dzisiaj",
+    en: "Today"
   },
 
   // MESSAGE FOR THE MEAL COOKED CONFIRM POPUP
@@ -43,14 +43,14 @@ const text = {
 
   // 'LAST COOKED ON' PHRASE
   lastCookedOnPhrase: {
-    pl: "ostatnio gotowane: ",
-    en: "last cooked on: "
+    pl: "data: ",
+    en: "date: "
   },
 
   // 'COOKED COUNT' PHRASE
   cookedCountPhrase: {
-    pl: "gotowane razy: ",
-    en: "cooked count: "
+    pl: "razy: ",
+    en: "count: "
   },
 
   // <h2> NEW MEAL ADDED MESSAGE, INITIALLY HIDDEN

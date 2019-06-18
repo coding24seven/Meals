@@ -1,525 +1,525 @@
 [
   {
     "name": "Knedle",
-    "lastCookedOn": "10.10.2018",
+    "date": "10.10.2018",
     "image": "knedle.jpg",
     "id": 0,
     "count": 1
   },
   {
     "name": "Frytki",
-    "lastCookedOn": "24.05.2019",
+    "date": "24.05.2019",
     "image": "frytki.jpg",
     "id": 1,
     "count": 2
   },
   {
     "name": "Klopsy",
-    "lastCookedOn": "28.04.2019",
+    "date": "28.04.2019",
     "image": "klopsy.jpg",
     "id": 2,
     "count": 4
   },
   {
     "name": "Kurczak w sosie słodko kwaśnym",
-    "lastCookedOn": "10.04.2019",
+    "date": "10.04.2019",
     "image": "sweet-sour-chicken.jpg",
     "id": 3,
     "count": 9
   },
   {
     "name": "Kluski kartoflane",
-    "lastCookedOn": "01.04.2019",
+    "date": "01.04.2019",
     "image": "kluski_kartoflane.jpg",
     "id": 4,
     "count": 3
   },
   {
     "name": "Kopytka kluski",
-    "lastCookedOn": "07.12.2018",
+    "date": "07.12.2018",
     "image": "kopytka.jpg",
     "id": 5,
     "count": 1
   },
   {
     "name": "Zapiekanki z serem i grzybami",
-    "lastCookedOn": "21.12.2018",
+    "date": "21.12.2018",
     "image": "zapiekanki.jpg",
     "id": 6,
     "count": 2
   },
   {
     "name": "Zapiekanka makaronowa",
-    "lastCookedOn": "27.02.2019",
+    "date": "27.02.2019",
     "image": "zapiek.jpg",
     "id": 7,
     "count": 2
   },
   {
     "name": "Pizza",
-    "lastCookedOn": "30.03.2019",
+    "date": "30.03.2019",
     "image": "pizza.jpg",
     "id": 8,
     "count": 5
   },
   {
     "name": "Makaron w sosie bolońskim z mięsem mielonym",
-    "lastCookedOn": "23.05.2019",
+    "date": "23.05.2019",
     "image": "makaron_bolonski_sos.jpg",
     "id": 9,
     "count": 3
   },
   {
     "name": "Pierogi",
-    "lastCookedOn": "10.06.2019",
+    "date": "10.06.2019",
     "image": "pierogi.jpg",
     "id": 10,
     "count": 5
   },
   {
     "name": "Bułeczki z dżemem",
-    "lastCookedOn": "17.05.2019",
+    "date": "17.05.2019",
     "image": "68e3586499565232c890a7d8.jpg",
     "id": 11,
     "count": 1
   },
   {
     "name": "Rosół",
-    "lastCookedOn": "15.06.2019",
+    "date": "15.06.2019",
     "image": "rosol.jpg",
     "id": 12,
     "count": 7
   },
   {
     "name": "Paszteciki",
-    "lastCookedOn": "16.11.2018",
+    "date": "16.11.2018",
     "image": "paszteciki.jpg",
     "id": 13,
     "count": 1
   },
   {
     "name": "Zupa jarzynowa",
-    "lastCookedOn": "05.06.2019",
+    "date": "05.06.2019",
     "image": "zupa jarzynowa.jpg",
     "id": 14,
     "count": 3
   },
   {
     "name": "Zupa buraczkowa",
-    "lastCookedOn": "17.01.2019",
+    "date": "17.01.2019",
     "image": "zupa_buraczkowa.jpg",
     "id": 15,
     "count": 2
   },
   {
     "name": "Zupa ogórkowa",
-    "lastCookedOn": "25.04.2019",
+    "date": "25.04.2019",
     "image": "zupa ogorkowa.jpg",
     "id": 16,
     "count": 5
   },
   {
     "name": "Gołąbki",
-    "lastCookedOn": "n/a",
+    "date": "n/a",
     "image": "golabki.jpg",
     "id": 17,
     "count": 0
   },
   {
     "name": "Kotlety schabowe",
-    "lastCookedOn": "09.06.2019",
+    "date": "09.06.2019",
     "image": "kotlety.jpg",
     "id": 18,
     "count": 8
   },
   {
     "name": "Zrazy z ogórkiem i słoniną",
-    "lastCookedOn": "25.12.2018",
+    "date": "25.12.2018",
     "image": "zrazy.jpeg",
     "id": 19,
     "count": 1
   },
   {
     "name": "Naleśniki z jabłkami",
-    "lastCookedOn": "03.11.2018",
+    "date": "03.11.2018",
     "image": "nalesniki_z_jablkami.jpg",
     "id": 20,
     "count": 1
   },
   {
     "name": "Naleśniki zapiekane w piekarniku z mięsem mielonym",
-    "lastCookedOn": "26.11.2018",
+    "date": "26.11.2018",
     "image": "nalesniki z miesem mielonym.jpg",
     "id": 21,
     "count": 1
   },
   {
     "name": "Kurczak z piekarnika z ziemniakami",
-    "lastCookedOn": "05.05.2019",
+    "date": "05.05.2019",
     "image": "kurczak z piekarnika.jpg",
     "id": 22,
     "count": 4
   },
   {
     "name": "Zupa fasolowa",
-    "lastCookedOn": "05.02.2019",
+    "date": "05.02.2019",
     "image": "zupa fasolowa.jpg",
     "id": 23,
     "count": 3
   },
   {
     "name": "Bigos",
-    "lastCookedOn": "20.04.2019",
+    "date": "20.04.2019",
     "image": "bigos.jpg",
     "id": 24,
     "count": 2
   },
   {
     "name": "Gulasz węgierski",
-    "lastCookedOn": "07.04.2019",
+    "date": "07.04.2019",
     "image": "gulasz wegierski.jpg",
     "id": 25,
     "count": 3
   },
   {
     "name": "Fasolka po bretońsku",
-    "lastCookedOn": "12.11.2018",
+    "date": "12.11.2018",
     "image": "fasolka-po-bretonsku.jpg",
     "id": 26,
     "count": 1
   },
   {
     "name": "Ryż z jabłkami z piekarnika",
-    "lastCookedOn": "23.04.2019",
+    "date": "23.04.2019",
     "image": "ryz z jablkami.jpg",
     "id": 27,
     "count": 4
   },
   {
     "name": "Makaron z pieczarkami i kurczakiem",
-    "lastCookedOn": "07.02.2019",
+    "date": "07.02.2019",
     "image": "makaron pieczarki kurczak.jpg",
     "id": 28,
     "count": 4
   },
   {
     "name": "Pulpety w sosie",
-    "lastCookedOn": "23.10.2018",
+    "date": "23.10.2018",
     "image": "pulpety w sosie.jpg",
     "id": 29,
     "count": 1
   },
   {
     "name": "Pomidorówka",
-    "lastCookedOn": "14.05.2019",
+    "date": "14.05.2019",
     "image": "pomidorowa.jpg",
     "id": 30,
     "count": 6
   },
   {
     "name": "Bitki w sosie mięsnym",
-    "lastCookedOn": "26.05.2019",
+    "date": "26.05.2019",
     "image": "bitki.jpg",
     "id": 31,
     "count": 6
   },
   {
     "name": "Placki kartoflane",
-    "lastCookedOn": "02.02.2019",
+    "date": "02.02.2019",
     "image": "placki kartoflane.jpg",
     "id": 32,
     "count": 3
   },
   {
     "name": "Papryka faszerowana",
-    "lastCookedOn": "17.05.2019",
+    "date": "17.05.2019",
     "image": "3e3a92754c34658ba7dd89f4.jpg",
     "id": 33,
     "count": 1
   },
   {
     "name": "Gulasz z żołądków",
-    "lastCookedOn": "13.05.2019",
+    "date": "13.05.2019",
     "image": "gulasz zaladki.jpg",
     "id": 34,
     "count": 2
   },
   {
     "name": "Roladki z mielonego z papryką i cebulą",
-    "lastCookedOn": "09.05.2019",
+    "date": "18.06.2019",
     "image": "3da84c4bb125f38f56824e0a.jpg",
     "id": 35,
-    "count": 1
+    "count": 2
   },
   {
     "name": "Pierogi pieczone",
-    "lastCookedOn": "01.05.2019",
+    "date": "01.05.2019",
     "image": "pierogi pieczone.jpg",
     "id": 36,
     "count": 4
   },
   {
     "name": "Jaja sadzone",
-    "lastCookedOn": "14.06.2019",
+    "date": "14.06.2019",
     "image": "4c3f700aa810d0375008410f.jpg",
     "id": 37,
     "count": 3
   },
   {
     "name": "Zupa pieczarkowa",
-    "lastCookedOn": "19.01.2019",
+    "date": "19.01.2019",
     "image": "zupa pieczarkowa.jpg",
     "id": 38,
     "count": 2
   },
   {
     "name": "Tarta",
-    "lastCookedOn": "01.11.2018",
+    "date": "01.11.2018",
     "image": "dd5441de7155aabfdd699b35.jpg",
     "id": 39,
     "count": 1
   },
   {
     "name": "Kurczak, z warzywami",
-    "lastCookedOn": "03.02.2019",
+    "date": "03.02.2019",
     "image": "79db3858ed99c3bf51a80830.jpg",
     "id": 40,
     "count": 3
   },
   {
     "name": "Naleśniki z twarogiem",
-    "lastCookedOn": "29.05.2019",
+    "date": "29.05.2019",
     "image": "d9c7abd9d04ca3a63f05ce4c.jpg",
     "id": 41,
     "count": 6
   },
   {
     "name": "Sałatka z bobu i jaj",
-    "lastCookedOn": "06.11.2018",
+    "date": "06.11.2018",
     "image": "ec3f27ac1296ed1da042e95d.jpg",
     "id": 42,
     "count": 1
   },
   {
     "name": "Zapiekanka kalafiorowo brokułowa",
-    "lastCookedOn": "16.02.2019",
+    "date": "16.02.2019",
     "image": "cde328d5516c1d586aa8c856.jpg",
     "id": 43,
     "count": 3
   },
   {
     "name": "Gofry",
-    "lastCookedOn": "19.11.2018",
+    "date": "19.11.2018",
     "image": "efaf9211523cbaedd1816f00.jpg",
     "id": 44,
     "count": 2
   },
   {
     "name": "Zupa koperkowa",
-    "lastCookedOn": "11.04.2019",
+    "date": "11.04.2019",
     "image": "719fd8ce97fb47ced47f85bb.jpg",
     "id": 45,
     "count": 4
   },
   {
     "name": "Spaghetti",
-    "lastCookedOn": "06.06.2019",
+    "date": "06.06.2019",
     "image": "e0efd1d4721cde0b16c4e61c.jpg",
     "id": 46,
     "count": 6
   },
   {
     "name": "Kapuśniak",
-    "lastCookedOn": "21.05.2019",
+    "date": "21.05.2019",
     "image": "f5b7c50d1905f7855e700ace.jpg",
     "id": 47,
     "count": 4
   },
   {
     "name": "Kotlety mielone z grzybami",
-    "lastCookedOn": "02.06.2019",
+    "date": "02.06.2019",
     "image": "a16344c6dd8155248be01b86.jpg",
     "id": 48,
     "count": 7
   },
   {
     "name": "Kurczak w cieście z frytkami",
-    "lastCookedOn": "31.05.2019",
+    "date": "31.05.2019",
     "image": "dd4ed0e21e2a970904236638.jpg",
     "id": 49,
     "count": 4
   },
   {
     "name": "Jajecznica",
-    "lastCookedOn": "28.04.2019",
+    "date": "28.04.2019",
     "image": "de907fd551413bcc5c832635.jpg",
     "id": 50,
     "count": 8
   },
   {
     "name": "Wątróbka z pieczarkami",
-    "lastCookedOn": "30.05.2019",
+    "date": "30.05.2019",
     "image": "4cd75787d95b5b9c3a998064.jpg",
     "id": 51,
     "count": 4
   },
   {
     "name": "Risotto warzywa kurczak sos musztardowo miodowy",
-    "lastCookedOn": "17.06.2019",
+    "date": "17.06.2019",
     "image": "fad4f28bf3f129e2a6eb1bbd.jpg",
     "id": 52,
     "count": 7
   },
   {
     "name": "Żurek",
-    "lastCookedOn": "31.01.2019",
+    "date": "31.01.2019",
     "image": "00ff3ba3ba634127fe6d6617.jpg",
     "id": 53,
     "count": 2
   },
   {
     "name": "Placuszki",
-    "lastCookedOn": "15.12.2018",
+    "date": "15.12.2018",
     "image": "5a5e9b77ae71ce1c98fc42a6.jpg",
     "id": 54,
     "count": 1
   },
   {
     "name": "Karkówka z porami",
-    "lastCookedOn": "17.02.2019",
+    "date": "17.02.2019",
     "image": "a9ffcc11737f4cc9c37bf814.jpg",
     "id": 55,
     "count": 2
   },
   {
     "name": "Rogaliki",
-    "lastCookedOn": "16.02.2019",
+    "date": "16.02.2019",
     "image": "5343e4b9c2949ccb8acbdfda.jpg",
     "id": 56,
     "count": 1
   },
   {
     "name": "Mięso pieczone",
-    "lastCookedOn": "21.04.2019",
+    "date": "21.04.2019",
     "image": "7ac8967ee3554e888ad877fe.jpg",
     "id": 57,
     "count": 2
   },
   {
     "name": "Filet z kurczaka z pieczarkami i serem",
-    "lastCookedOn": "04.06.2019",
+    "date": "04.06.2019",
     "image": "ccaadba5ca7e453b1ddf3ad0.jpg",
     "id": 58,
     "count": 3
   },
   {
     "name": "Galaretkowiec",
-    "lastCookedOn": "12.01.2019",
+    "date": "12.01.2019",
     "image": "6b52cdaa052f9e5206dee4b5.jpg",
     "id": 59,
     "count": 1
   },
   {
     "name": "Ryba smażona",
-    "lastCookedOn": "22.01.2019",
+    "date": "22.01.2019",
     "image": "6434f976fec3464b0763de06.jpg",
     "id": 60,
     "count": 3
   },
   {
     "name": "Krupnik z kapustą kiszoną",
-    "lastCookedOn": "06.05.2019",
+    "date": "06.05.2019",
     "image": "5161b100ea4c406c550d80ba.jpg",
     "id": 61,
     "count": 2
   },
   {
     "name": "Makaron ze szpinakiem i serem",
-    "lastCookedOn": "23.02.2019",
+    "date": "23.02.2019",
     "image": "8272c496257d0de7cb7b0b74.jpg",
     "id": 62,
     "count": 2
   },
   {
     "name": "Kotleciki z kurczaka, pieczarek i sera",
-    "lastCookedOn": "12.04.2019",
+    "date": "12.04.2019",
     "image": "084e9bffa6a911356d0652f4.jpg",
     "id": 63,
     "count": 2
   },
   {
     "name": "Zapiekanka Bolońska",
-    "lastCookedOn": "11.05.2019",
+    "date": "11.05.2019",
     "image": "a8fb12648df7fd9e7b8a6607.jpg",
     "id": 64,
     "count": 3
   },
   {
     "name": "Zupa szczawiowa",
-    "lastCookedOn": "28.05.2019",
+    "date": "28.05.2019",
     "image": "ec49e96a0bb8b71b33096720.jpg",
     "id": 65,
     "count": 3
   },
   {
     "name": "Kurczak w sosie Indyjskim z ryzem",
-    "lastCookedOn": "14.06.2019",
+    "date": "14.06.2019",
     "image": "tando.jpg",
     "id": 66,
     "count": 5
   },
   {
     "name": "Sałatka Warzywna",
-    "lastCookedOn": "21.04.2019",
+    "date": "21.04.2019",
     "image": "171802b882a02dbba5f113bb.jpg",
     "id": 67,
     "count": 4
   },
   {
     "name": "Kurczak w sosie Indyjskim z ziemniakami",
-    "lastCookedOn": "29.04.2019",
+    "date": "29.04.2019",
     "image": "cd4eb84daba5981edf677143.jpg",
     "id": 68,
     "count": 2
   },
   {
     "name": "Młode ziemniaki z kotlecikami i sałatą",
-    "lastCookedOn": "26.04.2019",
+    "date": "26.04.2019",
     "image": "e42b5fcf5874c462df47e1ef.jpg",
     "id": 69,
     "count": 1
   },
   {
     "name": "Botwinka",
-    "lastCookedOn": "11.06.2019",
+    "date": "11.06.2019",
     "image": "06332d491ccb923f170ab674.jpg",
     "id": 70,
     "count": 2
   },
   {
     "name": "Żeberka w kiszonej kapuście",
-    "lastCookedOn": "03.05.2019",
+    "date": "03.05.2019",
     "image": "78206da99c72f9f6d1dd84d7.jpg",
     "id": 71,
     "count": 1
   },
   {
     "name": "Placek z rabarbarem i budyniem",
-    "lastCookedOn": "04.05.2019",
+    "date": "04.05.2019",
     "image": "7801395cea8e1342cd636c07.jpg",
     "id": 72,
     "count": 1
   },
   {
     "name": "Kurczak w sosie chińskim",
-    "lastCookedOn": "07.05.2019",
+    "date": "07.05.2019",
     "image": "da67b6210e0dfbb90d76067a.jpg",
     "id": 73,
     "count": 1
   },
   {
     "name": "Thai Tea",
-    "lastCookedOn": "12.06.2019",
+    "date": "12.06.2019",
     "image": "0110e62b7caf651ab574fa0e.jpg",
     "id": 74,
     "count": 9

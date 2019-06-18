@@ -13,15 +13,15 @@
 
 		<figcaption class="meal-box__caption">
 			<h3 class="meal-box__heading"><%= meal.name %></h3>
-			<p class="meal-box__last-cooked-date">
-				<span class="last-cooked-on-phrase">ostatnio gotowane: </span>
-				<span class="date"><%= meal.lastCookedOn %></span>
+			<p class="meal-box__date">
+				<span class="date-phrase">date: </span>
+				<span class="date"><%= meal.date %></span>
 			</p>
 
 			<%# <!-- if meal has ever been cooked, display count. Otherwise, display '0' --> %>
 			<% if (meal.count > 0) { %>
 			<p class="meal-box__cooked-times-counter">
-				<span class="cooked-count-phrase">gotowane razy: </span>
+				<span class="cooked-count-phrase">count: </span>
 				<span class="count"><%= meal.count %></span>
 			</p>
 			<% } else { %>
@@ -36,8 +36,8 @@
 		<button
 			class="meal-box__button js-made-today"
 			data-meal-id="<%= meal.id %>"
-			data-last-made-on="<%= meal.lastCookedOn %>"
-			>Zrobiłam Dziś
+			data-last-made-on="<%= meal.date %>"
+			>Had it today!
 		</button>
 
 	</figure>
