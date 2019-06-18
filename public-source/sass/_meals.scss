@@ -3,6 +3,7 @@
 .meals-container {
   visibility: hidden; // set to visible by 'masonry.js/
   margin: 6rem auto 1rem; // margin-top: compensate for the fixed navbar
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-content: center;
