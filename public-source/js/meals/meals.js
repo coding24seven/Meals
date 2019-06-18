@@ -1,7 +1,6 @@
 import throttle from 'lodash.throttle';
 import createMasonryLayout from './masonry';
 import eventifyTodayButtonAnimation from './eventify-today-button-animation';
-import applyEventListeners from '../event-listeners';
 import getDate from '../../../shared/get-date';
 import state from '../state';
 
@@ -14,9 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!document.getElementById('page-id-index')) return;
 
   console.log('page-id-index loaded');
-
-  //. SITE-WIDE EVENT LISTENERS
-  applyEventListeners();
 
   //. WHEN THE PAGE IS FULLY LOADED OR RESIZED
   ['load', 'resize'].forEach(e => {

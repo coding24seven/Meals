@@ -1,5 +1,8 @@
 import updateLanguage from "./lang/update-language";
 
+/// SCREEN LOADER
+export const screenLoader = document.querySelector('.screen-loader');
+
 /// HEADER ELEMENTS
 export const headerElement = {
   // CLICKABLE BRAND IN THE HEADER

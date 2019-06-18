@@ -1,11 +1,8 @@
-/// ANIMATIONS
-@keyframes opacityChange {
-  100% {
-    opacity: 1;
-  }
-}
+/*
+* animations
+*/
 
-@keyframes blinker {
+@keyframes blink {
   50% {
     opacity: 0;
   }
@@ -23,14 +20,23 @@
   }
 }
 
-@keyframes animate-image-rotator-opacity-change {
+@keyframes opacify-icon-for-image-rotation {
   50% {
     opacity: 0;
   }
 }
 
-@keyframes animate-image-rotator-rotate {
+@keyframes spin-icon-for-image-rotation {
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-centered-element {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
