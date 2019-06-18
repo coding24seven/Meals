@@ -56,7 +56,7 @@ app.get("/", function (req, res) { res.redirect("/meals"); });
 app.get("/meals", function (req, res) {
   meals = storage.readDatabase(databaseFile);
   let mealsShuffled = shuffleArray(meals);
-  res.render("index.ejs", { meals: mealsShuffled });
+  res.render("meals.ejs", { meals: mealsShuffled });
 
   // try to add the client to the recent-client list and Return true if the client has been added. Only new clients are added.
   const isNewClient = latestClients.addNewClient(req.ip)
@@ -159,7 +159,7 @@ app.get("/meals/:id/:date", function (req, res) {
 app.get("*", function (req, res) {
 
   // do not display the error to the client
-  res.render("index.ejs", { meals });
+  res.render("meals.ejs", { meals });
 
   const error = [
     "Unhandled URL parameter caught. Resource ",

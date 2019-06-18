@@ -34,10 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const todaysDate = getDate();
 
   // all 'made today' buttons
-  const buttons = document.getElementsByClassName("js-made-today");
+  const buttons = document.getElementsByClassName("js-had-it-today");
 
   for (let button of buttons) {
-    if (button.dataset.lastMadeOn === todaysDate) {
+    if (button.dataset.mealDate === todaysDate) {
       button.setAttribute("hidden", true);
     } else {
       button.addEventListener("click", function (event) {
