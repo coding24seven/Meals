@@ -19,8 +19,8 @@ const text = {
 
   // ADD A MEAL IN THE HEADER 
   headerAddMeal: {
-    pl: "Dodaj Danie",
-    en: "Add a Meal"
+    pl: "Ustawienia",
+    en: "Settings"
   },
 
   // FOOTER

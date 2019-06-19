@@ -25,6 +25,10 @@
   overflow: hidden;
   width: 36rem;
 
+  &.hide {
+    display: none;
+  }
+
   @media only screen and (max-width: $bp-hidden-button) {
     width: 100%;
     margin: 0.4rem;

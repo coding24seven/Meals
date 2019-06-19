@@ -15,13 +15,18 @@ $bp-hidden-button: 25em; // = 400px
 }
 
 // from this value down, a shorter header is being displayed
-$bp-header: 27em; // = 432px
+$bp-header: 28.125em; // = 450px
 :export {
   bp_header: $bp-header;
 }
 
+// from this value down to the next bp, three colums are being displayed
+$bp-three-columns: 94.75em; // = 1516px
+:export {
+  bp_three_columns: $bp-three-columns;
+}
+
 // from this value down to the next bp, two colums are being displayed
-// $bp-two-columns: 72.25em; // = 1156px
 $bp-two-columns: 76.25em; // = 1220px
 :export {
   bp_two_columns: $bp-two-columns;

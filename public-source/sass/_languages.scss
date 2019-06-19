@@ -1,6 +1,10 @@
 // <div> LANGUAGE SWITCHING IN THE HEADER/NAVBAR
 .language {
-  display: flex;
+  display: none;
+  
+  &.show {
+    display: flex;
+  }
 
   // <div> BOX FOR RADIO BUTTONS
   &__radio-button-box {

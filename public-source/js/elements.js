@@ -8,6 +8,12 @@ export const headerElement = {
   // CLICKABLE BRAND IN THE HEADER
   brand: document.querySelector(".navbar-top__brand"),
 
+  // SEARCH INPUT
+  searchInput: document.querySelector(".search-input"),
+
+  // LANGUAGE SWITCHING COMPONENT WITH FLAGS
+  language: document.querySelector(".language"),
+
   // ADD-MEAL LINK IN THE HEADER
   addMeal: document.querySelector(".navbar-top__add-meal")
 }
@@ -18,18 +24,18 @@ export const footerElement = {
   copyright: document.querySelector(".footer-copyright")
 }
 
-/// INDEX (MEALS) PAGE ELEMENTS
-export const indexElement = {
+/// MEALS PAGE ELEMENTS
+export const mealsElement = {
   // ALL MEAL BOXES
   allMealBoxes: document.querySelectorAll(".meal-box"),
 
   // ALL 'MEAL MADE TODAY' BUTTONS
   allCookedTodayButtons: document.querySelectorAll(".meal-box__button"),
 
-  // ALL 'LAST COOKED ON' PHRASES
+  // ALL 'DATE' PHRASES
   lastCookedOnPhrases: document.querySelectorAll(".date-phrase"),
 
-  // ALL 'COOKED COUNT' PHRASES
+  // ALL 'COUNT' PHRASES
   cookedCountPhrases: document.querySelectorAll(".cooked-count-phrase")
 }
 

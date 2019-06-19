@@ -8,7 +8,7 @@
 <div class="meals-container">
 	<% meals.forEach(function(meal){ %>
 
-	<figure class="meal-box">
+	<figure class="meal-box" name="<%= meal.name %>">
 		<div class="meal-box__photo-box">
 			<img class="meal-box__photo" src="/<%= meal.image %>">
 		</div>

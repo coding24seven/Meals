@@ -4,8 +4,7 @@ const state = {
 
   // is the full header being displayed? TRUE OR FALSE
   headerTextIsFull: function () {
-    return this.getBrowserState().viewportWidth > parseFloat(scss_vars.bp_header) ?
-      true : false;
+    return this.getBrowserState().viewportWidth > parseFloat(scss_vars.bp_header);
   },
 
   // Return the number of columns being displayed
@@ -13,7 +12,8 @@ const state = {
     const viewportWidth = this.getBrowserState().viewportWidth;
     if (viewportWidth <= parseFloat(scss_vars.bp_one_column)) return 1;
     if (viewportWidth <= parseFloat(scss_vars.bp_two_columns)) return 2;
-    else return 3;
+    if (viewportWidth <= parseFloat(scss_vars.bp_three_columns)) return 3;
+    else return 4;
   },
 
   // get browser viewport width in 'em' unit, font size in 'px' unit
