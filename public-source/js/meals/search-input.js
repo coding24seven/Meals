@@ -4,7 +4,7 @@
 
 export default function searchMeals(searchInput, allMealBoxes, cb) {
   searchInput.classList.add('show');
-  document.onkeypress = () => searchInput.focus();
+  document.onkeydown = () => searchInput.focus();
 
   searchInput.oninput = function () {
     const value = this.value.toLowerCase();
