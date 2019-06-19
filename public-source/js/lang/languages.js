@@ -17,6 +17,12 @@ const text = {
     }
   },
 
+  // SEARCH INPUT IN THE HEADER
+  headerInputPlaceholder: {
+    pl: "szukaj dań",
+    en: "search meals"
+  },
+
   // ADD A MEAL IN THE HEADER 
   headerAddMeal: {
     pl: "Ustawienia",

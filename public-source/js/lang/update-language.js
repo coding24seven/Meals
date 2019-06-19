@@ -8,7 +8,7 @@ import { newMealElement } from '../elements';
 
 /// CHANGE THE TEXT LANGUAGE
 export default function updateLanguage() {
-  
+
   const language = getCurrentLanguage();
   localStorage.language = language;
 
@@ -27,6 +27,11 @@ export default function updateLanguage() {
     headerElement.brand.innerHTML = modifier ?
       text.headerBrand[modifier.type][language]
       : text.headerBrand[language]
+  }
+
+  //. SEARCH INPUT IN THE HEADER
+  if (headerElement.searchInput) {
+    headerElement.searchInput.placeholder = text.headerInputPlaceholder[language];
   }
 
   //. 'ADD A MEAL' IN THE HEADER
