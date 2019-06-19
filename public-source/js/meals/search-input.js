@@ -21,7 +21,7 @@ export default function searchMeals(searchInput, allMealBoxes, cb) {
       allMealBoxes.forEach(mealBox => mealBox.classList.remove('hide'));
       cb(); // run the layout
     }
-    // focus input only if a letter or a number is pressed
+    // focus input if...
     else if (
       (kC == 8 || kC == 46) /* backspace or delete is pressed */
       || (kC >= 48 && kC <= 57) /* number is pressed */
