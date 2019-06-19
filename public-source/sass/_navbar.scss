@@ -1,3 +1,5 @@
+// @import "variables";
+
 /// <nav> NAVBAR FIXED ON TOP
 .navbar-top {
   position: fixed;
@@ -15,7 +17,7 @@
   //. <a> BRAND LINK TO ROOT PAGE
   &__brand {
     text-decoration: none;
-    color: #5e5e5e;
+    color: $color-dark-grey;
     font-size: 1.8rem;
     text-align: left;
     padding-right: 0.7rem;
@@ -25,7 +27,7 @@
   //. <a> ADD NEW MEAL LINK
   &__add-meal {
     text-decoration: none;
-    color: #5e5e5e;
+    color: $color-dark-grey;
     font-size: 1.6rem;
     text-align: right;
     padding-left: 0.7rem;
