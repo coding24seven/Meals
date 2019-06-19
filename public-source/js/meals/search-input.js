@@ -22,9 +22,14 @@ export default function searchMeals(searchInput, allMealBoxes, cb) {
       cb(); // run the layout
     }
     // focus input only if a letter or a number is pressed
-    else if ((kC >= 48 && kC <= 57) || (kC >= 65 && kC <= 90) || (kC >= 96 && kC <= 105)) {
+    else if (
+      (kC == 8 || kC == 46) /* backspace or delete is pressed */
+      || (kC >= 48 && kC <= 57) /* number is pressed */
+      || (kC >= 65 && kC <= 90) /* letter is pressed */
+      || (kC >= 96 && kC <= 105)) /* keypad is pressed */ {
       searchInput.focus();
-    } else {
+    }
+    else {
       // do nothing
     }
   }
