@@ -3,7 +3,7 @@ import text from './languages';
 import getCurrentLanguage from './get-language';
 import { headerElement } from '../elements';
 import { footerElement } from '../elements';
-import { indexElement } from '../elements';
+import { mealsElement } from '../elements';
 import { newMealElement } from '../elements';
 
 /// CHANGE THE TEXT LANGUAGE
@@ -40,22 +40,22 @@ export default function updateLanguage() {
   }
 
   //. ALL COOKED TODAY BUTTONS
-  if (indexElement.allCookedTodayButtons) {
-    indexElement.allCookedTodayButtons.forEach(button => {
+  if (mealsElement.allCookedTodayButtons) {
+    mealsElement.allCookedTodayButtons.forEach(button => {
       button.innerHTML = text.allCookedTodayButtons[language];
     })
   }
 
   //. 'LAST COOKED ON' PHRASE
-  if (indexElement.lastCookedOnPhrases) {
-    indexElement.lastCookedOnPhrases.forEach(phrase => {
+  if (mealsElement.lastCookedOnPhrases) {
+    mealsElement.lastCookedOnPhrases.forEach(phrase => {
       phrase.innerHTML = text.lastCookedOnPhrase[language];
     })
   }
 
   //. 'COOKED COUNT' PHRASE
-  if (indexElement.cookedCountPhrases) {
-    indexElement.cookedCountPhrases.forEach(phrase => {
+  if (mealsElement.cookedCountPhrases) {
+    mealsElement.cookedCountPhrases.forEach(phrase => {
       phrase.innerHTML = text.cookedCountPhrase[language];
     })
   }

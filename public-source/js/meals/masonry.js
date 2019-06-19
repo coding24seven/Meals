@@ -1,8 +1,8 @@
 
 export default function createMasonryLayout(noOfColumnsDisplayed) {
-
   const container = document.querySelector(".meals-container");
-  const items = Array.from(container.children);
+  let items = Array.from(container.children);
+  items = items.filter((item) => !item.classList.contains('hide'));
 
   // reset masonry-critical 'container height' if only one column is being displayed
   if (noOfColumnsDisplayed === 1 || items.length === 1) {

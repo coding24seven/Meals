@@ -3,7 +3,8 @@ import createMasonryLayout from './masonry';
 import eventifyTodayButtonAnimation from './eventify-today-button-animation';
 import getDate from '../../../shared/get-date';
 import state from '../state';
-import { screenLoader } from '../elements';
+import { screenLoader, headerElement, mealsElement } from '../elements';
+import searchMeals from './search-input';
 
 /// unique page identifier: page-id-meals
 
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       //, ADDS FUNCTIONS THAT WILL ANIMATE THE 'TODAY' BUTTON ON MOUSEENTER AND MOUSELEAVE
       eventifyTodayButtonAnimation();
 
-      //, CREATE A MASONRY LAYOUT IF MORE THAN ONE COLUMN IS DISPLAYED
+      //, CREATE A MASONRY LAYOUT (IF MORE THAN ONE COLUMN IS DISPLAYED)
       const noOfColumnsDisplayed = state.getNoOfColumnsDisplayed();
       console.log("noOfColumnsDisplayed:", noOfColumnsDisplayed)
       createMasonryLayout(noOfColumnsDisplayed);
@@ -58,4 +59,13 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener('load', function () {
     screenLoader.classList.remove('show');
   }, false)
-});
+
+  //. SEARCH INPUT
+  searchMeals(headerElement.searchInput, mealsElement.allMealBoxes,
+    // callback that creates a masonry layout
+    () => {
+      const noOfColumnsDisplayed = state.getNoOfColumnsDisplayed();
+      createMasonryLayout(noOfColumnsDisplayed);
+    });
+
+}); // "DOMContentLoaded" ends

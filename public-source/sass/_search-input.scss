@@ -1,0 +1,21 @@
+// @import "variables"; 
+
+.search-input {
+  display: none; // displayed only on the 'meals' page
+  padding: 0.6rem 1rem;
+  width: 14rem;
+  outline: none;
+  border: none;
+  border-radius: 0.3rem;
+  font-family: $font-family;
+  font-size: 1.6rem;
+  color: #7a7a7a;
+
+  &.show {
+    display: block;
+  }
+
+  &::placeholder {
+    color: #bbbbbb;;
+  }
+}
