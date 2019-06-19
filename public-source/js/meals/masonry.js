@@ -4,6 +4,12 @@ export default function createMasonryLayout(noOfColumnsDisplayed) {
   let items = Array.from(container.children);
   items = items.filter((item) => !item.classList.contains('hide'));
 
+  // abort if no items to display
+  if (items.length < 1) {
+    container.style.height = "";
+    return;
+  };
+
   // reset masonry-critical 'container height' if only one column is being displayed
   if (noOfColumnsDisplayed === 1 || items.length === 1) {
     container.style.height = "";
@@ -32,7 +38,7 @@ export default function createMasonryLayout(noOfColumnsDisplayed) {
     })
 
     // make sure the container height is enough for all elements to fit in without an extra column getting auto created
-    let mHsK = 0; // a.k.a. 'merciless horizontal-scrollbar killer' in px
+    let mHsK = 140; // a.k.a. 'merciless horizontal-scrollbar killer' in px
     do {
       container.style.height = Math.ceil(heightOfAllItems / noOfColumnsDisplayed) + mHsK + "px";
       mHsK += 40;
