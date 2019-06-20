@@ -23,7 +23,13 @@ export default function eventifyMealName(allMealNames, state) {
       const confirmed = confirm("change meal name?");
       if (confirmed) {
         const id = nameElement.dataset.mealId;
-        window.location = `/${id}/${mealName}`;
+        const payload = {
+          type: "name change",
+          id,
+          mealName
+        }
+        const stringPayload = JSON.stringify(payload);
+        window.location = `/meals/${stringPayload}`;
       }
     }
     // escape

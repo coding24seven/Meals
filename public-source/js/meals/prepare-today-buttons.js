@@ -9,8 +9,13 @@ export default function prepareTodayButtons(allTodayButtons, mealCookedConfirmMe
         if (!this.getAttribute("disabled")) {
           const confirmed = confirm(mealCookedConfirmMessage);
           if (confirmed) {
-            const id = this.dataset.mealId;
-            window.location = `/meals/${id}/${todaysDate}`;
+            const payload = {
+              type: "todays meal",
+              id: this.dataset.mealId,
+              todaysDate
+            }
+            const stringPayload = JSON.stringify(payload);
+            window.location = `/meals/${stringPayload}`;
           }
         }
       });

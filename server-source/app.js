@@ -140,36 +140,45 @@ app.post("/meals", function (req, res, next) {
   })
 });
 
-//. GET ROUTE MEAL PREPARED TODAY
-app.get("/meals/:id/:date", function (req, res) {
+//. GET ROUTE TO EDIT MEAL DATA
+app.get("/meals/:payload", function (req, res) {
   const min = 0;
-  const max = meals.length;
-  const id = parseInt(req.params.id);
-  const clientDate = req.params.date;
-  if (Number.isInteger(id) && id >= min && id < max && meals[id].date != clientDate) {
-    meals[id].date = clientDate;
-    meals[id].count++;
+  const max = meals.length - 1;
+  const payload = JSON.parse(req.params.payload);
+  const id = parseInt(payload.id);
+
+  // meal id must be valid
+  if (Number.isInteger(id) && id >= min && id <= max) {
+
+    const type = {
+      "todays meal": function () {
+        const clientDate = payload.todaysDate;
+        if (Number.isInteger(id) && id >= min && id < max && meals[id].date != clientDate) {
+          meals[id].date = clientDate;
+          meals[id].count++;
+          console.log(meals[id].name, "has been prepared");
+        }
+      },
+      "name change": function () {
+        const newName = sanitizeString(payload.mealName, 16, 22);
+        if (Number.isInteger(id) && id >= min && id < max) {
+          const prevName = meals[id].name;
+          meals[id].name = newName;
+          console.log(`${color.fg.Yellow}${prevName}${color.Reset} changed to ${color.fg.Yellow}${meals[id].name}${color.Reset}`);
+        }
+      },
+      "default": function () { console.log("unknown request type"); }
+    }
+    type.hasOwnProperty(payload.type) ? type[payload.type]() : type['default']();
+
     storage.writeDatabase(meals, databaseFile);
-    console.log(meals[id].name, "has been prepared");
   }
+  // id is not valid
+  else { console.log("request to edit a meal received with an invalid meal id") }
+
   res.redirect("/");
 });
 
-//. GET ROUTE MEAL NAME CHANGED
-app.get("/:id/:name", function (req, res) {
-  const min = 0;
-  const max = meals.length;
-  const id = parseInt(req.params.id);
-  const newName = sanitizeString(req.params.name, 16, 22);
-  if (Number.isInteger(id) && id >= min && id < max) {
-    const prevName = meals[id].name;
-    meals[id].name = newName;
-    storage.writeDatabase(meals, databaseFile);
-    console.log(`${color.fg.Yellow}${prevName}${color.Reset} changed to ${color.fg.Yellow}${meals[id].name}${color.Reset}`);
-  }
-  res.redirect("/");
-})
-// const ipInColor = color.fg.Yellow + this.address().address + color.Reset
 //. GET ROUTE to catch all unhandled parameters
 app.get("*", function (req, res) {
 
