@@ -5,7 +5,7 @@ import getDate from '../../../shared/get-date';
 import state from '../state';
 import { screenLoader, headerElement, mealsElement } from '../elements';
 import { eventifySearchMealsInput, focusOrUnfocusSearchMealsInput } from './search-input';
-import editMealName from './edit-meal-name';
+import eventifyMealName from './edit-meal-name';
 
 /// unique page identifier: page-id-meals
 
@@ -57,12 +57,14 @@ document.addEventListener("DOMContentLoaded", function () {
       createMasonryLayout(noOfColumnsDisplayed);
     })
 
+  //. MEAL NAME
+  eventifyMealName(mealsElement.allMealNames);
+
   //. ANY KEY PRESSED ANYWHERE ON THE PAGE
   document.onkeydown = (e) => {
-
     // let meal names be edited without interference from the search input
     if (e.target.classList.contains('meal-box__heading')) {
-      // do the editing
+      // do nothing
     }
     // delegate the event to the search input
     else {
