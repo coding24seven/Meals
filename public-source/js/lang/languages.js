@@ -71,8 +71,8 @@ const text = {
 
   // NEW MEAL HEADING
   newMealHeading: {
-    pl: "Nowe Danie",
-    en: "New Meal",
+    pl: "Dodaj Nowe Danie",
+    en: "Add a New Meal",
     "meal added": {
       pl: "Dodaj następne",
       en: "Add next meal"
@@ -86,7 +86,11 @@ const text = {
 
   // MEAL-SUBMISSION PASSWORD-INPUT'S PLACEHOLDER
   passwordInputPlaceholder: {
-    get passwordHint() { return process.env.SUBMIT_MEAL_PASSWORD_HINT || "( \"demo\" )" },
+    get passwordHint() {
+      return process.env.SUBMIT_MEAL_PASSWORD_HINT ?
+        "" // custom hint disabled
+        : "( \"demo\" )" // hint for the demo version
+    },
     get pl() { return "Wpisz hasło użytkownika " + this.passwordHint },
     get en() { return "user password " + this.passwordHint },
     "wrong password": {
