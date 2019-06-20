@@ -155,6 +155,21 @@ app.get("/meals/:id/:date", function (req, res) {
   res.redirect("/");
 });
 
+//. GET ROUTE MEAL NAME CHANGED
+app.get("/:id/:name", function (req, res) {
+  const min = 0;
+  const max = meals.length;
+  const id = parseInt(req.params.id);
+  const newName = sanitizeString(req.params.name, 16, 22);
+  if (Number.isInteger(id) && id >= min && id < max) {
+    const prevName = meals[id].name;
+    meals[id].name = newName;
+    storage.writeDatabase(meals, databaseFile);
+    console.log(`${color.fg.Yellow}${prevName}${color.Reset} changed to ${color.fg.Yellow}${meals[id].name}${color.Reset}`);
+  }
+  res.redirect("/");
+})
+// const ipInColor = color.fg.Yellow + this.address().address + color.Reset
 //. GET ROUTE to catch all unhandled parameters
 app.get("*", function (req, res) {
 

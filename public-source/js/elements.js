@@ -30,7 +30,7 @@ export const mealsElement = {
   allMealBoxes: document.querySelectorAll(".meal-box"),
 
   // ALL 'MEAL MADE TODAY' BUTTONS
-  allCookedTodayButtons: document.querySelectorAll(".meal-box__button"),
+  allTodayButtons: document.querySelectorAll(".meal-box__button"),
 
   // ALL MEAL NAMES
   allMealNames: document.querySelectorAll(".meal-box__heading"),

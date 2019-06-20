@@ -45,9 +45,9 @@ export default function updateLanguage() {
   }
 
   //. ALL COOKED TODAY BUTTONS
-  if (mealsElement.allCookedTodayButtons) {
-    mealsElement.allCookedTodayButtons.forEach(button => {
-      button.innerHTML = text.allCookedTodayButtons[language];
+  if (mealsElement.allTodayButtons) {
+    mealsElement.allTodayButtons.forEach(button => {
+      button.innerHTML = text.allTodayButtons[language];
     })
   }
 

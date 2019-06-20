@@ -30,7 +30,10 @@ const state = {
   },
 
   // MESSAGE PLACEHOLDER FOR THE MEAL-COOKED TODAY CONFIRM POPUP
-  mealCookedConfirmMessage: null,
+  mealCookedConfirmMessage: "",
+
+  // MEAL NAME THAT IS BEING CURRENTLY EDITED
+  editedNameOfMeal: "",
 
   // a picked-image object whose resolution has been reduced to the custom max size
   uploadableImage: {}

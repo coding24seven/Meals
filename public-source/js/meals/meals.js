@@ -4,6 +4,7 @@ import eventifyTodayButtonAnimation from './eventify-today-button-animation';
 import getDate from '../../../shared/get-date';
 import state from '../state';
 import { screenLoader, headerElement, mealsElement } from '../elements';
+import prepareTodayButtons from "./prepare-today-buttons";
 import { eventifySearchMealsInput, focusOrUnfocusSearchMealsInput } from './search-input';
 import eventifyMealName from './edit-meal-name';
 
@@ -23,28 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
     screenLoader.classList.remove('show');
   }, false)
 
-  //. 'MADE TODAY' BUTTON LOGIC
+  //. SET UP 'TODAY' BUTTON ON EACH MEAL
   const todaysDate = getDate();
-
-  // all 'made today' buttons
-  const buttons = document.getElementsByClassName("js-had-it-today");
-
-  for (let button of buttons) {
-    if (button.dataset.mealDate === todaysDate) {
-      button.setAttribute("hidden", true);
-    } else {
-      button.addEventListener("click", function (event) {
-        event.preventDefault();
-        if (!this.getAttribute("disabled")) {
-          const confirmed = confirm(state.mealCookedConfirmMessage);
-          if (confirmed) {
-            const id = this.dataset.mealId;
-            window.location = `/meals/${id}/${todaysDate}`;
-          }
-        }
-      });
-    }
-  }
+  prepareTodayButtons(mealsElement.allTodayButtons, state.mealCookedConfirmMessage, todaysDate);
 
   //. SEARCH INPUT
   headerElement.searchInput.value = "";
@@ -58,12 +40,14 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
   //. MEAL NAME
-  eventifyMealName(mealsElement.allMealNames);
+  eventifyMealName(mealsElement.allMealNames, state);
 
   //. ANY KEY PRESSED ANYWHERE ON THE PAGE
   document.onkeydown = (e) => {
+
     // let meal names be edited without interference from the search input
-    if (e.target.classList.contains('meal-box__heading')) {
+    const allMealNames = Array.from(mealsElement.allMealNames);
+    if (allMealNames.includes(e.target)) {
       // do nothing
     }
     // delegate the event to the search input

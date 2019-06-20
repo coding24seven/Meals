@@ -36,7 +36,7 @@ const text = {
   },
 
   // ALL COOKED TODAY BUTTONS
-  allCookedTodayButtons: {
+  allTodayButtons: {
     pl: "Dzisiaj",
     en: "Today"
   },
