@@ -1,5 +1,6 @@
 
 export default function createMasonryLayout(noOfColumnsDisplayed) {
+  console.log("createMasonryLayout running");
   const container = document.querySelector(".meals-container");
   let items = Array.from(container.children);
   items = items.filter((item) => !item.classList.contains('hide'));

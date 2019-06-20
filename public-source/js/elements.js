@@ -32,6 +32,9 @@ export const mealsElement = {
   // ALL 'MEAL MADE TODAY' BUTTONS
   allCookedTodayButtons: document.querySelectorAll(".meal-box__button"),
 
+  // ALL MEAL NAMES
+  allMealNames: document.querySelectorAll(".meal-box__heading"),
+
   // ALL 'DATE' PHRASES
   lastCookedOnPhrases: document.querySelectorAll(".date-phrase"),
 
