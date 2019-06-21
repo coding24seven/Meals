@@ -1,54 +1,52 @@
+
 export default function eventifyMealName(allMealNames, state) {
   allMealNames.forEach(nameElement => {
     nameElement.onfocus = handleFocus;
-    // nameElement.onblur = handleBlur;
+    nameElement.onblur = handleBlur;
     nameElement.onkeydown = handleKeyDown;
   });
 
   function handleFocus(e) {
-    if (!state.editedNameOfMeal) state.editedNameOfMeal = e.target.innerText;
-    console.log("focusing:", state.editedNameOfMeal);
+    console.log("focusing in:", e.target.innerText);
+    state.editedNameOfMeal = e.target.innerText;
   }
 
-  function handleBlur(e) { }
+  function handleBlur(e) {
+    console.log("blurring out of:", state.editedNameOfMeal)
+
+    // if the meal has been renamed
+    if (state.editedNameOfMeal != e.target.innerText) {
+      const confirmed = confirm("blur: rename: " + state.editedNameOfMeal + " to: " + e.target.innerText + " ?");
+      if (confirmed) {
+        sendPayload(e.target);
+      } else {
+        e.target.innerText = state.editedNameOfMeal;
+      }
+    }
+  }
 
   function handleKeyDown(e) {
+    console.log("KEYDOWN ON:", e.target.innerText)
     const kC = e.keyCode;
     const nameElement = e.target;
-    const mealName = nameElement.innerText;
 
-    // enter
-    if (kC == 13) {
+    // F5 || enter || escape
+    if (kC == 116 || kC == 13 || kC == 27) {
       e.preventDefault();
-      const confirmed = confirm("change meal name?");
-      if (confirmed) {
-        const id = nameElement.dataset.mealId;
-        const payload = {
-          type: "name change",
-          id,
-          mealName
-        }
-        const stringPayload = JSON.stringify(payload);
-        window.location = `/meals/${stringPayload}`;
-      }
+      nameElement.blur();
     }
-    // escape
-    else if (kC == 27) {
-      const confirmed = confirm("Exit without saving the name?");
-      if (confirmed) {
-        e.target.innerText = state.editedNameOfMeal;
-        state.editedNameOfMeal = "";
-        nameElement.blur();
-      } else {
-        e.preventDefault();
-      }
+  }
+
+  function sendPayload(nameElement) {
+    console.log("sendpayload running");
+    const mealName = nameElement.innerText;
+    const id = nameElement.dataset.mealId;
+    const payload = {
+      type: "rename",
+      id,
+      mealName
     }
-    // F5
-    else if (kC == 116) {
-      const confirmed = confirm("Exit without saving the name?");
-      if (!confirmed) {
-        e.preventDefault();
-      }
-    }
+    const stringPayload = JSON.stringify(payload);
+    window.location = `/meals/${stringPayload}`;
   }
 }

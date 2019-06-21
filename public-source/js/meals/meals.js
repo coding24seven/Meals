@@ -46,12 +46,14 @@ document.addEventListener("DOMContentLoaded", function () {
   document.onkeydown = (e) => {
 
     // let meal names be edited without interference from the search input
-    const allMealNames = Array.from(mealsElement.allMealNames);
-    if (allMealNames.includes(e.target)) {
+    const allMealNameElements = Array.from(mealsElement.allMealNames);
+    if (allMealNameElements.includes(e.target)) {
       // do nothing
+      console.log("delegate the event to the meal name")
     }
     // delegate the event to the search input
     else {
+      console.log("delegate the event to the search input")
       focusOrUnfocusSearchMealsInput(e.keyCode, headerElement.searchInput, mealsElement.allMealBoxes)
     }
   };

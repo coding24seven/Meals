@@ -159,7 +159,7 @@ app.get("/meals/:payload", function (req, res) {
           console.log(meals[id].name, "has been prepared");
         }
       },
-      "name change": function () {
+      "rename": function () {
         const newName = sanitizeString(payload.mealName, 16, 22);
         if (Number.isInteger(id) && id >= min && id < max) {
           const prevName = meals[id].name;
