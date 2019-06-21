@@ -33,7 +33,7 @@ const state = {
   mealCookedConfirmMessage: "",
 
   // MEAL NAME THAT IS BEING CURRENTLY EDITED
-  editedNameOfMeal: "",
+  editedPropertyOfMeal: "",
 
   // a picked-image object whose resolution has been reduced to the custom max size
   uploadableImage: {}

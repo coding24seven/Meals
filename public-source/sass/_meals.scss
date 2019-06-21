@@ -129,33 +129,36 @@
     outline: none;
   }
 
-  // <p> LAST COOKED DATE
+  // <p> LAST HAD IT DATE
   &__date {
     padding: 0.3rem;
     color: #531445;
     font-size: 1.6rem;
 
     // <span> date displayed
-    & .date {
+    & .date-value {
       color: #f38745;
+      outline: none;
     }
   }
 
-  // <p> COOKED TIMES COUNTER
-  &__cooked-times-counter {
+  // <p> HAD COUNT (how many times one had the meal)
+  &__had-count {
     padding-top: 0.3rem;
     padding-bottom: 1.1rem;
     color: #531445;
     font-size: 1.6rem;
 
     // <span> count displayed
-    & .count {
+    & .had-count-value {
       color: #22962f;
+      outline: none;
     }
 
     // <span> if count == 0
     & .countZero {
       color: #e13636;
+      outline: none;
     }
   }
 }

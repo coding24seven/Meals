@@ -21,18 +21,28 @@
 				<%= meal.name %>
 			</h3>
 			<p class="meal-box__date">
-				<span class="date-phrase">date: </span>
-				<span class="date"><%= meal.date %></span>
+				<span class="date-key">date: </span>
+				<span class="date-value"
+					data-meal-id="<%= meal.id %>"
+					contenteditable="true"
+					spellcheck="false">
+					<%= meal.date %>
+				</span>
 			</p>
 
 			<%# <!-- if meal has ever been cooked, display count. Otherwise, display '0' --> %>
 			<% if (meal.count > 0) { %>
-			<p class="meal-box__cooked-times-counter">
-				<span class="cooked-count-phrase">count: </span>
-				<span class="count"><%= meal.count %></span>
+			<p class="meal-box__had-count">
+				<span class="had-count-key">count: </span>
+				<span class="had-count-value"
+					data-meal-id="<%= meal.id %>"
+					contenteditable="true"
+					spellcheck="false">
+					<%= meal.count %>
+				</span>
 			</p>
 			<% } else { %>
-			<p class="meal-box__cooked-times-counter">
+			<p class="meal-box__had-count">
 				gotowane razy: 
 				<span class="countZero"><%= meal.count %></span>
 			</p>

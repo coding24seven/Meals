@@ -151,7 +151,7 @@ app.post("/meals/edit", function (req, res) {
   if (Number.isInteger(id) && id >= min && id <= max) {
 
     const type = {
-      "todays meal": function () {
+      "today update": function () {
         const clientDate = payload.todaysDate;
         if (meals[id].date != clientDate) {
           meals[id].date = clientDate;
@@ -171,14 +171,32 @@ app.post("/meals/edit", function (req, res) {
           console.log(meals[id].name, "has already been had today");
         }
       },
-      "rename": function () {
-        const newName = sanitizeString(payload.mealName, 16, 22);
+      "name update": function () {
+        const newName = sanitizeString(payload.value, 16, 22);
         const prevName = meals[id].name;
         meals[id].name = newName;
         res.status(200).send({
-          type: "meal renamed",
+          type: "name updated",
         })
-        console.log(`${color.fg.Yellow}${prevName}${color.Reset} changed to ${color.fg.Yellow}${meals[id].name}${color.Reset}`);
+        logUpdate(id, prevName, meals[id].name);
+      },
+      "date update": function () {
+        // const newDate = sanitizeString(payload.mealName, 16, 22);
+        const prevDate = meals[id].date;
+        meals[id].date = payload.value;
+        res.status(200).send({
+          type: "date updated",
+        })
+        logUpdate(id, prevDate, meals[id].date);
+      },
+      "count update": function () {
+        // const newCount = sanitizeString(payload.mealName, 16, 22);
+        const prevCount = meals[id].count;
+        meals[id].count = payload.value;
+        res.status(200).send({
+          type: "count updated",
+        })
+        logUpdate(id, prevCount, meals[id].count);
       },
       "default": function () { console.log("unknown request type"); }
     }
@@ -190,6 +208,10 @@ app.post("/meals/edit", function (req, res) {
   else {
     console.log("request to edit a meal received with an invalid meal id")
     res.redirect("/");
+  }
+
+  function logUpdate(id, previous, current) {
+    console.log(`Meal ID ${color.fg.Blue}${id}: ${color.Reset}${color.fg.Yellow}${previous}${color.Reset} changed to ${color.fg.Yellow}${current}${color.Reset}`);
   }
 });
 

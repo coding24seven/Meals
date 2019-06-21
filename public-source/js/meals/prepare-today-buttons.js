@@ -12,7 +12,7 @@ export default function prepareTodayButtons(allTodayButtons, mealCookedConfirmMe
           const confirmed = confirm(mealCookedConfirmMessage);
           if (confirmed) {
             const payload = {
-              type: "todays meal",
+              type: "today update",
               id: this.dataset.mealId,
               todaysDate
             }

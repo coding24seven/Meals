@@ -52,15 +52,15 @@ export default function updateLanguage() {
   }
 
   //. 'LAST COOKED ON' PHRASE
-  if (mealsElement.lastCookedOnPhrases) {
-    mealsElement.lastCookedOnPhrases.forEach(phrase => {
+  if (mealsElement.allDateKeys) {
+    mealsElement.allDateKeys.forEach(phrase => {
       phrase.innerHTML = text.lastCookedOnPhrase[language];
     })
   }
 
   //. 'COOKED COUNT' PHRASE
-  if (mealsElement.cookedCountPhrases) {
-    mealsElement.cookedCountPhrases.forEach(phrase => {
+  if (mealsElement.allHadCountKeys) {
+    mealsElement.allHadCountKeys.forEach(phrase => {
       phrase.innerHTML = text.cookedCountPhrase[language];
     })
   }

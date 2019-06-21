@@ -29,17 +29,21 @@ export const mealsElement = {
   // ALL MEAL BOXES
   allMealBoxes: document.querySelectorAll(".meal-box"),
 
-  // ALL 'MEAL MADE TODAY' BUTTONS
-  allTodayButtons: document.querySelectorAll(".meal-box__button"),
-
   // ALL MEAL NAMES
   allMealNames: document.querySelectorAll(".meal-box__heading"),
 
-  // ALL 'DATE' PHRASES
-  lastCookedOnPhrases: document.querySelectorAll(".date-phrase"),
+  // ALL 'DATE' KEYS
+  allDateKeys: document.querySelectorAll(".date-key"),
+  // ALL 'DATE' VALUES
+  allDateValues: document.querySelectorAll(".date-value"),
 
-  // ALL 'COUNT' PHRASES
-  cookedCountPhrases: document.querySelectorAll(".cooked-count-phrase")
+  // ALL 'COUNT' KEYS
+  allHadCountKeys: document.querySelectorAll(".had-count-key"),
+  // ALL 'COUNT' VALUES
+  allHadCountValues: document.querySelectorAll(".had-count-value"),
+
+  // ALL 'MEAL MADE TODAY' BUTTONS
+  allTodayButtons: document.querySelectorAll(".meal-box__button")
 }
 
 /// NEW-MEAL PAGE ELEMENTS

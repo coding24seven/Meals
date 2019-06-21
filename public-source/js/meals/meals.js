@@ -6,7 +6,7 @@ import state from '../state';
 import { screenLoader, headerElement, mealsElement } from '../elements';
 import prepareTodayButtons from "./prepare-today-buttons";
 import { eventifySearchMealsInput, focusOrUnfocusSearchMealsInput } from './search-input';
-import eventifyMealName from './edit-meal-name';
+import eventifyMealProperty from './edit-meal-property';
 
 /// unique page identifier: page-id-meals
 
@@ -40,16 +40,22 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
   //. MEAL NAME
-  eventifyMealName(mealsElement.allMealNames, state);
+  eventifyMealProperty(mealsElement.allMealNames, 'name update');
+  eventifyMealProperty(mealsElement.allDateValues, 'date update');
+  eventifyMealProperty(mealsElement.allHadCountValues, 'count update');
 
   //. ANY KEY PRESSED ANYWHERE ON THE PAGE
   document.onkeydown = (e) => {
 
-    // let meal names be edited without interference from the search input
+    // let meal properties be edited without interference from the search input
     const allMealNameElements = Array.from(mealsElement.allMealNames);
-    if (allMealNameElements.includes(e.target)) {
+    const allDateValuesElements = Array.from(mealsElement.allDateValues);
+    const allCountValuesElements = Array.from(mealsElement.allHadCountValues);
+    if (allMealNameElements.includes(e.target)
+      || allDateValuesElements.includes(e.target)
+      || allCountValuesElements.includes(e.target)) {
       // do nothing
-      console.log("delegate the event to the meal name")
+      console.log("delegate the event to a meal property")
     }
     // delegate the event to the search input
     else {
