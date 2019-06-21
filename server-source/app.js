@@ -15,6 +15,8 @@ import latestClients from "./latest-clients.js"; // a list of clients connected 
 import upload from './multer.js'; // handle file uploads from a client
 import color from '../shared/console-log-colors'; // color console.log
 import sanitizeString from '../shared/sanitize-string';
+import checkDate from '../shared/check-date';
+import checkCount from '../shared/check-count';
 import getDate from '../shared/get-date';
 import getTime from '../shared/get-time';
 
@@ -181,22 +183,35 @@ app.post("/meals/edit", function (req, res) {
         logUpdate(id, prevName, meals[id].name);
       },
       "date update": function () {
-        // const newDate = sanitizeString(payload.mealName, 16, 22);
-        const prevDate = meals[id].date;
-        meals[id].date = payload.value;
-        res.status(200).send({
-          type: "date updated",
-        })
-        logUpdate(id, prevDate, meals[id].date);
+        const newDate = payload.value;
+        if (checkDate(newDate)) {
+          const prevDate = meals[id].date;
+          meals[id].date = newDate;
+          res.status(200).send({
+            type: "date updated",
+          })
+          logUpdate(id, prevDate, meals[id].date);
+        } else {
+          res.status(400).json({
+            type: "bad date format"
+          });
+          console.log(newDate, "is bad format");
+        }
       },
       "count update": function () {
-        // const newCount = sanitizeString(payload.mealName, 16, 22);
-        const prevCount = meals[id].count;
-        meals[id].count = payload.value;
-        res.status(200).send({
-          type: "count updated",
-        })
-        logUpdate(id, prevCount, meals[id].count);
+        const newCount = payload.value;
+        if (checkCount(newCount)) {
+          const prevCount = meals[id].count;
+          meals[id].count = newCount;
+          res.status(200).send({
+            type: "count updated",
+          })
+          logUpdate(id, prevCount, meals[id].count);
+        } else {
+          res.status(400).json({
+            type: "bad count format"
+          });
+        }
       },
       "default": function () { console.log("unknown request type"); }
     }
