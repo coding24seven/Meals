@@ -1,3 +1,4 @@
+import sendEditRequest from './send-edit-request';
 
 export default function eventifyMealName(allMealNames, state) {
   allMealNames.forEach(nameElement => {
@@ -46,7 +47,6 @@ export default function eventifyMealName(allMealNames, state) {
       id,
       mealName
     }
-    const stringPayload = JSON.stringify(payload);
-    window.location = `/meals/${stringPayload}`;
+    sendEditRequest(payload);
   }
-}
+} // sendPayload() ends

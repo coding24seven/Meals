@@ -1,3 +1,5 @@
+import sendEditRequest from './send-edit-request';
+
 export default function prepareTodayButtons(allTodayButtons, mealCookedConfirmMessage, todaysDate) {
 
   for (let button of allTodayButtons) {
@@ -14,8 +16,7 @@ export default function prepareTodayButtons(allTodayButtons, mealCookedConfirmMe
               id: this.dataset.mealId,
               todaysDate
             }
-            const stringPayload = JSON.stringify(payload);
-            window.location = `/meals/${stringPayload}`;
+            sendEditRequest(payload);
           }
         }
       });

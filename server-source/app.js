@@ -141,31 +141,44 @@ app.post("/meals", function (req, res, next) {
 });
 
 //. GET ROUTE TO EDIT MEAL DATA
-app.get("/meals/:payload", function (req, res) {
+app.post("/meals/edit", function (req, res) {
   const min = 0;
   const max = meals.length - 1;
-  const payload = JSON.parse(req.params.payload);
+  const payload = req.body;
+  console.log("body:", payload)
   const id = parseInt(payload.id);
-
   // meal id must be valid
   if (Number.isInteger(id) && id >= min && id <= max) {
 
     const type = {
       "todays meal": function () {
         const clientDate = payload.todaysDate;
-        if (Number.isInteger(id) && id >= min && id < max && meals[id].date != clientDate) {
+        if (meals[id].date != clientDate) {
           meals[id].date = clientDate;
           meals[id].count++;
-          console.log(meals[id].name, "has been prepared");
+          console.log("UserX has had " + color.fg.Yellow + meals[id].name, color.Reset + "today");
+          res.status(200).json({
+            type: "meal is todays",
+            mealName: meals[id].name
+          });
+        }
+        // should never happen if 'today' button is correctly hidden
+        else {
+          res.status(400).json({
+            type: "meal is already todays",
+            mealName: meals[id].name
+          });
+          console.log(meals[id].name, "has already been had today");
         }
       },
       "rename": function () {
         const newName = sanitizeString(payload.mealName, 16, 22);
-        if (Number.isInteger(id) && id >= min && id < max) {
-          const prevName = meals[id].name;
-          meals[id].name = newName;
-          console.log(`${color.fg.Yellow}${prevName}${color.Reset} changed to ${color.fg.Yellow}${meals[id].name}${color.Reset}`);
-        }
+        const prevName = meals[id].name;
+        meals[id].name = newName;
+        res.status(200).send({
+          type: "meal renamed",
+        })
+        console.log(`${color.fg.Yellow}${prevName}${color.Reset} changed to ${color.fg.Yellow}${meals[id].name}${color.Reset}`);
       },
       "default": function () { console.log("unknown request type"); }
     }
@@ -174,9 +187,10 @@ app.get("/meals/:payload", function (req, res) {
     storage.writeDatabase(meals, databaseFile);
   }
   // id is not valid
-  else { console.log("request to edit a meal received with an invalid meal id") }
-
-  res.redirect("/");
+  else {
+    console.log("request to edit a meal received with an invalid meal id")
+    res.redirect("/");
+  }
 });
 
 //. GET ROUTE to catch all unhandled parameters
