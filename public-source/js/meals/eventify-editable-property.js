@@ -4,11 +4,12 @@ import sanitizeString from '../../../shared/sanitize-string';
 
 export default function eventifyEditableProperty(allMealSpecifiedProperty, type) {
 
-  const updateType = {
-    'name update': text => sanitizeString(text, 16, 22),
-    'date update': state.editedPropertyOfMeal,
-    'count update': state.editedPropertyOfMeal
-  }
+  // TODO:
+  // const updateType = {
+  //   'name update': text => sanitizeString(text, 16, 22),
+  //   'date update': state.editedPropertyOfMeal,
+  //   'count update': state.editedPropertyOfMeal
+  // }
 
   allMealSpecifiedProperty.forEach(element => {
     element.onfocus = handleFocus;
@@ -27,9 +28,9 @@ export default function eventifyEditableProperty(allMealSpecifiedProperty, type)
     // if the property of the meal has been changed
     if (state.editedPropertyOfMeal != e.target.innerText) {
       const confirmMessage = state.mealPropertyChangeQuestionParts[0]
-      + state.editedPropertyOfMeal
-      + state.mealPropertyChangeQuestionParts[1]
-      + e.target.innerText + " ?"
+        + state.editedPropertyOfMeal
+        + state.mealPropertyChangeQuestionParts[1]
+        + e.target.innerText + " ?"
       const confirmed = confirm(confirmMessage);
       if (confirmed) {
         sendPayload(e.target);
@@ -55,12 +56,12 @@ export default function eventifyEditableProperty(allMealSpecifiedProperty, type)
   }
 
   function sendPayload(element) {
-    console.log("sendpayload running");
     const payload = {
       type, // 'name update' or 'date update' or 'count update'
       id: element.dataset.mealId, // meal id
       value: element.innerText.trim() // meal name or meal date or meal count
     }
-    sendEditRequest(payload);
+    // arguments: payload, success callback, failure callback
+    sendEditRequest(payload, () => { }, () => element.innerText = state.editedPropertyOfMeal);
   } // sendPayload() ends
 } 

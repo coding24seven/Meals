@@ -4,7 +4,7 @@ import eventifyTodayButtonAnimation from './eventify-today-button-animation';
 import getDate from '../../../shared/get-date';
 import state from '../state';
 import { screenLoader, headerElement, mealsElement } from '../elements';
-import todayButtons from "./prepare-today-buttons";
+import prepareTodayButtons from "./prepare-today-buttons";
 import { eventifySearchMealsInput, focusOrUnfocusSearchMealsInput } from './search-input';
 import eventifyEditableProperty from './eventify-editable-property';
 
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //. SET UP 'TODAY' BUTTON ON EACH MEAL
   const todaysDate = getDate();
-  todayButtons(mealsElement.allTodayButtons, state.mealTodayConfirmMessage, todaysDate);
+  prepareTodayButtons(mealsElement.allTodayButtons, state.mealTodayConfirmMessage, todaysDate);
 
   //. SEARCH INPUT
   headerElement.searchInput.value = "";
@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
   eventifySearchMealsInput(headerElement.searchInput, mealsElement.allMealBoxes,
     // callback that creates a layout
     () => {
-      const noOfColumnsDisplayed = state.getNoOfColumnsDisplayed();
-      createMasonryLayout(noOfColumnsDisplayed);
+      const noOfColsDisplayed = state.getNoOfColumnsDisplayed();
+      createMasonryLayout(noOfColsDisplayed);
     })
 
   //. SET UP EVENTS FOR MEAL NAME OR DATE OR COUNT
@@ -73,9 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
       eventifyTodayButtonAnimation();
 
       //, CREATE A MASONRY LAYOUT (IF MORE THAN ONE COLUMN IS DISPLAYED)
-      const noOfColumnsDisplayed = state.getNoOfColumnsDisplayed();
-      console.log("noOfColumnsDisplayed:", noOfColumnsDisplayed)
-      createMasonryLayout(noOfColumnsDisplayed);
+      const noOfColsDisplayed = state.getNoOfColumnsDisplayed();
+      console.log("noOfColsDisplayed:", noOfColsDisplayed)
+      createMasonryLayout(noOfColsDisplayed);
     }, 1000), false)
   });
 

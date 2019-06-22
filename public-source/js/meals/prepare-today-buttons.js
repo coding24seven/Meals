@@ -1,6 +1,6 @@
 import sendEditRequest from './send-edit-request';
 
-export default function todayButtons(allTodayButtons, mealTodayConfirmMessage, todaysDate) {
+export default function prepareTodayButtons(allTodayButtons, mealTodayConfirmMessage, todaysDate) {
 
   for (let button of allTodayButtons) {
     if (button.dataset.mealDate === todaysDate) {
@@ -16,7 +16,7 @@ export default function todayButtons(allTodayButtons, mealTodayConfirmMessage, t
               id: this.dataset.mealId,
               todaysDate
             }
-            sendEditRequest(payload);
+            sendEditRequest(payload, () => this.setAttribute("hidden", true));
           }
         }
       });

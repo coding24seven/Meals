@@ -1,4 +1,4 @@
-export default function sendEditRequest(payload) {
+export default function sendEditRequest(payload, successCB, failCB) {
 
   const stringPayload = JSON.stringify(payload);
   const url = '/meals/edit';
@@ -8,11 +8,15 @@ export default function sendEditRequest(payload) {
     headers: { 'Content-Type': 'application/json' },
     body: stringPayload // body data type must match "Content-Type" header
   })
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok) successCB && successCB();
+      else failCB && failCB();
+      return response.json();
+    })
     .then(jsonResponse => {
       console.log(jsonResponse);
     })
     .catch(error => {
-      console.error(error);
+      console.error(error); // no response
     });
 }
