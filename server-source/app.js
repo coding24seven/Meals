@@ -193,9 +193,9 @@ app.put("/meals/edit", function (req, res) {
           logUpdate(id, prevDate, meals[id].date);
         } else {
           res.status(400).json({
-            type: "bad date format"
+            type: "bad date"
           });
-          console.log(newDate, "is bad format");
+          console.log(newDate, "is a bad date");
         }
       },
       "count update": function () {

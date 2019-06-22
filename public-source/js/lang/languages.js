@@ -43,8 +43,8 @@ const text = {
 
   // MESSAGE FOR THE MEAL COOKED CONFIRM POPUP
   mealTodayConfirmMessage: {
-    pl: "Na pewno ugotowałaś? Potwierdź:",
-    en: "Are you sure you made this meal today?"
+    pl: "Na pewno? Potwierdź:",
+    en: "Are you sure you're having this meal today?"
   },
 
   // 'CHANGE', 'TO' IN THE 'CHANGE MEAL PROPERTY FROM X TO Y ?' CONFIRM POPUP

@@ -110,35 +110,39 @@
     }
   }
 
-  //, <figcaption> CONTAINS: ALL TEXT UNDER MEAL PHOTO
+  //, <figcaption> CONTAINS: ALL TEXT UNDER THE MEAL IMAGE
   &__caption {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex: 1 0;
+    text-align: center;
   }
 
   // <h3> HEADING
   &__heading {
+    max-width: 100%;
     padding: 1.3rem 0.7rem 0.6rem;
     color: $color-meal-box-heading;
     caret-color: red;
     font-weight: 300;
     font-size: 2.2rem;
-    text-align: center;
     outline: none;
     cursor: text;
   }
 
   // <p> LAST HAD IT DATE
   &__date {
+    max-width: 100%;
     padding: 0.3rem;
     color: #531445;
     font-size: 1.6rem;
 
     // <span> date displayed
     & .date-value {
+      max-width: 100%;
       display: inline-block;
       color: #f38745;
       caret-color: black;
@@ -149,6 +153,7 @@
 
   // <p> HAD COUNT (how many times one had the meal)
   &__had-count {
+    max-width: 100%;
     padding-top: 0.3rem;
     padding-bottom: 1.1rem;
     color: #531445;
@@ -156,6 +161,7 @@
 
     // <span> count displayed
     & .count-value {
+      max-width: 100%;
       display: inline-block;
       color: #22962f;
       caret-color: red;
