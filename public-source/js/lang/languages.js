@@ -25,7 +25,7 @@ const text = {
 
   // ADD A MEAL IN THE HEADER 
   headerAddMeal: {
-    pl: "Ustawienia",
+    pl: "Opcje",
     en: "Settings"
   },
 
@@ -36,15 +36,21 @@ const text = {
   },
 
   // ALL COOKED TODAY BUTTONS
-  allCookedTodayButtons: {
+  allTodayButtons: {
     pl: "Dzisiaj",
     en: "Today"
   },
 
   // MESSAGE FOR THE MEAL COOKED CONFIRM POPUP
-  mealCookedConfirmMessage: {
+  mealTodayConfirmMessage: {
     pl: "Na pewno ugotowałaś? Potwierdź:",
     en: "Are you sure you made this meal today?"
+  },
+
+  // 'CHANGE', 'TO' IN THE 'CHANGE MEAL PROPERTY FROM X TO Y ?' CONFIRM POPUP
+  mealPropertyChangeQuestionParts: {
+    pl: ['zmienić: ', '\n        na: '],
+    en: ['change: ', '\n        to: ']
   },
 
   // 'LAST COOKED ON' PHRASE

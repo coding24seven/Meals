@@ -123,38 +123,50 @@
   &__heading {
     padding: 1.3rem 0.7rem 0.6rem;
     color: $color-meal-box-heading;
+    caret-color: red;
     font-weight: 300;
     font-size: 2.2rem;
     text-align: center;
+    outline: none;
+    cursor: text;
   }
 
-  // <p> LAST COOKED DATE
+  // <p> LAST HAD IT DATE
   &__date {
     padding: 0.3rem;
     color: #531445;
     font-size: 1.6rem;
 
     // <span> date displayed
-    & .date {
+    & .date-value {
+      display: inline-block;
       color: #f38745;
+      caret-color: black;
+      outline: none;
+      cursor: text;
     }
   }
 
-  // <p> COOKED TIMES COUNTER
-  &__cooked-times-counter {
+  // <p> HAD COUNT (how many times one had the meal)
+  &__had-count {
     padding-top: 0.3rem;
     padding-bottom: 1.1rem;
     color: #531445;
     font-size: 1.6rem;
 
     // <span> count displayed
-    & .count {
+    & .count-value {
+      display: inline-block;
       color: #22962f;
+      caret-color: red;
+      outline: none;
+      cursor: text;
     }
 
     // <span> if count == 0
     & .countZero {
       color: #e13636;
+      outline: none;
     }
   }
 }

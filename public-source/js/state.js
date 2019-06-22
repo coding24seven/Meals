@@ -30,7 +30,13 @@ const state = {
   },
 
   // MESSAGE PLACEHOLDER FOR THE MEAL-COOKED TODAY CONFIRM POPUP
-  mealCookedConfirmMessage: null,
+  mealTodayConfirmMessage: "error: language not updated yet",
+
+  // 'CHANGE', 'TO' PLACEHOLDER IN THE 'CHANGE MEAL PROPERTY FROM X TO Y ?' CONFIRM POPUP
+  mealPropertyChangeQuestionParts: "error: language not updated yet",
+
+  // MEAL NAME THAT IS BEING CURRENTLY EDITED
+  editedPropertyOfMeal: "",
 
   // a picked-image object whose resolution has been reduced to the custom max size
   uploadableImage: {}

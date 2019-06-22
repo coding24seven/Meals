@@ -7,6 +7,9 @@
 to watch the demo:  
 Visit: https://mums-meals.herokuapp.com
 
+to edit a meal name, date, or count:  
+Click it. Alter the text. Press enter or click out. Confirm the change.  
+
 to run on your own machine:  
 Have: node.js installed  
 Clone or download this project  

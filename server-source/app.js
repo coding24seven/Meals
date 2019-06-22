@@ -15,6 +15,8 @@ import latestClients from "./latest-clients.js"; // a list of clients connected 
 import upload from './multer.js'; // handle file uploads from a client
 import color from '../shared/console-log-colors'; // color console.log
 import sanitizeString from '../shared/sanitize-string';
+import sanitizeDate from '../shared/sanitize-date';
+import sanitizeCount from '../shared/sanitize-count';
 import getDate from '../shared/get-date';
 import getTime from '../shared/get-time';
 
@@ -140,19 +142,92 @@ app.post("/meals", function (req, res, next) {
   })
 });
 
-//. GET ROUTE MEAL PREPARED TODAY
-app.get("/meals/:id/:date", function (req, res) {
+//. PUT ROUTE TO EDIT MEAL PROPERTIES SUCH AS NAME, DATE, COUNT
+app.put("/meals/edit", function (req, res) {
   const min = 0;
-  const max = meals.length;
-  const id = parseInt(req.params.id);
-  const clientDate = req.params.date;
-  if (Number.isInteger(id) && id >= min && id < max && meals[id].date != clientDate) {
-    meals[id].date = clientDate;
-    meals[id].count++;
+  const max = meals.length - 1;
+  const payload = req.body;
+  console.log("body:", payload)
+  const id = parseInt(payload.id);
+  // meal id must be valid
+  if (Number.isInteger(id) && id >= min && id <= max) {
+
+    const updateType = {
+      "today update": function () {
+        const clientDate = payload.todaysDate;
+        if (meals[id].date != clientDate) {
+          meals[id].date = clientDate;
+          meals[id].count++;
+          console.log("UserX has had " + color.fg.Yellow + meals[id].name, color.Reset + "today");
+          res.status(200).json({
+            type: "meal is todays",
+            mealName: meals[id].name
+          });
+        }
+        // should never happen if 'today' button is correctly hidden
+        else {
+          res.status(400).json({
+            type: "meal is already todays",
+            mealName: meals[id].name
+          });
+          console.log(meals[id].name, "has already been had today");
+        }
+      },
+      "name update": function () {
+        const newName = sanitizeString(payload.value, 16, 22);
+        const prevName = meals[id].name;
+        meals[id].name = newName;
+        res.status(200).send({
+          type: "name updated",
+        })
+        logUpdate(id, prevName, meals[id].name);
+      },
+      "date update": function () {
+        const newDate = sanitizeDate(payload.value);
+        if (newDate) {
+          const prevDate = meals[id].date;
+          meals[id].date = newDate;
+          res.status(200).send({
+            type: "date updated",
+          })
+          logUpdate(id, prevDate, meals[id].date);
+        } else {
+          res.status(400).json({
+            type: "bad date format"
+          });
+          console.log(newDate, "is bad format");
+        }
+      },
+      "count update": function () {
+        const newCount = sanitizeCount(payload.value);
+        if (newCount) {
+          const prevCount = meals[id].count;
+          meals[id].count = newCount;
+          res.status(200).send({
+            type: "count updated",
+          })
+          logUpdate(id, prevCount, meals[id].count);
+        } else {
+          res.status(400).json({
+            type: "bad count format"
+          });
+        }
+      },
+      "default": function () { console.log("unknown request type"); }
+    }
+    updateType.hasOwnProperty(payload.type) ? updateType[payload.type]() : updateType['default']();
+
     storage.writeDatabase(meals, databaseFile);
-    console.log(meals[id].name, "has been prepared");
   }
-  res.redirect("/");
+  // id is not valid
+  else {
+    console.log("request to edit a meal received with an invalid meal id")
+    res.redirect("/");
+  }
+
+  function logUpdate(id, previous, current) {
+    console.log(`Meal ID ${color.fg.Blue}${id}: ${color.Reset}${color.fg.Yellow}${previous}${color.Reset} changed to ${color.fg.Yellow}${current}${color.Reset}`);
+  }
 });
 
 //. GET ROUTE to catch all unhandled parameters

@@ -4,7 +4,9 @@ import eventifyTodayButtonAnimation from './eventify-today-button-animation';
 import getDate from '../../../shared/get-date';
 import state from '../state';
 import { screenLoader, headerElement, mealsElement } from '../elements';
-import searchMeals from './search-input';
+import prepareTodayButtons from "./prepare-today-buttons";
+import { eventifySearchMealsInput, focusOrUnfocusSearchMealsInput } from './search-input';
+import eventifyEditableProperty from './eventify-editable-property';
 
 /// unique page identifier: page-id-meals
 
@@ -16,6 +18,52 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log('page-id-meals loaded');
 
+  //. SCREEN LOADER
+  screenLoader.classList.add('show');
+  window.addEventListener('load', function () {
+    screenLoader.classList.remove('show');
+  }, false)
+
+  //. SET UP 'TODAY' BUTTON ON EACH MEAL
+  const todaysDate = getDate();
+  prepareTodayButtons(mealsElement.allTodayButtons, state.mealTodayConfirmMessage, todaysDate);
+
+  //. SEARCH INPUT
+  headerElement.searchInput.value = "";
+  headerElement.searchInput.classList.add('show');
+
+  eventifySearchMealsInput(headerElement.searchInput, mealsElement.allMealBoxes,
+    // callback that creates a layout
+    () => {
+      const noOfColsDisplayed = state.getNoOfColumnsDisplayed();
+      createMasonryLayout(noOfColsDisplayed);
+    })
+
+  //. SET UP EVENTS FOR MEAL NAME OR DATE OR COUNT
+  eventifyEditableProperty(mealsElement.allNames, 'name update');
+  eventifyEditableProperty(mealsElement.allDateValues, 'date update');
+  eventifyEditableProperty(mealsElement.allCountValues, 'count update');
+
+  //. ANY KEY PRESSED FOCUSES SEARCH INPUT IF NO ELEMENT IS BEING EDITED
+  document.onkeydown = (e) => {
+
+    // let meal properties be edited without interference from the search input
+    const allMealNameElements = Array.from(mealsElement.allNames);
+    const allDateValuesElements = Array.from(mealsElement.allDateValues);
+    const allCountValuesElements = Array.from(mealsElement.allCountValues);
+    if (allMealNameElements.includes(e.target)
+      || allDateValuesElements.includes(e.target)
+      || allCountValuesElements.includes(e.target)) {
+      // do nothing
+      console.log("delegate the event to a meal property")
+    }
+    // delegate the event to the search input
+    else {
+      console.log("delegate the event to the search input")
+      focusOrUnfocusSearchMealsInput(e.keyCode, headerElement.searchInput, mealsElement.allMealBoxes)
+    }
+  };
+
   //. WHEN THE PAGE IS FULLY LOADED OR RESIZED
   ['load', 'resize'].forEach(e => {
 
@@ -25,47 +73,10 @@ document.addEventListener("DOMContentLoaded", function () {
       eventifyTodayButtonAnimation();
 
       //, CREATE A MASONRY LAYOUT (IF MORE THAN ONE COLUMN IS DISPLAYED)
-      const noOfColumnsDisplayed = state.getNoOfColumnsDisplayed();
-      console.log("noOfColumnsDisplayed:", noOfColumnsDisplayed)
-      createMasonryLayout(noOfColumnsDisplayed);
+      const noOfColsDisplayed = state.getNoOfColumnsDisplayed();
+      console.log("noOfColsDisplayed:", noOfColsDisplayed)
+      createMasonryLayout(noOfColsDisplayed);
     }, 1000), false)
   });
-
-  //. 'MADE TODAY' BUTTON LOGIC
-  const todaysDate = getDate();
-
-  // all 'made today' buttons
-  const buttons = document.getElementsByClassName("js-had-it-today");
-
-  for (let button of buttons) {
-    if (button.dataset.mealDate === todaysDate) {
-      button.setAttribute("hidden", true);
-    } else {
-      button.addEventListener("click", function (event) {
-        event.preventDefault();
-        if (!this.getAttribute("disabled")) {
-          const confirmed = confirm(state.mealCookedConfirmMessage);
-          if (confirmed) {
-            const id = this.dataset.mealId;
-            window.location = `/meals/${id}/${todaysDate}`;
-          }
-        }
-      });
-    }
-  }
-
-  //. SCREEN LOADER
-  screenLoader.classList.add('show');
-  window.addEventListener('load', function () {
-    screenLoader.classList.remove('show');
-  }, false)
-
-  //. SEARCH INPUT
-  searchMeals(headerElement.searchInput, mealsElement.allMealBoxes,
-    // callback that creates a masonry layout
-    () => {
-      const noOfColumnsDisplayed = state.getNoOfColumnsDisplayed();
-      createMasonryLayout(noOfColumnsDisplayed);
-    });
 
 }); // "DOMContentLoaded" ends

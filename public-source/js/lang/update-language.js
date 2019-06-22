@@ -16,7 +16,10 @@ export default function updateLanguage() {
   document.title = text.title[language];
 
   //. MESSAGE FOR THE MEAL-COOKED-CONFIRM ALERT POPUP
-  state.mealCookedConfirmMessage = text.mealCookedConfirmMessage[language];
+  state.mealTodayConfirmMessage = text.mealTodayConfirmMessage[language];
+
+  //. 'CHANGE', 'TO' IN THE 'CHANGE MEAL PROPERTY FROM X TO Y ?' CONFIRM POPUP
+  state.mealPropertyChangeQuestionParts = text.mealPropertyChangeQuestionParts[language];
 
   //. THE BRAND NAME IN THE HEADER
   // check if the element(s) exists on the currently loaded page before you place any text in it
@@ -45,22 +48,22 @@ export default function updateLanguage() {
   }
 
   //. ALL COOKED TODAY BUTTONS
-  if (mealsElement.allCookedTodayButtons) {
-    mealsElement.allCookedTodayButtons.forEach(button => {
-      button.innerHTML = text.allCookedTodayButtons[language];
+  if (mealsElement.allTodayButtons) {
+    mealsElement.allTodayButtons.forEach(button => {
+      button.innerHTML = text.allTodayButtons[language];
     })
   }
 
   //. 'LAST COOKED ON' PHRASE
-  if (mealsElement.lastCookedOnPhrases) {
-    mealsElement.lastCookedOnPhrases.forEach(phrase => {
+  if (mealsElement.allDateKeys) {
+    mealsElement.allDateKeys.forEach(phrase => {
       phrase.innerHTML = text.lastCookedOnPhrase[language];
     })
   }
 
   //. 'COOKED COUNT' PHRASE
-  if (mealsElement.cookedCountPhrases) {
-    mealsElement.cookedCountPhrases.forEach(phrase => {
+  if (mealsElement.allCountKeys) {
+    mealsElement.allCountKeys.forEach(phrase => {
       phrase.innerHTML = text.cookedCountPhrase[language];
     })
   }
