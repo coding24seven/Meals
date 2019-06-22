@@ -4,9 +4,9 @@ import eventifyTodayButtonAnimation from './eventify-today-button-animation';
 import getDate from '../../../shared/get-date';
 import state from '../state';
 import { screenLoader, headerElement, mealsElement } from '../elements';
-import prepareTodayButtons from "./prepare-today-buttons";
+import todayButtons from "./prepare-today-buttons";
 import { eventifySearchMealsInput, focusOrUnfocusSearchMealsInput } from './search-input';
-import eventifyMealProperty from './edit-meal-property';
+import eventifyEditableProperty from './eventify-editable-property';
 
 /// unique page identifier: page-id-meals
 
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //. SET UP 'TODAY' BUTTON ON EACH MEAL
   const todaysDate = getDate();
-  prepareTodayButtons(mealsElement.allTodayButtons, state.mealCookedConfirmMessage, todaysDate);
+  todayButtons(mealsElement.allTodayButtons, state.mealTodayConfirmMessage, todaysDate);
 
   //. SEARCH INPUT
   headerElement.searchInput.value = "";
@@ -39,18 +39,18 @@ document.addEventListener("DOMContentLoaded", function () {
       createMasonryLayout(noOfColumnsDisplayed);
     })
 
-  //. MEAL NAME
-  eventifyMealProperty(mealsElement.allMealNames, 'name update');
-  eventifyMealProperty(mealsElement.allDateValues, 'date update');
-  eventifyMealProperty(mealsElement.allHadCountValues, 'count update');
+  //. SET UP EVENTS FOR MEAL NAME OR DATE OR COUNT
+  eventifyEditableProperty(mealsElement.allNames, 'name update');
+  eventifyEditableProperty(mealsElement.allDateValues, 'date update');
+  eventifyEditableProperty(mealsElement.allCountValues, 'count update');
 
-  //. ANY KEY PRESSED ANYWHERE ON THE PAGE
+  //. ANY KEY PRESSED FOCUSES SEARCH INPUT IF NO ELEMENT IS BEING EDITED
   document.onkeydown = (e) => {
 
     // let meal properties be edited without interference from the search input
-    const allMealNameElements = Array.from(mealsElement.allMealNames);
+    const allMealNameElements = Array.from(mealsElement.allNames);
     const allDateValuesElements = Array.from(mealsElement.allDateValues);
-    const allCountValuesElements = Array.from(mealsElement.allHadCountValues);
+    const allCountValuesElements = Array.from(mealsElement.allCountValues);
     if (allMealNameElements.includes(e.target)
       || allDateValuesElements.includes(e.target)
       || allCountValuesElements.includes(e.target)) {

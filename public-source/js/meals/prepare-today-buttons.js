@@ -1,6 +1,6 @@
 import sendEditRequest from './send-edit-request';
 
-export default function prepareTodayButtons(allTodayButtons, mealCookedConfirmMessage, todaysDate) {
+export default function todayButtons(allTodayButtons, mealTodayConfirmMessage, todaysDate) {
 
   for (let button of allTodayButtons) {
     if (button.dataset.mealDate === todaysDate) {
@@ -9,7 +9,7 @@ export default function prepareTodayButtons(allTodayButtons, mealCookedConfirmMe
       button.addEventListener("click", function (event) {
         event.preventDefault();
         if (!this.getAttribute("disabled")) {
-          const confirmed = confirm(mealCookedConfirmMessage);
+          const confirmed = confirm(mealTodayConfirmMessage);
           if (confirmed) {
             const payload = {
               type: "today update",

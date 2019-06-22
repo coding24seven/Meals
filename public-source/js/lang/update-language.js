@@ -16,7 +16,7 @@ export default function updateLanguage() {
   document.title = text.title[language];
 
   //. MESSAGE FOR THE MEAL-COOKED-CONFIRM ALERT POPUP
-  state.mealCookedConfirmMessage = text.mealCookedConfirmMessage[language];
+  state.mealTodayConfirmMessage = text.mealTodayConfirmMessage[language];
 
   //. THE BRAND NAME IN THE HEADER
   // check if the element(s) exists on the currently loaded page before you place any text in it
@@ -59,8 +59,8 @@ export default function updateLanguage() {
   }
 
   //. 'COOKED COUNT' PHRASE
-  if (mealsElement.allHadCountKeys) {
-    mealsElement.allHadCountKeys.forEach(phrase => {
+  if (mealsElement.allCountKeys) {
+    mealsElement.allCountKeys.forEach(phrase => {
       phrase.innerHTML = text.cookedCountPhrase[language];
     })
   }

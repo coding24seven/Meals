@@ -4,7 +4,7 @@ export default function sendEditRequest(payload) {
   const url = '/meals/edit';
 
   fetch(url, {
-    method: 'POST',
+    method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: stringPayload // body data type must match "Content-Type" header
   })

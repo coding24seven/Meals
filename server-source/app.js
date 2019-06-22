@@ -15,8 +15,8 @@ import latestClients from "./latest-clients.js"; // a list of clients connected 
 import upload from './multer.js'; // handle file uploads from a client
 import color from '../shared/console-log-colors'; // color console.log
 import sanitizeString from '../shared/sanitize-string';
-import checkDate from '../shared/check-date';
-import checkCount from '../shared/check-count';
+import sanitizeDate from '../shared/sanitize-date';
+import sanitizeCount from '../shared/sanitize-count';
 import getDate from '../shared/get-date';
 import getTime from '../shared/get-time';
 
@@ -142,8 +142,8 @@ app.post("/meals", function (req, res, next) {
   })
 });
 
-//. GET ROUTE TO EDIT MEAL DATA
-app.post("/meals/edit", function (req, res) {
+//. PUT ROUTE TO EDIT MEAL PROPERTIES SUCH AS NAME, DATE, COUNT
+app.put("/meals/edit", function (req, res) {
   const min = 0;
   const max = meals.length - 1;
   const payload = req.body;
@@ -152,7 +152,7 @@ app.post("/meals/edit", function (req, res) {
   // meal id must be valid
   if (Number.isInteger(id) && id >= min && id <= max) {
 
-    const type = {
+    const updateType = {
       "today update": function () {
         const clientDate = payload.todaysDate;
         if (meals[id].date != clientDate) {
@@ -183,8 +183,8 @@ app.post("/meals/edit", function (req, res) {
         logUpdate(id, prevName, meals[id].name);
       },
       "date update": function () {
-        const newDate = payload.value;
-        if (checkDate(newDate)) {
+        const newDate = sanitizeDate(payload.value);
+        if (newDate) {
           const prevDate = meals[id].date;
           meals[id].date = newDate;
           res.status(200).send({
@@ -199,8 +199,8 @@ app.post("/meals/edit", function (req, res) {
         }
       },
       "count update": function () {
-        const newCount = payload.value;
-        if (checkCount(newCount)) {
+        const newCount = sanitizeCount(payload.value);
+        if (newCount) {
           const prevCount = meals[id].count;
           meals[id].count = newCount;
           res.status(200).send({
@@ -215,7 +215,7 @@ app.post("/meals/edit", function (req, res) {
       },
       "default": function () { console.log("unknown request type"); }
     }
-    type.hasOwnProperty(payload.type) ? type[payload.type]() : type['default']();
+    updateType.hasOwnProperty(payload.type) ? updateType[payload.type]() : updateType['default']();
 
     storage.writeDatabase(meals, databaseFile);
   }

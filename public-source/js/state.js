@@ -30,7 +30,7 @@ const state = {
   },
 
   // MESSAGE PLACEHOLDER FOR THE MEAL-COOKED TODAY CONFIRM POPUP
-  mealCookedConfirmMessage: "",
+  mealTodayConfirmMessage: "",
 
   // MEAL NAME THAT IS BEING CURRENTLY EDITED
   editedPropertyOfMeal: "",

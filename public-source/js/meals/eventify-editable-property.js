@@ -1,7 +1,15 @@
 import state from '../state';
 import sendEditRequest from './send-edit-request';
+import sanitizeString from '../../../shared/sanitize-string';
 
-export default function eventifyMealProperty(allMealSpecifiedProperty, type) {
+export default function eventifyEditableProperty(allMealSpecifiedProperty, type) {
+
+  const updateType = {
+    'name update': text => sanitizeString(text, 16, 22),
+    'date update': state.editedPropertyOfMeal,
+    'count update': state.editedPropertyOfMeal
+  }
+
   allMealSpecifiedProperty.forEach(element => {
     element.onfocus = handleFocus;
     element.onblur = handleBlur;
@@ -28,9 +36,12 @@ export default function eventifyMealProperty(allMealSpecifiedProperty, type) {
   }
 
   function handleKeyDown(e) {
-    console.log("KEYDOWN ON:", e.target.innerText)
+
     const kC = e.keyCode;
     const element = e.target;
+
+    // end, home, arrows
+    if (kC >= 35 && kC <= 40) return;
 
     // F5 || enter || escape
     if (kC == 116 || kC == 13 || kC == 27) {
@@ -44,7 +55,7 @@ export default function eventifyMealProperty(allMealSpecifiedProperty, type) {
     const payload = {
       type, // 'name update' or 'date update' or 'count update'
       id: element.dataset.mealId, // meal id
-      value: element.innerText // meal name or meal date or meal count
+      value: element.innerText.trim() // meal name or meal date or meal count
     }
     sendEditRequest(payload);
   } // sendPayload() ends

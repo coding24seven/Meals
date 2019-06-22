@@ -25,7 +25,7 @@ const text = {
 
   // ADD A MEAL IN THE HEADER 
   headerAddMeal: {
-    pl: "Ustawienia",
+    pl: "Opcje",
     en: "Settings"
   },
 
@@ -42,7 +42,7 @@ const text = {
   },
 
   // MESSAGE FOR THE MEAL COOKED CONFIRM POPUP
-  mealCookedConfirmMessage: {
+  mealTodayConfirmMessage: {
     pl: "Na pewno ugotowałaś? Potwierdź:",
     en: "Are you sure you made this meal today?"
   },
