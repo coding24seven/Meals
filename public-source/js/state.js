@@ -30,7 +30,10 @@ const state = {
   },
 
   // MESSAGE PLACEHOLDER FOR THE MEAL-COOKED TODAY CONFIRM POPUP
-  mealTodayConfirmMessage: "",
+  mealTodayConfirmMessage: "error: language not updated yet",
+
+  // 'CHANGE', 'TO' PLACEHOLDER IN THE 'CHANGE MEAL PROPERTY FROM X TO Y ?' CONFIRM POPUP
+  mealPropertyChangeQuestionParts: "error: language not updated yet",
 
   // MEAL NAME THAT IS BEING CURRENTLY EDITED
   editedPropertyOfMeal: "",

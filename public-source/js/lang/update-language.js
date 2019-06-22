@@ -18,6 +18,9 @@ export default function updateLanguage() {
   //. MESSAGE FOR THE MEAL-COOKED-CONFIRM ALERT POPUP
   state.mealTodayConfirmMessage = text.mealTodayConfirmMessage[language];
 
+  //. 'CHANGE', 'TO' IN THE 'CHANGE MEAL PROPERTY FROM X TO Y ?' CONFIRM POPUP
+  state.mealPropertyChangeQuestionParts = text.mealPropertyChangeQuestionParts[language];
+
   //. THE BRAND NAME IN THE HEADER
   // check if the element(s) exists on the currently loaded page before you place any text in it
   if (headerElement.brand) {

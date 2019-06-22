@@ -26,7 +26,11 @@ export default function eventifyEditableProperty(allMealSpecifiedProperty, type)
 
     // if the property of the meal has been changed
     if (state.editedPropertyOfMeal != e.target.innerText) {
-      const confirmed = confirm("change: " + state.editedPropertyOfMeal + " to: " + e.target.innerText + " ?");
+      const confirmMessage = state.mealPropertyChangeQuestionParts[0]
+      + state.editedPropertyOfMeal
+      + state.mealPropertyChangeQuestionParts[1]
+      + e.target.innerText + " ?"
+      const confirmed = confirm(confirmMessage);
       if (confirmed) {
         sendPayload(e.target);
       } else {

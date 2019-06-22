@@ -47,6 +47,12 @@ const text = {
     en: "Are you sure you made this meal today?"
   },
 
+  // 'CHANGE', 'TO' IN THE 'CHANGE MEAL PROPERTY FROM X TO Y ?' CONFIRM POPUP
+  mealPropertyChangeQuestionParts: {
+    pl: ['zmienić: ', '\n        na: '],
+    en: ['change: ', '\n        to: ']
+  },
+
   // 'LAST COOKED ON' PHRASE
   lastCookedOnPhrase: {
     pl: "data: ",
