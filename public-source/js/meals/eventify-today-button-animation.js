@@ -3,14 +3,14 @@
 */
 
 import state from '../state';
-import { mealsElement } from '../elements';
+import { mealsEl } from '../elements';
 import scss_vars from '../../sass/_variables.scss'
 
 export default function eventifyTodayButtonAnimation() {
   const pointerIsFine = matchMedia('(pointer:fine)').matches;
   const buttonIsReadyToEmerge = pointerIsFine && state.getBrowserState().viewportWidth >= parseFloat(scss_vars.bp_hidden_button);
 
-  mealsElement.allMealBoxes.forEach(mealBox => {
+  mealsEl.allMealBoxes.forEach(mealBox => {
     // when the mouse enters a meal box, the hidden button moves into view and slides down the image
     mealBox.onmouseenter = buttonIsReadyToEmerge ?
       function (e) {

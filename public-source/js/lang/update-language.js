@@ -1,9 +1,9 @@
 import state from '../state';
 import text from './languages';
 import getCurrentLanguage from './get-language';
-import { headerElement } from '../elements';
-import { footerElement } from '../elements';
-import { mealsElement } from '../elements';
+import { headerEl } from '../elements';
+import { footerEl } from '../elements';
+import { mealsEl } from '../elements';
 import { newMealElement } from '../elements';
 
 /// CHANGE THE TEXT LANGUAGE
@@ -23,47 +23,47 @@ export default function updateLanguage() {
 
   //. THE BRAND NAME IN THE HEADER
   // check if the element(s) exists on the currently loaded page before you place any text in it
-  if (headerElement.brand) {
+  if (headerEl.brand) {
     // this element's text will require extra modification if modifier property present, or it will not
-    const modifier = headerElement.brand.modifier;
+    const modifier = headerEl.brand.modifier;
 
-    headerElement.brand.innerHTML = modifier ?
+    headerEl.brand.innerHTML = modifier ?
       text.headerBrand[modifier.type][language]
       : text.headerBrand[language]
   }
 
   //. SEARCH INPUT IN THE HEADER
-  if (headerElement.searchInput) {
-    headerElement.searchInput.placeholder = text.headerInputPlaceholder[language];
+  if (headerEl.searchInput) {
+    headerEl.searchInput.placeholder = text.headerInputPlaceholder[language];
   }
 
   //. 'ADD A MEAL' IN THE HEADER
-  if (headerElement.addMeal) {
-    headerElement.addMeal.innerHTML = text.headerAddMeal[language];
+  if (headerEl.addMeal) {
+    headerEl.addMeal.innerHTML = text.headerAddMeal[language];
   }
 
   //. COPYRIGHT IN THE FOOTER
-  if (footerElement.copyright) {
-    footerElement.copyright.innerHTML = text.footerCopyright[language];
+  if (footerEl.copyright) {
+    footerEl.copyright.innerHTML = text.footerCopyright[language];
   }
 
   //. ALL COOKED TODAY BUTTONS
-  if (mealsElement.allTodayButtons) {
-    mealsElement.allTodayButtons.forEach(button => {
+  if (mealsEl.allTodayButtons) {
+    mealsEl.allTodayButtons.forEach(button => {
       button.innerHTML = text.allTodayButtons[language];
     })
   }
 
   //. 'LAST COOKED ON' PHRASE
-  if (mealsElement.allDateKeys) {
-    mealsElement.allDateKeys.forEach(phrase => {
+  if (mealsEl.allDateKeys) {
+    mealsEl.allDateKeys.forEach(phrase => {
       phrase.innerHTML = text.lastCookedOnPhrase[language];
     })
   }
 
   //. 'COOKED COUNT' PHRASE
-  if (mealsElement.allCountKeys) {
-    mealsElement.allCountKeys.forEach(phrase => {
+  if (mealsEl.allCountKeys) {
+    mealsEl.allCountKeys.forEach(phrase => {
       phrase.innerHTML = text.cookedCountPhrase[language];
     })
   }

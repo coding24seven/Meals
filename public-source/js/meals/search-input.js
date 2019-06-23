@@ -2,8 +2,13 @@
 * searches for the meals queried via an input element. it searches through all meal boxes
 */
 
-export function focusOrUnfocusSearchMealsInput(keyCode, searchInput, allMealBoxes) {
+import state from '../state';
+import { headerEl, mealsEl } from '../elements';
+import createMasonryLayout from './masonry';
+
+export function focusOrUnfocusSearchInput(keyCode) {
   const kC = keyCode;
+  const searchInput = headerEl.searchInput;
 
   // firefox: allow tab, pgup, pgdown, home, end to do their job
   if (kC == 9 || (kC >= 33 && kC <= 36)) {
@@ -14,7 +19,7 @@ export function focusOrUnfocusSearchMealsInput(keyCode, searchInput, allMealBoxe
     searchInput.blur();
     if (searchInput.value === "") return;
     searchInput.value = "";
-    allMealBoxes.forEach(mealBox => mealBox.classList.remove('hide'));
+    mealsEl.allMealBoxes.forEach(mealBox => mealBox.classList.remove('hide'));
     // trigger the 'input' event
     searchInput.dispatchEvent(new KeyboardEvent('input', { 'key': 'X' }));
   }
@@ -31,14 +36,22 @@ export function focusOrUnfocusSearchMealsInput(keyCode, searchInput, allMealBoxe
   }
 }
 
-export function eventifySearchMealsInput(searchInput, allMealBoxes, cb) {
+// each time the search input's content changes, it will display the relevant meals and adapt the layout
+export function eventifySearchInput() {
+
+  const searchInput = headerEl.searchInput;
 
   searchInput.oninput = function () {
+
+    // get search input content
     const value = this.value.toLowerCase();
 
-    allMealBoxes.forEach(mealBox => {
+    mealsEl.allMealBoxes.forEach((mealBox, i) => {
 
-      const name = mealBox.getAttribute('name').toLowerCase();
+      // get the meal name from the heading whose index corresponds with its meal box
+      const name = mealsEl.allNames[i].innerText.toLowerCase();
+
+      // if the name doesn't contain the value in the search input, hide its meal box
       if (!name.includes(value)) {
         mealBox.classList.add('hide');
       } else {
@@ -46,6 +59,6 @@ export function eventifySearchMealsInput(searchInput, allMealBoxes, cb) {
       }
     })
 
-    cb(); // run the layout
+    createMasonryLayout(state.getNoOfColsDisplayed());
   }
 }

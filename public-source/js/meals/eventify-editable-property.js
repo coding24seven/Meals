@@ -1,7 +1,7 @@
 import state from '../state';
 import sendEditRequest from './send-edit-request';
 import sanitizeString from '../../../shared/sanitize-string';
-import takePropertiesOnBoard from './take-properties-on-board';
+import { eventifySearchInput } from './search-input';
 
 export default function eventifyEditableProperty(allMealSpecifiedProperty, type) {
 
@@ -64,7 +64,7 @@ export default function eventifyEditableProperty(allMealSpecifiedProperty, type)
     }
     // arguments: payload, success callback, failure callback
     sendEditRequest(payload,
-      takePropertiesOnBoard,
+      eventifySearchInput, // search input is notified of changed meal properties
       () => {
         element.innerText = state.editedPropertyOfMeal;
       });

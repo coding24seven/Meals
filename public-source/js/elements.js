@@ -4,7 +4,7 @@ import updateLanguage from "./lang/update-language";
 export const screenLoader = document.querySelector('.screen-loader');
 
 /// HEADER ELEMENTS
-export const headerElement = {
+export const headerEl = {
   // CLICKABLE BRAND IN THE HEADER
   brand: document.querySelector(".navbar-top__brand"),
 
@@ -19,13 +19,13 @@ export const headerElement = {
 }
 
 /// FOOTER ELEMENTS
-export const footerElement = {
+export const footerEl = {
   // COPYRIGHT IN THE FOOTER
   copyright: document.querySelector(".footer-copyright")
 }
 
 /// MEALS PAGE ELEMENTS
-export const mealsElement = {
+export const mealsEl = {
   // ALL MEAL BOXES
   allMealBoxes: document.querySelectorAll(".meal-box"),
 

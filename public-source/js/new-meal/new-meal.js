@@ -1,4 +1,4 @@
-import elementTransform, { headerElement, newMealElement } from '../elements';
+import elementTransform, { headerEl, newMealElement } from '../elements';
 import state from '../state';
 import handleFilePicked from './pick-file-handler';
 import handleSubmit from './submit-handler';
@@ -10,7 +10,7 @@ if (document.getElementById('page-id-new-meal')) {
   console.log('page-id-new-meal loaded');
 
   // show the language-choice flags
-  headerElement.language.classList.add('show');
+  headerEl.language.classList.add('show');
 
   // file picker input's 'change' event
   newMealElement.fileUploadInput.addEventListener('change', handleFilePicked, false);

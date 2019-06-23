@@ -8,7 +8,7 @@
 <div class="meals-container">
 	<% meals.forEach(function(meal){ %>
 
-	<figure class="meal-box" name="<%= meal.name %>">
+	<figure class="meal-box" data-meal-id="<%= meal.id %>">
 		<div class="meal-box__photo-box">
 			<img class="meal-box__photo" src="/<%= meal.image %>">
 		</div>
@@ -53,8 +53,8 @@
 		<button
 			class="meal-box__button js-had-it-today"
 			data-meal-id="<%= meal.id %>"
-			data-meal-date="<%= meal.date %>"
-			>Had it today!
+			data-meal-date="<%= meal.date %>">
+			Today!
 		</button>
 
 	</figure>

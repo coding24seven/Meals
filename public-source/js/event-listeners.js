@@ -6,7 +6,7 @@
 import throttle from 'lodash.throttle';
 import updateLanguage from './lang/update-language'
 import state from './state'
-import elementTransform, { headerElement } from './elements';
+import elementTransform, { headerEl } from './elements';
 
 /// DOMCONTENTLOADED OR VIEWPORT RESIZED: TEXT/LANGUAGE IS UPDATED
 
@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', handleText, true); // 'true' so it f
 window.addEventListener('resize', throttle(handleText, 1000), false);
 function handleText() {
   elementTransform.setText(
-    headerElement.brand,
+    headerEl.brand,
     state.headerTextIsFull() ?
       null // long header means no modifications
       : { type: "short" } // sets the modifier for the short header

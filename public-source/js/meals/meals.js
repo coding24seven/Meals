@@ -3,11 +3,10 @@ import createMasonryLayout from './masonry';
 import eventifyTodayButtonAnimation from './eventify-today-button-animation';
 import getDate from '../../../shared/get-date';
 import state from '../state';
-import { screenLoader, headerElement, mealsElement } from '../elements';
+import { screenLoader, headerEl, mealsEl } from '../elements';
 import prepareTodayButtons from "./prepare-today-buttons";
-import { eventifySearchMealsInput, focusOrUnfocusSearchMealsInput } from './search-input';
+import { eventifySearchInput, focusOrUnfocusSearchInput } from './search-input';
 import eventifyEditableProperty from './eventify-editable-property';
-import takePropertiesOnBoard from './take-properties-on-board';
 
 /// unique page identifier: page-id-meals
 
@@ -24,26 +23,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //. SET UP 'TODAY' BUTTON ON EACH MEAL
   const todaysDate = getDate();
-  prepareTodayButtons(mealsElement.allTodayButtons, state.mealTodayConfirmMessage, todaysDate);
+  prepareTodayButtons(mealsEl.allTodayButtons, state.mealTodayConfirmMessage, todaysDate);
 
   //. SHOW SEARCH INPUT ON THIS PAGE
-  headerElement.searchInput.value = "";
-  headerElement.searchInput.classList.add('show');
+  headerEl.searchInput.value = "";
+  headerEl.searchInput.classList.add('show');
 
-  takePropertiesOnBoard(); // search input is notified of meal properties
+  eventifySearchInput();
 
   //. SET UP EVENTS FOR MEAL NAME OR DATE OR COUNT
-  eventifyEditableProperty(mealsElement.allNames, 'name update');
-  eventifyEditableProperty(mealsElement.allDateValues, 'date update');
-  eventifyEditableProperty(mealsElement.allCountValues, 'count update');
+  eventifyEditableProperty(mealsEl.allNames, 'name update');
+  eventifyEditableProperty(mealsEl.allDateValues, 'date update');
+  eventifyEditableProperty(mealsEl.allCountValues, 'count update');
 
   //. ANY KEY PRESSED FOCUSES SEARCH INPUT IF NO ELEMENT IS BEING EDITED
   document.onkeydown = (e) => {
 
     // let meal properties be edited without interference from the search input
-    const allMealNameElements = Array.from(mealsElement.allNames);
-    const allDateValuesElements = Array.from(mealsElement.allDateValues);
-    const allCountValuesElements = Array.from(mealsElement.allCountValues);
+    const allMealNameElements = Array.from(mealsEl.allNames);
+    const allDateValuesElements = Array.from(mealsEl.allDateValues);
+    const allCountValuesElements = Array.from(mealsEl.allCountValues);
     if (allMealNameElements.includes(e.target)
       || allDateValuesElements.includes(e.target)
       || allCountValuesElements.includes(e.target)) {
@@ -53,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // delegate the event to the search input
     else {
       console.log("delegate the event to the search input")
-      focusOrUnfocusSearchMealsInput(e.keyCode, headerElement.searchInput, mealsElement.allMealBoxes)
+      focusOrUnfocusSearchInput(e.keyCode);
     }
   };
 
