@@ -2,9 +2,9 @@ import state from '../state';
 import sendEditRequest from './send-edit-request';
 import { eventifySearchInput } from './search-input';
 
-export default function eventifyEditableProperty(allMealSpecifiedProperty, type) {
+export default function eventifyEditableProperty(allPropertyEls, type) {
 
-  allMealSpecifiedProperty.forEach(el => {
+  allPropertyEls.forEach(el => {
     el.onfocus = handleFocus;
     el.onblur = handleBlur;
     el.onkeydown = handleKeyDown;

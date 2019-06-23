@@ -1,6 +1,7 @@
+import state from '../state';
 
-export default function createMasonryLayout(noOfColsDisplayed) {
-  console.log("createMasonryLayout running");
+export default function createMasonryLayout() {
+  const noOfColsDisplayed = state.getNoOfColsDisplayed();
   const container = document.querySelector(".meals-container");
   let items = Array.from(container.children);
   items = items.filter((item) => !item.classList.contains('hide'));

@@ -32,8 +32,8 @@ export default function prepareTodayButtons() {
 
                 // update the relevant meal box with the new date and count
                 for (let i = 0; i < mealsEl.allMealBoxes.length; i++) {
-                  if (id == mealsEl.allDateValues[i].dataset.mealId) mealsEl.allDateValues[i].innerText = val;
-                  if (id == mealsEl.allCountValues[i].dataset.mealId) mealsEl.allCountValues[i].innerText = val2;
+                  if (id == mealsEl.allDateValEls[i].dataset.mealId) mealsEl.allDateValEls[i].innerText = val;
+                  if (id == mealsEl.allCountValEls[i].dataset.mealId) mealsEl.allCountValEls[i].innerText = val2;
                 }
               },
               // failure callback

@@ -49,7 +49,7 @@ export function eventifySearchInput() {
     mealsEl.allMealBoxes.forEach((mealBox, i) => {
 
       // get the meal name from the heading whose index corresponds with its meal box
-      const name = mealsEl.allNames[i].innerText.toLowerCase();
+      const name = mealsEl.allNameEls[i].innerText.toLowerCase();
 
       // if the name doesn't contain the value in the search input, hide its meal box
       if (!name.includes(value)) {
@@ -59,6 +59,6 @@ export function eventifySearchInput() {
       }
     })
 
-    createMasonryLayout(state.getNoOfColsDisplayed());
+    createMasonryLayout();
   }
 }
