@@ -1,21 +1,13 @@
 import state from '../state';
 import sendEditRequest from './send-edit-request';
-import sanitizeString from '../../../shared/sanitize-string';
 import { eventifySearchInput } from './search-input';
 
 export default function eventifyEditableProperty(allMealSpecifiedProperty, type) {
 
-  // TODO:
-  // const updateType = {
-  //   'name update': text => sanitizeString(text, 16, 22),
-  //   'date update': state.editedPropertyOfMeal,
-  //   'count update': state.editedPropertyOfMeal
-  // }
-
-  allMealSpecifiedProperty.forEach(element => {
-    element.onfocus = handleFocus;
-    element.onblur = handleBlur;
-    element.onkeydown = handleKeyDown;
+  allMealSpecifiedProperty.forEach(el => {
+    el.onfocus = handleFocus;
+    el.onblur = handleBlur;
+    el.onkeydown = handleKeyDown;
   });
 
   function handleFocus(e) {
@@ -44,7 +36,7 @@ export default function eventifyEditableProperty(allMealSpecifiedProperty, type)
   function handleKeyDown(e) {
 
     const kC = e.keyCode;
-    const element = e.target;
+    const el = e.target;
 
     // end, home, arrows
     if (kC >= 35 && kC <= 40) return;
@@ -52,21 +44,28 @@ export default function eventifyEditableProperty(allMealSpecifiedProperty, type)
     // F5 || enter || escape
     if (kC == 116 || kC == 13 || kC == 27) {
       e.preventDefault();
-      element.blur();
+      el.blur();
     }
   }
 
-  function sendPayload(element) {
+  function sendPayload(el) {
     const payload = {
       type, // 'name update' or 'date update' or 'count update'
-      id: element.dataset.mealId, // meal id
-      value: element.innerText.trim() // meal name or meal date or meal count
+      id: el.dataset.mealId, // meal id
+      value: el.innerText.trim() // meal name or meal date or meal count
     }
+
     // arguments: payload, success callback, failure callback
     sendEditRequest(payload,
-      eventifySearchInput, // search input is notified of changed meal properties
+      val => {
+        // update the relevant meal box with the changed properties
+        el.innerText = val;
+        // search input is notified of changed meal properties
+        eventifySearchInput;
+      },
       () => {
-        element.innerText = state.editedPropertyOfMeal;
+        el.innerText = state.editedPropertyOfMeal;
       });
   } // sendPayload() ends
-} 
+
+} // eventifyEditableProperty() ends

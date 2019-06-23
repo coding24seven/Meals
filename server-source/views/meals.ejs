@@ -31,9 +31,8 @@
 			</p>
 
 			<%# <!-- if meal has ever been cooked, display count. Otherwise, display '0' --> %>
-			<% if (meal.count > 0) { %>
 			<p class="meal-box__had-count">
-				<span class="had-count-key">count: </span>
+				<span class="count-key">count: </span>
 				<span class="count-value"
 					data-meal-id="<%= meal.id %>"
 					contenteditable="true"
@@ -41,12 +40,6 @@
 					<%= meal.count %>
 				</span>
 			</p>
-			<% } else { %>
-			<p class="meal-box__had-count">
-				gotowane razy: 
-				<span class="countZero"><%= meal.count %></span>
-			</p>
-			<% } %>
 		</figcaption>
 
 		<%# <!-- BUTTON TO CLICK WHEN A MEAL HAS BEEN COODED TODAY --> %>

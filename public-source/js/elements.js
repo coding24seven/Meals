@@ -38,7 +38,7 @@ export const mealsEl = {
   allDateValues: document.querySelectorAll(".date-value"),
 
   // ALL 'COUNT' KEYS
-  allCountKeys: document.querySelectorAll(".had-count-key"),
+  allCountKeys: document.querySelectorAll(".count-key"),
   // ALL 'COUNT' VALUES
   allCountValues: document.querySelectorAll(".count-value"),
 

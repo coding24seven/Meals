@@ -22,16 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
   screenLoader.classList.add('show');
 
   //. SET UP 'TODAY' BUTTON ON EACH MEAL
-  const todaysDate = getDate();
-  prepareTodayButtons(mealsEl.allTodayButtons, state.mealTodayConfirmMessage, todaysDate);
+  prepareTodayButtons();
 
-  //. SHOW SEARCH INPUT ON THIS PAGE
+  //. SHOW THE SEARCH INPUT ON THIS PAGE AND PREPARE IT
   headerEl.searchInput.value = "";
   headerEl.searchInput.classList.add('show');
-
   eventifySearchInput();
 
-  //. SET UP EVENTS FOR MEAL NAME OR DATE OR COUNT
+  //. SET UP EVENTS FOR MEAL NAME AND DATE AND COUNT
   eventifyEditableProperty(mealsEl.allNames, 'name update');
   eventifyEditableProperty(mealsEl.allDateValues, 'date update');
   eventifyEditableProperty(mealsEl.allCountValues, 'count update');

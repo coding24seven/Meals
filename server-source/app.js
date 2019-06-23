@@ -154,14 +154,15 @@ app.put("/meals/edit", function (req, res) {
 
     const updateType = {
       "today update": function () {
-        const clientDate = payload.todaysDate;
-        if (meals[id].date != clientDate) {
+        const clientDate = sanitizeDate(payload.val);
+        if (clientDate && meals[id].date != clientDate) {
           meals[id].date = clientDate;
           meals[id].count++;
           console.log("UserX has had " + color.fg.Yellow + meals[id].name, color.Reset + "today");
           res.status(200).json({
             type: "meal is todays",
-            mealName: meals[id].name
+            val: meals[id].date,
+            val2: meals[id].count
           });
         }
         // should never happen if 'today' button is correctly hidden
@@ -179,6 +180,7 @@ app.put("/meals/edit", function (req, res) {
         meals[id].name = newName;
         res.status(200).send({
           type: "name updated",
+          val: newName
         })
         logUpdate(id, prevName, meals[id].name);
       },
@@ -189,6 +191,7 @@ app.put("/meals/edit", function (req, res) {
           meals[id].date = newDate;
           res.status(200).send({
             type: "date updated",
+            val: newDate
           })
           logUpdate(id, prevDate, meals[id].date);
         } else {
@@ -205,6 +208,7 @@ app.put("/meals/edit", function (req, res) {
           meals[id].count = newCount;
           res.status(200).send({
             type: "count updated",
+            val: newCount
           })
           logUpdate(id, prevCount, meals[id].count);
         } else {

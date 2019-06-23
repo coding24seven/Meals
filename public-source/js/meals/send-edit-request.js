@@ -9,12 +9,15 @@ export default function sendEditRequest(payload, successCB, failCB) {
     body: stringPayload // body data type must match "Content-Type" header
   })
     .then(response => {
-      if (response.ok) successCB && successCB();
-      else failCB && failCB();
+      if (!response.ok) {
+        failCB && failCB();
+        successCB = null;
+      };
       return response.json();
     })
     .then(jsonResponse => {
-      console.log(jsonResponse);
+      successCB && successCB(jsonResponse.val, jsonResponse.val2);
+      console.log("jsonResponse:", jsonResponse);
     })
     .catch(error => {
       console.error(error); // no response
