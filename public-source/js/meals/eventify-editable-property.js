@@ -1,6 +1,7 @@
 import state from '../state';
 import sendEditRequest from './send-edit-request';
 import sanitizeString from '../../../shared/sanitize-string';
+import takePropertiesOnBoard from './take-properties-on-board';
 
 export default function eventifyEditableProperty(allMealSpecifiedProperty, type) {
 
@@ -62,6 +63,10 @@ export default function eventifyEditableProperty(allMealSpecifiedProperty, type)
       value: element.innerText.trim() // meal name or meal date or meal count
     }
     // arguments: payload, success callback, failure callback
-    sendEditRequest(payload, () => { }, () => element.innerText = state.editedPropertyOfMeal);
+    sendEditRequest(payload,
+      takePropertiesOnBoard,
+      () => {
+        element.innerText = state.editedPropertyOfMeal;
+      });
   } // sendPayload() ends
 } 

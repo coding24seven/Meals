@@ -8,7 +8,7 @@ const state = {
   },
 
   // Return the number of columns being displayed
-  getNoOfColumnsDisplayed: function () {
+  getNoOfColsDisplayed: function () {
     const viewportWidth = this.getBrowserState().viewportWidth;
     if (viewportWidth <= parseFloat(scss_vars.bp_one_column)) return 1;
     if (viewportWidth <= parseFloat(scss_vars.bp_two_columns)) return 2;

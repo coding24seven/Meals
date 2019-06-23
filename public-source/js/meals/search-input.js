@@ -23,7 +23,7 @@ export function focusOrUnfocusSearchMealsInput(keyCode, searchInput, allMealBoxe
     (kC == 8 || kC == 46) /* backspace or delete is pressed */
     || (kC >= 48 && kC <= 57) /* number is pressed */
     || (kC >= 65 && kC <= 90) /* letter is pressed */
-    || (kC >= 96 && kC <= 105)) /* keypad is pressed */ {
+    || (kC >= 96 && kC <= 105)) /* keypad num is pressed */ {
     searchInput.focus();
   }
   else {

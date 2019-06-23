@@ -7,6 +7,7 @@ import { screenLoader, headerElement, mealsElement } from '../elements';
 import prepareTodayButtons from "./prepare-today-buttons";
 import { eventifySearchMealsInput, focusOrUnfocusSearchMealsInput } from './search-input';
 import eventifyEditableProperty from './eventify-editable-property';
+import takePropertiesOnBoard from './take-properties-on-board';
 
 /// unique page identifier: page-id-meals
 
@@ -18,26 +19,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
   console.log('page-id-meals loaded');
 
-  //. SCREEN LOADER
+  //. SHOW THE SCREEN LOADER BEFORE IT HIDES ON 'WINDOW.LOAD'
   screenLoader.classList.add('show');
-  window.addEventListener('load', function () {
-    screenLoader.classList.remove('show');
-  }, false)
 
   //. SET UP 'TODAY' BUTTON ON EACH MEAL
   const todaysDate = getDate();
   prepareTodayButtons(mealsElement.allTodayButtons, state.mealTodayConfirmMessage, todaysDate);
 
-  //. SEARCH INPUT
+  //. SHOW SEARCH INPUT ON THIS PAGE
   headerElement.searchInput.value = "";
   headerElement.searchInput.classList.add('show');
 
-  eventifySearchMealsInput(headerElement.searchInput, mealsElement.allMealBoxes,
-    // callback that creates a layout
-    () => {
-      const noOfColsDisplayed = state.getNoOfColumnsDisplayed();
-      createMasonryLayout(noOfColsDisplayed);
-    })
+  takePropertiesOnBoard(); // search input is notified of meal properties
 
   //. SET UP EVENTS FOR MEAL NAME OR DATE OR COUNT
   eventifyEditableProperty(mealsElement.allNames, 'name update');
@@ -64,19 +57,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  //. WHEN THE PAGE IS FULLY LOADED OR RESIZED
-  ['load', 'resize'].forEach(e => {
+  /// WHEN THE PAGE IS FULLY LOADED
+  window.addEventListener('load', function () {
 
-    window.addEventListener(e, throttle(function () {
+    screenLoader.classList.remove('show');
 
-      //, ADDS FUNCTIONS THAT WILL ANIMATE THE 'TODAY' BUTTON ON MOUSEENTER AND MOUSELEAVE
-      eventifyTodayButtonAnimation();
+    // ADD FUNCTIONS THAT WILL ANIMATE THE 'TODAY' BUTTON ON MOUSEENTER AND MOUSELEAVE
+    eventifyTodayButtonAnimation();
 
-      //, CREATE A MASONRY LAYOUT (IF MORE THAN ONE COLUMN IS DISPLAYED)
-      const noOfColsDisplayed = state.getNoOfColumnsDisplayed();
-      console.log("noOfColsDisplayed:", noOfColsDisplayed)
-      createMasonryLayout(noOfColsDisplayed);
-    }, 1000), false)
-  });
+    // CREATE A MASONRY LAYOUT (IF MORE THAN ONE COLUMN IS DISPLAYED)
+    createMasonryLayout(state.getNoOfColsDisplayed());
+
+  }, false)
+
+  /// WHEN THE PAGE IS RESIZED
+  window.addEventListener('resize', throttle(function () {
+
+    eventifyTodayButtonAnimation();
+
+    // CREATE A MASONRY LAYOUT (IF MORE THAN ONE COLUMN IS DISPLAYED)
+    createMasonryLayout(state.getNoOfColsDisplayed());
+
+  }, 1000), false)
 
 }); // "DOMContentLoaded" ends
