@@ -30,17 +30,17 @@ export const mealsEl = {
   allMealBoxes: document.querySelectorAll(".meal-box"),
 
   // ALL MEAL NAMES
-  allNameEls: document.querySelectorAll(".meal-box__heading"),
+  allNames: document.querySelectorAll(".meal-box__heading"),
 
   // ALL 'DATE' KEYS
   allDateKeys: document.querySelectorAll(".date-key"),
   // ALL 'DATE' VALUES
-  allDateValEls: document.querySelectorAll(".date-value"),
+  allDateVals: document.querySelectorAll(".date-value"),
 
   // ALL 'COUNT' KEYS
   allCountKeys: document.querySelectorAll(".count-key"),
   // ALL 'COUNT' VALUES
-  allCountValEls: document.querySelectorAll(".count-value"),
+  allCountVals: document.querySelectorAll(".count-value"),
 
   // ALL 'MEAL MADE TODAY' BUTTONS
   allTodayButtons: document.querySelectorAll(".meal-box__button")

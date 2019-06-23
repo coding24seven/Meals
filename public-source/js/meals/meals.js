@@ -1,8 +1,6 @@
 import throttle from 'lodash.throttle';
 import createMasonryLayout from './masonry';
 import eventifyTodayButtonAnimation from './eventify-today-button-animation';
-import getDate from '../../../shared/get-date';
-import state from '../state';
 import { screenLoader, headerEl, mealsEl } from '../elements';
 import prepareTodayButtons from "./prepare-today-buttons";
 import { eventifySearchInput, focusOrUnfocusSearchInput } from './search-input';
@@ -30,26 +28,21 @@ document.addEventListener("DOMContentLoaded", function () {
   eventifySearchInput();
 
   //. SET UP EVENTS FOR MEAL NAME AND DATE AND COUNT
-  eventifyEditableProperty(mealsEl.allNameEls, 'name update');
-  eventifyEditableProperty(mealsEl.allDateValEls, 'date update');
-  eventifyEditableProperty(mealsEl.allCountValEls, 'count update');
+  eventifyEditableProperty(mealsEl.allNames, 'name update');
+  eventifyEditableProperty(mealsEl.allDateVals, 'date update');
+  eventifyEditableProperty(mealsEl.allCountVals, 'count update');
 
   //. ANY KEY PRESSED FOCUSES SEARCH INPUT IF NO ELEMENT IS BEING EDITED
   document.onkeydown = (e) => {
 
     // let meal properties be edited without interference from the search input
-    const allNameEls = Array.from(mealsEl.allNameEls);
-    const allDateValEls = Array.from(mealsEl.allDateValEls);
-    const allCountValEls = Array.from(mealsEl.allCountValEls);
-    if (allNameEls.includes(e.target)
-      || allDateValEls.includes(e.target)
-      || allCountValEls.includes(e.target)) {
+    if (Array.from(mealsEl.allNames).includes(e.target)
+      || Array.from(mealsEl.allDateVals).includes(e.target)
+      || Array.from(mealsEl.allCountVals).includes(e.target)) {
       // do nothing
     }
     // delegate the event to the search input
-    else {
-      focusOrUnfocusSearchInput(e.keyCode);
-    }
+    else { focusOrUnfocusSearchInput(e.keyCode); }
   };
 
   /// WHEN THE PAGE IS FULLY LOADED
