@@ -21,7 +21,7 @@
     "count": 4
   },
   {
-    "name": "Kurczak w sosie słodko kwaśnym",
+    "name": "Kurczak w sosie słodko kwaśnym    z ryżem",
     "date": "10.04.2019",
     "image": "sweet-sour-chicken.jpg",
     "id": 3,
@@ -204,10 +204,10 @@
   },
   {
     "name": "Pulpety w sosie",
-    "date": "23.10.2018",
+    "date": "20.06.2019",
     "image": "pulpety w sosie.jpg",
     "id": 29,
-    "count": 1
+    "count": 2
   },
   {
     "name": "Pomidorówka",
@@ -281,17 +281,17 @@
   },
   {
     "name": "Kurczak, z warzywami",
-    "date": "03.02.2019",
+    "date": "23.06.2019",
     "image": "79db3858ed99c3bf51a80830.jpg",
     "id": 40,
-    "count": 3
+    "count": 4
   },
   {
     "name": "Naleśniki z twarogiem",
-    "date": "29.05.2019",
+    "date": "21.06.2019",
     "image": "d9c7abd9d04ca3a63f05ce4c.jpg",
     "id": 41,
-    "count": 6
+    "count": 7
   },
   {
     "name": "Sałatka z bobu i jaj",
@@ -322,7 +322,7 @@
     "count": 4
   },
   {
-    "name": "Spaghetti",
+    "name": "Makaron Spaghetti",
     "date": "06.06.2019",
     "image": "e0efd1d4721cde0b16c4e61c.jpg",
     "id": 46,
@@ -344,10 +344,10 @@
   },
   {
     "name": "Kurczak w cieście z frytkami",
-    "date": "31.05.2019",
+    "date": "22.06.2019",
     "image": "dd4ed0e21e2a970904236638.jpg",
     "id": 49,
-    "count": 4
+    "count": 5
   },
   {
     "name": "Jajecznica",
@@ -364,7 +364,7 @@
     "count": 4
   },
   {
-    "name": "Risotto warzywa kurczak sos musztardowo miodowy",
+    "name": "Risotto: ryż warzywa kurczak sos musztardowo miodowy",
     "date": "17.06.2019",
     "image": "fad4f28bf3f129e2a6eb1bbd.jpg",
     "id": 52,
@@ -449,10 +449,10 @@
   },
   {
     "name": "Zapiekanka Bolońska",
-    "date": "11.05.2019",
+    "date": "24.06.2019",
     "image": "a8fb12648df7fd9e7b8a6607.jpg",
     "id": 64,
-    "count": 3
+    "count": 4
   },
   {
     "name": "Zupa szczawiowa",
@@ -462,7 +462,7 @@
     "count": 3
   },
   {
-    "name": "Kurczak w sosie Indyjskim z ryzem",
+    "name": "Kurczak w sosie Indyjskim z ryżem",
     "date": "14.06.2019",
     "image": "tando.jpg",
     "id": 66,
@@ -511,14 +511,14 @@
     "count": 1
   },
   {
-    "name": "Kurczak w sosie chińskim",
+    "name": "Kurczak w sosie chińskim z ryżem",
     "date": "07.05.2019",
     "image": "da67b6210e0dfbb90d76067a.jpg",
     "id": 73,
     "count": 1
   },
   {
-    "name": "Thai Tea",
+    "name": "Herbata Tajska, Thai Tea",
     "date": "12.06.2019",
     "image": "0110e62b7caf651ab574fa0e.jpg",
     "id": 74,
@@ -529,6 +529,13 @@
     "date": "17.06.2019",
     "image": "a8d25fd4ad41cd29cb6f5ca2.jpg",
     "id": 75,
+    "count": 1
+  },
+  {
+    "name": "truskawki z bitą śmietaną",
+    "date": "19.06.2019",
+    "image": "1cde6f20e575226ff0dfbb00.jpg",
+    "id": 76,
     "count": 1
   }
 ]
