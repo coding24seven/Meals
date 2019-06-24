@@ -3,7 +3,7 @@
 import os from 'os'; // operating system functions
 import moment from 'moment'; // time and date functions
 // require('dotenv').config(); // use env variables from .env file
-import {} from 'dotenv/config'
+import 'dotenv/config'
 import express from "express"; // express.js
 let app = express();
 app.set('views', './server-source/views'); // ejs templates location
