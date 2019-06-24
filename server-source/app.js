@@ -1,7 +1,10 @@
 
 /// DEPENDENCIES
-require('dotenv').config(); // use env variables from .env file
-let express = require("express"); // express.js
+import os from 'os'; // operating system functions
+import moment from 'moment'; // time and date functions
+// require('dotenv').config(); // use env variables from .env file
+import {} from 'dotenv/config'
+import express from "express"; // express.js
 let app = express();
 app.set('views', './server-source/views'); // ejs templates location
 app.set("trust proxy", true); // for the client ip in req.ip
@@ -30,6 +33,9 @@ import getTime from '../shared/get-time';
 /// STATIC ASSETS SERVED - MUST BE PLACED BELOW THE MIDDLEWARE THAT ATTEMPTS TO LOG THESE OUT
 app.use(express.static("public"));
 app.use(express.static("database/meal-photos"));
+
+/// DISPLAY OS INFO
+console.log('OS uptime:', moment().startOf('day').seconds(os.uptime()).format('HH:mm:ss'));
 
 /// STORAGE
 const databaseFile = "database/meals.json";
@@ -67,7 +73,7 @@ app.get("/meals", function (req, res) {
   // send email alerts only when the server is deployed on one of these hosts
   const alertableHostnames = ['heroku']
 
-  // if the current host should send alerts and if the current client has been added to the list of new clients
+  // if the current host belongs to alertable hosts and if the current client has been added to the list of new clients
   if (alertableHostnames.includes(hostname) && isNewClient) {
     //  send an email alert with the subject and body
     sendEmailAlert(
