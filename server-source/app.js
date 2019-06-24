@@ -2,9 +2,9 @@
 /// DEPENDENCIES
 import os from 'os'; // operating system functions
 import moment from 'moment'; // time and date functions
-import { } from 'dotenv/config';  // use env variables from .env file 
+import 'dotenv/config';  // use env variables from .env file
 import express from "express"; // express.js
-let app = express();
+const app = express();
 app.set('views', './server-source/views'); // ejs templates location
 app.set("trust proxy", true); // for the client ip in req.ip
 app.use(express.json()) // parse request body as JSON without body-parser
@@ -152,7 +152,7 @@ app.put("/meals/edit", function (req, res) {
   const min = 0;
   const max = meals.length - 1;
   const payload = req.body;
-  console.log("body:", payload)
+  console.log("server received:", payload);
   const id = parseInt(payload.id);
   // meal id must be valid
   if (Number.isInteger(id) && id >= min && id <= max) {
