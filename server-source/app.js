@@ -37,11 +37,11 @@ app.use(express.static("database/meal-photos"));
 console.log('OS uptime:', moment().startOf('day').seconds(os.uptime()).format('HH:mm:ss'));
 
 /// STORAGE
-const databaseFile = "database/meals.json";
+const databaseFilePath = "database/meals.json";
 let meals = []; // this array holds meal objects
 
 /// READ THE DATABASE FROM FILE INTO THE ARRAY BEFORE THE SERVER STARTS
-meals = storage.readDatabase(databaseFile);
+meals = storage.readDatabase(databaseFilePath);
 
 /// SERVER START
 const port = process.env.PORT;
@@ -53,7 +53,8 @@ app.listen(port, IP, function () {
 });
 
 /// BACKGROUND WORKERS START
-workers.logOutAtInterval() // log out server status and clients list
+workers.logOutAtInterval(60000); // log out server status and clients list
+workers.backupJsonDB(meals, databaseFilePath, 86400000);  // backup meals.json once per day
 
 /// ROUTER
 //. ROOT ROUTE to redirect to '/meals'
@@ -61,16 +62,16 @@ app.get("/", function (req, res) { res.redirect("/meals"); });
 
 //. GET ROUTE to display all meals
 app.get("/meals", function (req, res) {
-  meals = storage.readDatabase(databaseFile);
+  meals = storage.readDatabase(databaseFilePath);
   let mealsShuffled = shuffleArray(meals);
   res.render("meals.ejs", { meals: mealsShuffled });
 
   // try to add the client to the recent-client list and Return true if the client has been added. Only new clients are added.
-  const isNewClient = latestClients.addNewClient(req.ip)
+  const isNewClient = latestClients.addNewClient(req.ip);
 
   const hostname = process.env.HOSTNAME // hostname where the app is deployed
   // send email alerts only when the server is deployed on one of these hosts
-  const alertableHostnames = ['heroku']
+  const alertableHostnames = ['heroku'];
 
   // if the current host belongs to alertable hosts and if the current client has been added to the list of new clients
   if (alertableHostnames.includes(hostname) && isNewClient) {
@@ -129,7 +130,7 @@ app.post("/meals", function (req, res, next) {
         count: 0
       });
 
-      storage.writeDatabase(meals, databaseFile);
+      storage.writeDatabase(meals, databaseFilePath);
 
       res.status(200).json({
         type: "meal added",
@@ -226,7 +227,7 @@ app.put("/meals/edit", function (req, res) {
     }
     updateType.hasOwnProperty(payload.type) ? updateType[payload.type]() : updateType['default']();
 
-    storage.writeDatabase(meals, databaseFile);
+    storage.writeDatabase(meals, databaseFilePath);
   }
   // id is not valid
   else {
