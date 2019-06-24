@@ -11,12 +11,12 @@ export default function eventifyEditableProperty(allPropertyEls, type) {
   });
 
   function handleFocus(e) {
-    console.log("focusing in:", e.target.innerText);
+    console.log("focusing in:", e.target);
     state.editedPropertyOfMeal = e.target.innerText;
   }
 
   function handleBlur(e) {
-    console.log("blurring out of:", state.editedPropertyOfMeal)
+    console.log("blurring out of:", e.target)
 
     // if the property of the meal has been changed
     if (state.editedPropertyOfMeal != e.target.innerText) {
