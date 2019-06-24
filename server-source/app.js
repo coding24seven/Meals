@@ -2,8 +2,7 @@
 /// DEPENDENCIES
 import os from 'os'; // operating system functions
 import moment from 'moment'; // time and date functions
-// require('dotenv').config(); // use env variables from .env file
-import 'dotenv/config'
+import { } from 'dotenv/config';  // use env variables from .env file 
 import express from "express"; // express.js
 let app = express();
 app.set('views', './server-source/views'); // ejs templates location
