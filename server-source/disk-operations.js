@@ -20,6 +20,19 @@ const storage = {
         console.log("Database written to storage");
       }
     });
+  },
+
+  //
+  backupDatabase: function (sourceFilePath, targetFilePath) {
+    fs.copyFile(sourceFilePath, targetFilePath, (err) => {
+      if (err) {
+        console.log("Error: Database could not be backed up to storage");
+        console.log(err);
+      }
+      else {
+        console.log("Database backed up to storage");
+      }
+    });
   }
 }
 

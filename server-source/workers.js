@@ -19,8 +19,10 @@ const workers = {
       const dirName = path.dirname(databaseFilePath);
       const ext = path.extname(databaseFilePath);
       const name = path.basename(databaseFilePath, ext);
-      const filePath = path.join(dirName, name) + '-' + dateTime + ext;
-      storage.writeDatabase(meals, filePath)
+      const backupFilePath = path.join(dirName, name) + '-' + dateTime + ext;
+
+      storage.backupDatabase(databaseFilePath, backupFilePath);
+
     }, interval);
   }
 }
