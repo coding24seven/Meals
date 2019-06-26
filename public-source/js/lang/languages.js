@@ -1,3 +1,6 @@
+import { types } from '../../../shared/config';
+import { errors } from '../../../shared/config';
+
 export const languagesAvailable = ['en', 'pl'];
 
 const text = {
@@ -69,7 +72,7 @@ const text = {
   newMealAddedMessage: {
     pl: "Danie jeszcze nie dodane!",
     en: "Meal not added yet!",
-    "meal added": {
+    [types.mealAdded]: {
       pl: "Dodano: ",
       en: "Added: "
     }
@@ -79,7 +82,7 @@ const text = {
   newMealHeading: {
     pl: "Dodaj Nowe Danie",
     en: "Add a New Meal",
-    "meal added": {
+    [types.mealAdded]: {
       pl: "Dodaj następne",
       en: "Add next meal"
     }
@@ -99,7 +102,7 @@ const text = {
     },
     get pl() { return "Wpisz hasło użytkownika " + this.passwordHint },
     get en() { return "user password " + this.passwordHint },
-    "wrong password": {
+    [errors.wrongPassword]: {
       pl: "błędne hasło - spróbuj ponownie",
       en: "wrong password - try again"
     }
@@ -109,19 +112,19 @@ const text = {
   pickImageText: {
     pl: "Wybierz obrazek",
     en: "Select an image",
-    "file too large": {
+    [errors.fileTooLarge]: {
       pl: ["Max wielkość pliku ", " kb - wybierz inny"],
       en: ["Max allowed file size is ", " kb - select again"]
     },
-    "image loading": {
+    [types.imageLoading]: {
       pl: ["obrazek", " się ładuje..."],
       en: ["image", " loading..."]
     },
-    "image preview failed": {
+    [errors.imagePreviewFailed]: {
       pl: ["obrazek nie da się wyświetlić", " - wybierz inny"],
       en: ["image preview failed", " - select another image"]
     },
-    "invalid image extension": {
+    [errors.invalidImageExtension]: {
       pl: ["błędne rozszerzenie pliku", " - wybierz obrazek"],
       en: ["wrong file extension", " - select an image"]
     }

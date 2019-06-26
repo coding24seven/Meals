@@ -2,6 +2,7 @@ import state from '../state';
 import elementTransform, { newMealElement } from '../elements';
 import dataURLtoFile from './data-url-to-file';
 import updateDomOn from './update-dom-on';
+import { errors } from '../../../shared/config';
 
 /// NEW-MEAL SUBMIT FORM HANDLER
 export default function handleSubmit(event) {
@@ -66,7 +67,7 @@ export default function handleSubmit(event) {
         // change the new-meal heading from 'new meal' to sth like 'add next meal'
         elementTransform.setText(newMealElement.newMealHeading, { type });
 
-       
+
         // hide
         elementTransform.show(newMealElement.imagePreview, state.uploadableImage.isReadyForUpload);
         elementTransform.show(newMealElement.uploadBox, state.uploadableImage.isReadyForUpload);
@@ -79,16 +80,16 @@ export default function handleSubmit(event) {
         const { message } = parsedResponse;
 
         const errorHandlers = {
-          "wrong password": function () {
+          [errors.wrongPassword]: function () {
             updateDomOn.wrongPassword(error);
           },
 
-          "file too large": function () {
+          [errors.fileTooLarge]: function () {
             // the 'message/1000' argument is the max file size in kb
             updateDomOn.unacceptableFile(error, parseFloat(message) / 1000);
           },
 
-          "invalid image extension": function () {
+          [errors.invalidImageExtension]: function () {
             updateDomOn.unacceptableFile(error, "");
           },
 

@@ -115,7 +115,7 @@ app.post("/meals", function (req, res, next) {
         message: "no message this time"
       });
 
-      console.log("req.fileFilterError:", req.fileFilterError, ":", req.invalidImageExtension);
+      console.log("req.fileFilterError:", req.fileFilterError);
     }
     // no errors and so the image file has been uploaded
     else if (req.file) {
