@@ -21,6 +21,7 @@ import sanitizeDate from '../shared/sanitize-date';
 import sanitizeCount from '../shared/sanitize-count';
 import getDate from '../shared/get-date';
 import getTime from '../shared/get-time';
+import { types } from '../shared/config';
 
 /// REQUEST-LOGGING MIDDLEWARE (MUST BE PLACED ABOVE OTHER APP.USE() THINGS THAT YOU WANT LOGGED)
 // TODO: UNCOMMENT
@@ -133,7 +134,7 @@ app.post("/meals", function (req, res, next) {
       storage.writeDatabase(meals, databaseFilePath);
 
       res.status(200).json({
-        type: "meal added",
+        type: types.mealAdded,
         mealName
       });
 
@@ -166,7 +167,7 @@ app.put("/meals/edit", function (req, res) {
           meals[id].count++;
           console.log("UserX has had " + color.fg.Yellow + meals[id].name, color.Reset + "today");
           res.status(200).json({
-            type: "meal is todays",
+            type: types.mealIsTodays,
             val: meals[id].date,
             val2: meals[id].count
           });
@@ -174,7 +175,7 @@ app.put("/meals/edit", function (req, res) {
         // should never happen if 'today' button is correctly hidden
         else {
           res.status(400).json({
-            type: "meal is already todays",
+            type: types.mealIsAlreadyTodays,
             mealName: meals[id].name
           });
           console.log(meals[id].name, "has already been had today");
@@ -185,7 +186,7 @@ app.put("/meals/edit", function (req, res) {
         const prevName = meals[id].name;
         meals[id].name = newName;
         res.status(200).send({
-          type: "name updated",
+          type: types.nameUpdated,
           val: newName
         })
         logUpdate(id, prevName, meals[id].name);
@@ -196,13 +197,13 @@ app.put("/meals/edit", function (req, res) {
           const prevDate = meals[id].date;
           meals[id].date = newDate;
           res.status(200).send({
-            type: "date updated",
+            type: types.dateUpdated,
             val: newDate
           })
           logUpdate(id, prevDate, meals[id].date);
         } else {
           res.status(400).json({
-            type: "bad date"
+            type: types.badDate
           });
           console.log(newDate, "is a bad date");
         }
@@ -213,13 +214,13 @@ app.put("/meals/edit", function (req, res) {
           const prevCount = meals[id].count;
           meals[id].count = newCount;
           res.status(200).send({
-            type: "count updated",
+            type: types.countUpdated,
             val: newCount
           })
           logUpdate(id, prevCount, meals[id].count);
         } else {
           res.status(400).json({
-            type: "bad count format"
+            type: types.badCountFormat
           });
         }
       },

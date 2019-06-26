@@ -3,6 +3,7 @@ let multer = require("multer");
 const crypto = require("crypto");
 import checkFileExtension from '../shared/check-file-extension';
 import config from '../shared/config'; // use variables from the shared config file
+import { errors } from '../shared/config';
 require('dotenv').config() // use env variables from .env file
 
 /// ARGUMENT OBJECT FOR THE MAIN MULTER METHOD
@@ -30,7 +31,7 @@ const multerArgument = {
       }
     }
     else {
-      req.fileFilterError = 'wrong password';
+      req.fileFilterError = errors.wrongPassword;
       cb(null, false);
     }
 
