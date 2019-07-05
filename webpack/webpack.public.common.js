@@ -24,19 +24,32 @@ module.exports = {
     }),
     new Dotenv()
   ],
+  devtool: "source-map",
   module: {
     rules: [{
       test: /\.scss$/,
       use: [
-        { loader: MiniCssExtractPlugin.loader }, // 4. Convert the JS string into CSS files
+        {
+          loader: MiniCssExtractPlugin.loader,
+          options: { sourceMap: true }
+        }, // 4. Convert the JS string into CSS files
         {
           loader: "css-loader", // 3. Turn CSS into a JS string
-          options: { url: false } // disable url handling in css...
+          options: {
+            url: false,
+            sourceMap: true
+          } // disable url handling in css...
         },
-        { loader: "postcss-loader" }, // 2. for autoprefixer
+        {
+          loader: "postcss-loader",
+          options: { sourceMap: true }
+        }, // 2. for autoprefixer
         {
           loader: "sass-loader", // 1. Turn SASS into CSS through node-sass module
-          options: { outputStyle: 'expanded' }
+          options: {
+            outputStyle: 'expanded',
+            sourceMap: true
+          }
         }
       ]
     }]

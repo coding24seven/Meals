@@ -7,7 +7,7 @@ import express from "express"; // express.js
 const app = express();
 app.set('views', './server-source/views'); // ejs templates location
 app.set("trust proxy", true); // for the client ip in req.ip
-app.use(express.json()) // parse request body as JSON without body-parser
+app.use(express.json()); // parse request body as JSON without body-parser
 import storage from './disk-operations.js'; // reading and writing to files
 import shuffleArray from '../shared/shuffle-array.js';
 import '../shared/console.log-replacement.js'; // prepend date and time to console.log
@@ -23,14 +23,7 @@ import getDate from '../shared/get-date';
 import getTime from '../shared/get-time';
 import { types } from '../shared/config';
 
-/// REQUEST-LOGGING MIDDLEWARE (MUST BE PLACED ABOVE OTHER APP.USE() THINGS THAT YOU WANT LOGGED)
-// TODO: UNCOMMENT
-// app.use(function (req, res, next) {
-// console.log(req.method + " request from " + req.ip + " at '" + req.url + "'");
-//   next();
-// });
-
-/// STATIC ASSETS SERVED - MUST BE PLACED BELOW THE MIDDLEWARE THAT ATTEMPTS TO LOG THESE OUT
+/// STATIC ASSETS SERVED
 app.use(express.static("public"));
 app.use(express.static("database/meal-photos"));
 
