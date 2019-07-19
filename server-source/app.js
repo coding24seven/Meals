@@ -1,5 +1,5 @@
 
-/// DEPENDENCIES
+/// IMPORTS
 import os from 'os'; // operating system functions
 import moment from 'moment'; // time and date functions
 import 'dotenv/config';  // use env variables from .env file
@@ -9,19 +9,19 @@ app.set('views', './server-source/views'); // ejs templates location
 app.set("trust proxy", true); // for the client ip in req.ip
 app.use(express.json()); // parse request body as JSON without body-parser
 import storage from './disk-operations.js'; // reading and writing to files
-import shuffleArray from '../shared/shuffle-array.js';
 import '../shared/console.log-replacement.js'; // prepend date and time to console.log
 import workers from './workers.js'; // background workers
-import sendEmailAlert from "./email-alerts/email.js";
-import latestClients from "./latest-clients.js"; // a list of clients connected recently
-import upload from './multer.js'; // handle file uploads from a client
 import color from '../shared/console-log-colors'; // color console.log
-import sanitizeString from '../shared/sanitize-string';
-import sanitizeDate from '../shared/sanitize-date';
-import sanitizeCount from '../shared/sanitize-count';
-import getDate from '../shared/get-date';
-import getTime from '../shared/get-time';
-import { types } from '../shared/config';
+import { databaseFilePath } from '../shared/config';
+
+import getMeals from './routes/get-meals';
+import getAddMeal from './routes/get-add-meal';
+import postAddMeal from './routes/post-add-meal';
+import putEditMeal from './routes/put-edit-meal';
+import catchAll from './routes/catch-all';
+
+/// EXPORTS
+export const meals = { arr: null }; // this object holds an array that holds meal objects
 
 /// STATIC ASSETS SERVED
 app.use(express.static("public"));
@@ -30,12 +30,8 @@ app.use(express.static("database/meal-photos"));
 /// DISPLAY OS INFO
 console.log('OS uptime:', moment().startOf('day').seconds(os.uptime()).format('HH:mm:ss'));
 
-/// STORAGE
-const databaseFilePath = "database/meals.json";
-let meals = []; // this array holds meal objects
-
 /// READ THE DATABASE FROM FILE INTO THE ARRAY BEFORE THE SERVER STARTS
-meals = storage.readDatabase(databaseFilePath);
+meals.arr = storage.readDatabase(databaseFilePath);
 
 /// SERVER START
 const port = process.env.PORT;
@@ -48,208 +44,14 @@ app.listen(port, IP, function () {
 
 /// BACKGROUND WORKERS START
 workers.logOutAtInterval(60000); // log out server status and clients list
-workers.backupJsonDB(meals, databaseFilePath, 86400000);  // backup meals.json once per day
+workers.backupJsonDB(meals.arr, databaseFilePath, 86400000);  // backup meals.json once per day
 
-/// ROUTER
-//. ROOT ROUTE to redirect to '/meals'
-app.get("/", function (req, res) { res.redirect("/meals"); });
+/// ROUTES
+app.use('/', getMeals);
+app.use('/meals', getMeals);
+app.use('/meals/new', getAddMeal);
+app.use('/meals', postAddMeal);
+app.use('/meals/edit', putEditMeal);
+app.use(catchAll);
 
-//. GET ROUTE to display all meals
-app.get("/meals", function (req, res) {
-  meals = storage.readDatabase(databaseFilePath);
-  let mealsShuffled = shuffleArray(meals);
-  res.render("meals.ejs", { meals: mealsShuffled });
-
-  // try to add the client to the recent-client list and Return true if the client has been added. Only new clients are added.
-  const isNewClient = latestClients.addNewClient(req.ip);
-
-  const hostname = process.env.HOSTNAME // hostname where the app is deployed
-  // send email alerts only when the server is deployed on one of these hosts
-  const alertableHostnames = ['heroku'];
-
-  // if the current host belongs to alertable hosts and if the current client has been added to the list of new clients
-  if (alertableHostnames.includes(hostname) && isNewClient) {
-    //  send an email alert with the subject and body
-    sendEmailAlert(
-      "Meals app requested on '" + hostname + "'",
-      "Client " + req.ip + " hit the " + req.url + " route on " + getDate() + " " + getTime() + " server time."
-    )
-    console.log(getDate());
-  }
-});
-
-//. GET ROUTE that renders the new-meal submission form
-app.get("/meals/new", function (req, res) {
-  res.render("new-meal.ejs");
-});
-
-//. POST ROUTE that receives the data from the new-meal submission form's handler
-app.post("/meals", function (req, res, next) {
-
-  // call Multer's upload, which performs checks and then uploads
-  // note: req.file is the name="image" file. req.body holds the text fields
-  upload(req, res, function (err) {
-
-    // first, deal with Multer internal errors (for example 'limits' exceeded). Multer may throw an error only after the 'filters' check has passed
-    if (err) {
-      res.status(400).json({
-        error: err.message, // for example 'File too large'
-        message: req.maxFileSize
-      });
-
-      console.log('Multer error:', err.message)
-      return
-    }
-
-    // filter error
-    if (req.fileFilterError) {
-      res.status(400).json({
-        error: req.fileFilterError, // custom error such as 'wrong password'
-        message: "no message this time"
-      });
-
-      console.log("req.fileFilterError:", req.fileFilterError);
-    }
-    // no errors and so the image file has been uploaded
-    else if (req.file) {
-
-      // max 16 words. max 22 letters in a word.
-      const mealName = sanitizeString(req.body.name, 16, 22);
-
-      meals.push({
-        name: mealName,
-        date: "N/A",
-        image: req.file.filename,
-        id: meals.length,
-        count: 0
-      });
-
-      storage.writeDatabase(meals, databaseFilePath);
-
-      res.status(200).json({
-        type: types.mealAdded,
-        mealName
-      });
-
-      console.log("client", req.ip, "added:", mealName)
-    }
-    // the image file has not been uploaded for an unknown reason
-    else {
-      const error = 'unknown error'
-      res.status(400).json({ error });
-      console.log(error)
-    }
-  })
-});
-
-//. PUT ROUTE TO EDIT MEAL PROPERTIES SUCH AS NAME, DATE, COUNT
-app.put("/meals/edit", function (req, res) {
-  const min = 0;
-  const max = meals.length - 1;
-  const payload = req.body;
-  console.log("server received:", payload);
-  const id = parseInt(payload.id);
-  // meal id must be valid
-  if (Number.isInteger(id) && id >= min && id <= max) {
-
-    const updateType = {
-      "today update": function () {
-        const clientDate = sanitizeDate(payload.val);
-        if (clientDate && meals[id].date != clientDate) {
-          meals[id].date = clientDate;
-          meals[id].count++;
-          console.log("UserX has had " + color.fg.Yellow + meals[id].name, color.Reset + "today");
-          res.status(200).json({
-            type: types.mealIsTodays,
-            val: meals[id].date,
-            val2: meals[id].count
-          });
-        }
-        // should never happen if 'today' button is correctly hidden
-        else {
-          res.status(400).json({
-            type: types.mealIsAlreadyTodays,
-            mealName: meals[id].name
-          });
-          console.log(meals[id].name, "has already been had today");
-        }
-      },
-      "name update": function () {
-        const newName = sanitizeString(payload.value, 16, 22);
-        const prevName = meals[id].name;
-        meals[id].name = newName;
-        res.status(200).send({
-          type: types.nameUpdated,
-          val: newName
-        })
-        logUpdate(id, prevName, meals[id].name);
-      },
-      "date update": function () {
-        const newDate = sanitizeDate(payload.value);
-        if (newDate) {
-          const prevDate = meals[id].date;
-          meals[id].date = newDate;
-          res.status(200).send({
-            type: types.dateUpdated,
-            val: newDate
-          })
-          logUpdate(id, prevDate, meals[id].date);
-        } else {
-          res.status(400).json({
-            type: types.badDate
-          });
-          console.log(newDate, "is a bad date");
-        }
-      },
-      "count update": function () {
-        const newCount = sanitizeCount(payload.value);
-        if (newCount) {
-          const prevCount = meals[id].count;
-          meals[id].count = newCount;
-          res.status(200).send({
-            type: types.countUpdated,
-            val: newCount
-          })
-          logUpdate(id, prevCount, meals[id].count);
-        } else {
-          res.status(400).json({
-            type: types.badCountFormat
-          });
-        }
-      },
-      "default": function () { console.log("unknown request type"); }
-    }
-    updateType.hasOwnProperty(payload.type) ? updateType[payload.type]() : updateType['default']();
-
-    storage.writeDatabase(meals, databaseFilePath);
-  }
-  // id is not valid
-  else {
-    console.log("request to edit a meal received with an invalid meal id")
-    res.redirect("/");
-  }
-
-  function logUpdate(id, previous, current) {
-    console.log(`Meal ID ${color.fg.Blue}${id}: ${color.Reset}${color.fg.Yellow}${previous}${color.Reset} changed to ${color.fg.Yellow}${current}${color.Reset}`);
-  }
-});
-
-//. GET ROUTE to catch all unhandled parameters
-app.get("*", function (req, res) {
-
-  // do not display the error to the client
-  res.render("meals.ejs", { meals });
-
-  const error = [
-    "Unhandled URL parameter caught. Resource ",
-    req.path,
-    " requested but unavailable for serving."
-  ]
-
-  // color the requested-resource path inside the error message
-  error[error.indexOf(req.path)] = color.fg.Red + req.path + color.Reset
-
-  console.log(error.join('')) // do not use (' ') because the color-markup array elements will then add their own space 
-});
 ///
-
