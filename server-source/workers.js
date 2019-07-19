@@ -13,7 +13,7 @@ const workers = {
     }, interval);
   },
   // BACKUP THE JSON DATABASE
-  backupJsonDB: function (meals, databaseFilePath, interval) {
+  backupJsonDB: function (databaseFilePath, interval) {
     setInterval(() => {
       const dateTime = moment().format("YYYY-MM-DD-HH-mm-ss");
       const dirName = path.dirname(databaseFilePath);

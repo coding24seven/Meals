@@ -44,7 +44,7 @@ app.listen(port, IP, function () {
 
 /// BACKGROUND WORKERS START
 workers.logOutAtInterval(60000); // log out server status and clients list
-workers.backupJsonDB(meals.arr, databaseFilePath, 86400000);  // backup meals.json once per day
+workers.backupJsonDB(databaseFilePath, 86400000);  // backup meals.json once per day
 
 /// ROUTES
 app.use('/', getMeals);
