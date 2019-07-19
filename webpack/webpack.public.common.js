@@ -29,23 +29,27 @@ module.exports = {
     rules: [{
       test: /\.scss$/,
       use: [
+        // 4. Convert the JS string into CSS files
         {
           loader: MiniCssExtractPlugin.loader,
           options: { sourceMap: true }
-        }, // 4. Convert the JS string into CSS files
-        {
-          loader: "css-loader", // 3. Turn CSS into a JS string
-          options: {
-            url: false,
-            sourceMap: true
-          } // disable url handling in css...
         },
+        // 3. Turn CSS into a JS string
+        {
+          loader: "css-loader",
+          options: {
+            url: false, // disable url handling in css...
+            sourceMap: true
+          }
+        },
+        // 2. for autoprefixer
         {
           loader: "postcss-loader",
           options: { sourceMap: true }
-        }, // 2. for autoprefixer
+        },
+        // 1. Turn SASS into CSS via node-sass module
         {
-          loader: "sass-loader", // 1. Turn SASS into CSS through node-sass module
+          loader: "sass-loader",
           options: {
             outputStyle: 'expanded',
             sourceMap: true

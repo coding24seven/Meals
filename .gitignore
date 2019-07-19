@@ -7,6 +7,7 @@ todos*
 temp*
 server
 public/bundle.js
+public/*.map
 public/main.css
 my-devil
 start-mydevil
