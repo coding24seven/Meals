@@ -1,4 +1,5 @@
 const config = {
+  databaseFilePath: "database/meals.json",
   maxUploadFileSize: 150000, // in bytes
   submitMealPassword: "demo",
   types: {
@@ -22,5 +23,6 @@ const config = {
 }
 
 export default config;
+export const { databaseFilePath } = config;
 export const { types } = config;
 export const { errors } = config;
