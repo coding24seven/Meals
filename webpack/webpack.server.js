@@ -17,7 +17,7 @@ module.exports = {
   target: 'node',
   output: {
     path: path.resolve(process.cwd(), "server"),
-    filename: "server.js"
+    filename: "kuchnia-server.js"
   },
   optimization: {
     minimize: false
