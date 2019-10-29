@@ -8,10 +8,10 @@
     "develop-server": "cross-env PORT=7777 IP=192.168.1.10 nodemon --watch server-source --exec babel-node ./server-source/app.js",
     "develop-client": "webpack-dev-server --config ./webpack/webpack.public.dev.js",
     "build-client": "webpack --config ./webpack/webpack.public.prod.js",
-    "build-server": "webpack --config ./webpack/webpack.server.js",
-    "serve": "npm run build-client && npm run build-server && cross-env PORT=7777 IP=localhost node server/server.js",
+    "build-server": "webpack --config ./webpack/webpack.kuchnia-server.js",
+    "serve": "npm run build-client && npm run build-server && cross-env PORT=7777 IP=localhost node server/kuchnia-server.js",
     "postinstall": "npm run build-client && npm run build-server",
-    "debug-server": "yarn build-server && cross-env PORT=7777 IP=192.168.1.10 node --inspect-brk=7777 server/server.js"
+    "debug-server": "yarn build-server && cross-env PORT=7777 IP=192.168.1.10 node --inspect-brk=7777 server/kuchnia-server.js"
   },
   "author": "code24seven",
   "license": "ISC",
