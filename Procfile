@@ -1,1 +1,1 @@
-web: node server/server.js
+web: node server/kuchnia-server.js
