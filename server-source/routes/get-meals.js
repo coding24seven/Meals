@@ -25,7 +25,7 @@ router.get("/", function (req, res, next) {
 
   const hostname = process.env.HOSTNAME // hostname where the app is deployed
   // send email alerts only when the server is deployed on one of these hosts
-  const alertableHostnames = ['heroku'];
+  const alertableHostnames = ['no_such_hostname'];
 
   // if the current host belongs to alertable hosts and if the current client has been added to the list of new clients
   if (alertableHostnames.includes(hostname) && isNewClient) {
