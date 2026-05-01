@@ -1,304 +1,304 @@
 [
   {
     "name": "Knedle",
-    "date": "10.10.2018",
+    "date": "30.11.2023",
     "image": "knedle.jpg",
     "id": 0,
-    "count": 1
+    "count": 2
   },
   {
     "name": "Frytki",
-    "date": "24.05.2019",
+    "date": "12.08.2025",
     "image": "frytki.jpg",
     "id": 1,
-    "count": 2
+    "count": 43
   },
   {
     "name": "Klopsy",
-    "date": "28.04.2019",
+    "date": "08.03.2026",
     "image": "klopsy.jpg",
     "id": 2,
-    "count": 4
+    "count": 66
   },
   {
     "name": "Kurczak w sosie słodko kwaśnym    z ryżem",
-    "date": "10.04.2019",
+    "date": "30.11.2023",
     "image": "sweet-sour-chicken.jpg",
     "id": 3,
-    "count": 9
+    "count": 14
   },
   {
     "name": "Kluski kartoflane",
-    "date": "01.04.2019",
+    "date": "13.09.2025",
     "image": "kluski_kartoflane.jpg",
     "id": 4,
-    "count": 3
+    "count": 15
   },
   {
     "name": "Kopytka kluski",
-    "date": "07.12.2018",
+    "date": "23.03.2024",
     "image": "kopytka.jpg",
     "id": 5,
-    "count": 1
+    "count": 4
   },
   {
     "name": "Zapiekanki z serem i grzybami",
-    "date": "21.12.2018",
+    "date": "17.02.2026",
     "image": "zapiekanki.jpg",
     "id": 6,
-    "count": 2
+    "count": 22
   },
   {
     "name": "Zapiekanka makaronowa",
-    "date": "27.02.2019",
+    "date": "07.10.2024",
     "image": "zapiek.jpg",
     "id": 7,
-    "count": 2
+    "count": 10
   },
   {
     "name": "Pizza",
-    "date": "30.03.2019",
+    "date": "24.06.2025",
     "image": "pizza.jpg",
     "id": 8,
-    "count": 5
+    "count": 29
   },
   {
     "name": "Makaron w sosie bolońskim z mięsem mielonym",
-    "date": "23.05.2019",
+    "date": "09.08.2025",
     "image": "makaron_bolonski_sos.jpg",
     "id": 9,
-    "count": 3
+    "count": 14
   },
   {
     "name": "Pierogi",
-    "date": "10.06.2019",
+    "date": "15.05.2025",
     "image": "pierogi.jpg",
     "id": 10,
-    "count": 5
+    "count": 42
   },
   {
     "name": "Bułeczki z dżemem",
-    "date": "17.05.2019",
+    "date": "15.02.2025",
     "image": "68e3586499565232c890a7d8.jpg",
     "id": 11,
-    "count": 1
+    "count": 6
   },
   {
     "name": "Rosół",
-    "date": "15.06.2019",
+    "date": "16.11.2025",
     "image": "rosol.jpg",
     "id": 12,
-    "count": 7
+    "count": 37
   },
   {
     "name": "Paszteciki",
-    "date": "16.11.2018",
+    "date": "04.04.2026",
     "image": "paszteciki.jpg",
     "id": 13,
-    "count": 1
-  },
-  {
-    "name": "Zupa jarzynowa",
-    "date": "05.06.2019",
-    "image": "zupa jarzynowa.jpg",
-    "id": 14,
-    "count": 3
-  },
-  {
-    "name": "Zupa buraczkowa",
-    "date": "17.01.2019",
-    "image": "zupa_buraczkowa.jpg",
-    "id": 15,
-    "count": 2
-  },
-  {
-    "name": "Zupa ogórkowa",
-    "date": "25.04.2019",
-    "image": "zupa ogorkowa.jpg",
-    "id": 16,
-    "count": 5
-  },
-  {
-    "name": "Gołąbki",
-    "date": "n/a",
-    "image": "golabki.jpg",
-    "id": 17,
-    "count": 0
-  },
-  {
-    "name": "Kotlety schabowe",
-    "date": "09.06.2019",
-    "image": "kotlety.jpg",
-    "id": 18,
-    "count": 8
-  },
-  {
-    "name": "Zrazy z ogórkiem i słoniną",
-    "date": "25.12.2018",
-    "image": "zrazy.jpeg",
-    "id": 19,
-    "count": 1
-  },
-  {
-    "name": "Naleśniki z jabłkami",
-    "date": "03.11.2018",
-    "image": "nalesniki_z_jablkami.jpg",
-    "id": 20,
-    "count": 1
-  },
-  {
-    "name": "Naleśniki zapiekane w piekarniku z mięsem mielonym",
-    "date": "26.11.2018",
-    "image": "nalesniki z miesem mielonym.jpg",
-    "id": 21,
-    "count": 1
-  },
-  {
-    "name": "Kurczak z piekarnika z ziemniakami",
-    "date": "05.05.2019",
-    "image": "kurczak z piekarnika.jpg",
-    "id": 22,
-    "count": 4
-  },
-  {
-    "name": "Zupa fasolowa",
-    "date": "05.02.2019",
-    "image": "zupa fasolowa.jpg",
-    "id": 23,
-    "count": 3
-  },
-  {
-    "name": "Bigos",
-    "date": "20.04.2019",
-    "image": "bigos.jpg",
-    "id": 24,
-    "count": 2
-  },
-  {
-    "name": "Gulasz węgierski",
-    "date": "07.04.2019",
-    "image": "gulasz wegierski.jpg",
-    "id": 25,
-    "count": 3
-  },
-  {
-    "name": "Fasolka po bretońsku",
-    "date": "12.11.2018",
-    "image": "fasolka-po-bretonsku.jpg",
-    "id": 26,
-    "count": 1
-  },
-  {
-    "name": "Ryż z jabłkami z piekarnika",
-    "date": "23.04.2019",
-    "image": "ryz z jablkami.jpg",
-    "id": 27,
-    "count": 4
-  },
-  {
-    "name": "Makaron z pieczarkami i kurczakiem",
-    "date": "07.02.2019",
-    "image": "makaron pieczarki kurczak.jpg",
-    "id": 28,
-    "count": 4
-  },
-  {
-    "name": "Pulpety w sosie",
-    "date": "20.06.2019",
-    "image": "pulpety w sosie.jpg",
-    "id": 29,
-    "count": 2
-  },
-  {
-    "name": "Pomidorówka",
-    "date": "14.05.2019",
-    "image": "pomidorowa.jpg",
-    "id": 30,
-    "count": 6
-  },
-  {
-    "name": "Bitki w sosie mięsnym",
-    "date": "26.05.2019",
-    "image": "bitki.jpg",
-    "id": 31,
-    "count": 6
-  },
-  {
-    "name": "Placki kartoflane",
-    "date": "02.02.2019",
-    "image": "placki kartoflane.jpg",
-    "id": 32,
-    "count": 3
-  },
-  {
-    "name": "Papryka faszerowana",
-    "date": "17.05.2019",
-    "image": "3e3a92754c34658ba7dd89f4.jpg",
-    "id": 33,
-    "count": 1
-  },
-  {
-    "name": "Gulasz z żołądków",
-    "date": "13.05.2019",
-    "image": "gulasz zaladki.jpg",
-    "id": 34,
-    "count": 2
-  },
-  {
-    "name": "Roladki z mielonego z papryką i cebulą",
-    "date": "09.05.2019",
-    "image": "3da84c4bb125f38f56824e0a.jpg",
-    "id": 35,
-    "count": 1
-  },
-  {
-    "name": "Pierogi pieczone",
-    "date": "01.05.2019",
-    "image": "pierogi pieczone.jpg",
-    "id": 36,
-    "count": 4
-  },
-  {
-    "name": "Jaja sadzone",
-    "date": "14.06.2019",
-    "image": "4c3f700aa810d0375008410f.jpg",
-    "id": 37,
-    "count": 3
-  },
-  {
-    "name": "Zupa pieczarkowa",
-    "date": "19.01.2019",
-    "image": "zupa pieczarkowa.jpg",
-    "id": 38,
-    "count": 2
-  },
-  {
-    "name": "Tarta",
-    "date": "01.11.2018",
-    "image": "dd5441de7155aabfdd699b35.jpg",
-    "id": 39,
-    "count": 1
-  },
-  {
-    "name": "Kurczak, z warzywami",
-    "date": "23.06.2019",
-    "image": "79db3858ed99c3bf51a80830.jpg",
-    "id": 40,
-    "count": 4
-  },
-  {
-    "name": "Naleśniki z twarogiem",
-    "date": "21.06.2019",
-    "image": "d9c7abd9d04ca3a63f05ce4c.jpg",
-    "id": 41,
     "count": 7
   },
   {
+    "name": "Zupa jarzynowa",
+    "date": "26.11.2025",
+    "image": "zupa jarzynowa.jpg",
+    "id": 14,
+    "count": 27
+  },
+  {
+    "name": "Zupa buraczkowa",
+    "date": "29.10.2025",
+    "image": "zupa_buraczkowa.jpg",
+    "id": 15,
+    "count": 8
+  },
+  {
+    "name": "Zupa ogórkowa",
+    "date": "02.04.2026",
+    "image": "zupa ogorkowa.jpg",
+    "id": 16,
+    "count": 42
+  },
+  {
+    "name": "Gołąbki",
+    "date": "15.03.2024",
+    "image": "golabki.jpg",
+    "id": 17,
+    "count": 12
+  },
+  {
+    "name": "Kotlet schabowy",
+    "date": "05.01.2026",
+    "image": "kotlety.jpg",
+    "id": 18,
+    "count": 47
+  },
+  {
+    "name": "groszek z marchewką",
+    "date": "12.04.2025",
+    "image": "effa55991ce62bc1ae823e75.jpg",
+    "id": 19,
+    "count": 17
+  },
+  {
+    "name": "Naleśniki z jabłkami",
+    "date": "25.11.2020",
+    "image": "nalesniki_z_jablkami.jpg",
+    "id": 20,
+    "count": 3
+  },
+  {
+    "name": "Hot dog",
+    "date": "30.11.2019",
+    "image": "df50f5592cb442127dd26639.jpg",
+    "id": 21,
+    "count": 4
+  },
+  {
+    "name": "Kurczak z piekarnika z ziemniakami",
+    "date": "18.10.2025",
+    "image": "kurczak z piekarnika.jpg",
+    "id": 22,
+    "count": 16
+  },
+  {
+    "name": "Zupa fasolowa",
+    "date": "11.02.2025",
+    "image": "zupa fasolowa.jpg",
+    "id": 23,
+    "count": 27
+  },
+  {
+    "name": "Bigos",
+    "date": "04.04.2026",
+    "image": "bigos.jpg",
+    "id": 24,
+    "count": 29
+  },
+  {
+    "name": "Gulasz węgierski",
+    "date": "30.11.2023",
+    "image": "gulasz wegierski.jpg",
+    "id": 25,
+    "count": 19
+  },
+  {
+    "name": "Fasolka po bretońsku",
+    "date": "11.02.2026",
+    "image": "fasolka-po-bretonsku.jpg",
+    "id": 26,
+    "count": 32
+  },
+  {
+    "name": "Ryż z jabłkami z piekarnika",
+    "date": "12.09.2025",
+    "image": "ryz z jablkami.jpg",
+    "id": 27,
+    "count": 20
+  },
+  {
+    "name": "Makaron z pieczarkami i kurczakiem",
+    "date": "30.11.2023",
+    "image": "makaron pieczarki kurczak.jpg",
+    "id": 28,
+    "count": 7
+  },
+  {
+    "name": "Pulpety w sosie",
+    "date": "03.06.2024",
+    "image": "pulpety w sosie.jpg",
+    "id": 29,
+    "count": 11
+  },
+  {
+    "name": "Pomidorówka",
+    "date": "14.08.2025",
+    "image": "pomidorowa.jpg",
+    "id": 30,
+    "count": 41
+  },
+  {
+    "name": "Bitki w sosie mięsnym",
+    "date": "07.09.2025",
+    "image": "bitki.jpg",
+    "id": 31,
+    "count": 28
+  },
+  {
+    "name": "Placki kartoflane",
+    "date": "09.05.2025",
+    "image": "placki kartoflane.jpg",
+    "id": 32,
+    "count": 19
+  },
+  {
+    "name": "Papryka faszerowana",
+    "date": "30.11.2023",
+    "image": "3e3a92754c34658ba7dd89f4.jpg",
+    "id": 33,
+    "count": 3
+  },
+  {
+    "name": "Gulasz z żołądków",
+    "date": "06.12.2025",
+    "image": "gulasz zaladki.jpg",
+    "id": 34,
+    "count": 17
+  },
+  {
+    "name": "Roladki z mielonego z papryką i cebulą",
+    "date": "04.04.2026",
+    "image": "3da84c4bb125f38f56824e0a.jpg",
+    "id": 35,
+    "count": 6
+  },
+  {
+    "name": "Pierogi pieczone",
+    "date": "06.04.2024",
+    "image": "pierogi pieczone.jpg",
+    "id": 36,
+    "count": 17
+  },
+  {
+    "name": "Jaja sadzone",
+    "date": "22.08.2025",
+    "image": "4c3f700aa810d0375008410f.jpg",
+    "id": 37,
+    "count": 52
+  },
+  {
+    "name": "Zupa pieczarkowa",
+    "date": "30.11.2023",
+    "image": "zupa pieczarkowa.jpg",
+    "id": 38,
+    "count": 9
+  },
+  {
+    "name": "Tarta",
+    "date": "30.11.2023",
+    "image": "dd5441de7155aabfdd699b35.jpg",
+    "id": 39,
+    "count": 2
+  },
+  {
+    "name": "Kurczak z warzywami",
+    "date": "11.01.2026",
+    "image": "79db3858ed99c3bf51a80830.jpg",
+    "id": 40,
+    "count": 49
+  },
+  {
+    "name": "Naleśniki z twarogiem",
+    "date": "02.04.2026",
+    "image": "d9c7abd9d04ca3a63f05ce4c.jpg",
+    "id": 41,
+    "count": 27
+  },
+  {
     "name": "Sałatka z bobu i jaj",
-    "date": "06.11.2018",
+    "date": "30.11.2023",
     "image": "ec3f27ac1296ed1da042e95d.jpg",
     "id": 42,
-    "count": 1
+    "count": 2
   },
   {
     "name": "Zapiekanka kalafiorowo brokułowa",
@@ -309,80 +309,80 @@
   },
   {
     "name": "Gofry",
-    "date": "19.11.2018",
+    "date": "30.11.2023",
     "image": "efaf9211523cbaedd1816f00.jpg",
     "id": 44,
-    "count": 2
+    "count": 3
   },
   {
     "name": "Zupa koperkowa",
-    "date": "11.04.2019",
+    "date": "30.11.2023",
     "image": "719fd8ce97fb47ced47f85bb.jpg",
     "id": 45,
-    "count": 4
+    "count": 9
   },
   {
     "name": "Makaron Spaghetti",
-    "date": "06.06.2019",
+    "date": "17.02.2024",
     "image": "e0efd1d4721cde0b16c4e61c.jpg",
     "id": 46,
-    "count": 6
+    "count": 17
   },
   {
     "name": "Kapuśniak",
-    "date": "21.05.2019",
+    "date": "23.04.2026",
     "image": "f5b7c50d1905f7855e700ace.jpg",
     "id": 47,
-    "count": 4
+    "count": 23
   },
   {
     "name": "Kotlety mielone z grzybami",
-    "date": "02.06.2019",
+    "date": "18.07.2025",
     "image": "a16344c6dd8155248be01b86.jpg",
     "id": 48,
-    "count": 7
+    "count": 11
   },
   {
     "name": "Kurczak w cieście z frytkami",
-    "date": "22.06.2019",
+    "date": "31.01.2026",
     "image": "dd4ed0e21e2a970904236638.jpg",
     "id": 49,
-    "count": 5
+    "count": 13
   },
   {
     "name": "Jajecznica",
-    "date": "28.04.2019",
+    "date": "01.04.2026",
     "image": "de907fd551413bcc5c832635.jpg",
     "id": 50,
-    "count": 8
+    "count": 56
   },
   {
     "name": "Wątróbka z pieczarkami",
-    "date": "30.05.2019",
+    "date": "18.04.2026",
     "image": "4cd75787d95b5b9c3a998064.jpg",
     "id": 51,
-    "count": 4
+    "count": 29
   },
   {
     "name": "Risotto: ryż warzywa kurczak sos musztardowo miodowy",
-    "date": "17.06.2019",
+    "date": "30.11.2023",
     "image": "fad4f28bf3f129e2a6eb1bbd.jpg",
     "id": 52,
-    "count": 7
+    "count": 30
   },
   {
     "name": "Żurek",
-    "date": "31.01.2019",
+    "date": "03.10.2025",
     "image": "00ff3ba3ba634127fe6d6617.jpg",
     "id": 53,
-    "count": 2
+    "count": 58
   },
   {
-    "name": "Placuszki",
-    "date": "15.12.2018",
-    "image": "5a5e9b77ae71ce1c98fc42a6.jpg",
+    "name": "ryż zapiekany ze śliwkami",
+    "date": "08.08.2024",
+    "image": "60b4b5c2afe3902ef4022439.jpg",
     "id": 54,
-    "count": 1
+    "count": 6
   },
   {
     "name": "Karkówka z porami",
@@ -393,149 +393,324 @@
   },
   {
     "name": "Rogaliki",
-    "date": "16.02.2019",
+    "date": "16.02.2024",
     "image": "5343e4b9c2949ccb8acbdfda.jpg",
     "id": 56,
-    "count": 1
-  },
-  {
-    "name": "Mięso pieczone",
-    "date": "21.04.2019",
-    "image": "7ac8967ee3554e888ad877fe.jpg",
-    "id": 57,
-    "count": 2
-  },
-  {
-    "name": "Filet z kurczaka z pieczarkami i serem",
-    "date": "04.06.2019",
-    "image": "ccaadba5ca7e453b1ddf3ad0.jpg",
-    "id": 58,
-    "count": 3
-  },
-  {
-    "name": "Galaretkowiec",
-    "date": "12.01.2019",
-    "image": "6b52cdaa052f9e5206dee4b5.jpg",
-    "id": 59,
-    "count": 1
-  },
-  {
-    "name": "Ryba smażona",
-    "date": "22.01.2019",
-    "image": "6434f976fec3464b0763de06.jpg",
-    "id": 60,
-    "count": 3
-  },
-  {
-    "name": "Krupnik z kapustą kiszoną",
-    "date": "18.06.2019",
-    "image": "5161b100ea4c406c550d80ba.jpg",
-    "id": 61,
-    "count": 3
-  },
-  {
-    "name": "Makaron ze szpinakiem i serem",
-    "date": "17.06.2019",
-    "image": "8272c496257d0de7cb7b0b74.jpg",
-    "id": 62,
-    "count": 3
-  },
-  {
-    "name": "Kotleciki z kurczaka, pieczarek i sera",
-    "date": "12.04.2019",
-    "image": "084e9bffa6a911356d0652f4.jpg",
-    "id": 63,
-    "count": 2
-  },
-  {
-    "name": "Zapiekanka Bolońska",
-    "date": "24.06.2019",
-    "image": "a8fb12648df7fd9e7b8a6607.jpg",
-    "id": 64,
-    "count": 4
-  },
-  {
-    "name": "Zupa szczawiowa",
-    "date": "28.05.2019",
-    "image": "ec49e96a0bb8b71b33096720.jpg",
-    "id": 65,
-    "count": 3
-  },
-  {
-    "name": "Kurczak w sosie Indyjskim z ryżem",
-    "date": "14.06.2019",
-    "image": "tando.jpg",
-    "id": 66,
     "count": 5
   },
   {
-    "name": "Sałatka Warzywna",
-    "date": "21.04.2019",
-    "image": "171802b882a02dbba5f113bb.jpg",
-    "id": 67,
+    "name": "Mięso pieczone",
+    "date": "25.12.2024",
+    "image": "7ac8967ee3554e888ad877fe.jpg",
+    "id": 57,
+    "count": 11
+  },
+  {
+    "name": "Filet z kurczaka z pieczarkami i serem",
+    "date": "30.11.2023",
+    "image": "ccaadba5ca7e453b1ddf3ad0.jpg",
+    "id": 58,
+    "count": 7
+  },
+  {
+    "name": "Galaretkowiec",
+    "date": "30.11.2023",
+    "image": "6b52cdaa052f9e5206dee4b5.jpg",
+    "id": 59,
+    "count": 2
+  },
+  {
+    "name": "Ryba smażona",
+    "date": "31.01.2026",
+    "image": "6434f976fec3464b0763de06.jpg",
+    "id": 60,
+    "count": 17
+  },
+  {
+    "name": "Krupnik z kapustą kiszoną",
+    "date": "14.04.2026",
+    "image": "5161b100ea4c406c550d80ba.jpg",
+    "id": 61,
+    "count": 38
+  },
+  {
+    "name": "Makaron ze szpinakiem i serem",
+    "date": "29.07.2019",
+    "image": "8272c496257d0de7cb7b0b74.jpg",
+    "id": 62,
     "count": 4
   },
   {
-    "name": "Kurczak w sosie Indyjskim z ziemniakami",
-    "date": "29.04.2019",
-    "image": "cd4eb84daba5981edf677143.jpg",
-    "id": 68,
-    "count": 2
+    "name": "Kotleciki z kurczaka, pieczarek i sera",
+    "date": "30.11.2023",
+    "image": "084e9bffa6a911356d0652f4.jpg",
+    "id": 63,
+    "count": 6
   },
   {
-    "name": "Młode ziemniaki z kotlecikami i sałatą",
-    "date": "26.04.2019",
-    "image": "e42b5fcf5874c462df47e1ef.jpg",
+    "name": "Zapiekanka Bolońska",
+    "date": "25.10.2025",
+    "image": "a8fb12648df7fd9e7b8a6607.jpg",
+    "id": 64,
+    "count": 19
+  },
+  {
+    "name": "Zupa szczawiowa",
+    "date": "27.05.2025",
+    "image": "ec49e96a0bb8b71b33096720.jpg",
+    "id": 65,
+    "count": 17
+  },
+  {
+    "name": "Kurczak w sosie Indyjskim z ryżem",
+    "date": "30.11.2023",
+    "image": "tando.jpg",
+    "id": 66,
+    "count": 15
+  },
+  {
+    "name": "Sałatka Warzywna",
+    "date": "04.04.2026",
+    "image": "171802b882a02dbba5f113bb.jpg",
+    "id": 67,
+    "count": 41
+  },
+  {
+    "name": "Kurczak w sosie Indyjskim z ziemniakami",
+    "date": "30.11.2023",
+    "image": "cd4eb84daba5981edf677143.jpg",
+    "id": 68,
+    "count": 3
+  },
+  {
+    "name": "leczo",
+    "date": "21.01.2025",
+    "image": "00f3b294582e6c42237888fc.jpg",
     "id": 69,
-    "count": 1
+    "count": 7
   },
   {
     "name": "Botwinka",
-    "date": "11.06.2019",
+    "date": "30.11.2023",
     "image": "06332d491ccb923f170ab674.jpg",
     "id": 70,
-    "count": 2
+    "count": 8
   },
   {
     "name": "Żeberka w kiszonej kapuście",
-    "date": "03.05.2019",
+    "date": "21.04.2025",
     "image": "78206da99c72f9f6d1dd84d7.jpg",
     "id": 71,
-    "count": 1
+    "count": 8
   },
   {
     "name": "Placek z rabarbarem i budyniem",
-    "date": "04.05.2019",
+    "date": "01.08.2025",
     "image": "7801395cea8e1342cd636c07.jpg",
     "id": 72,
-    "count": 1
+    "count": 8
   },
   {
     "name": "Kurczak w sosie chińskim z ryżem",
-    "date": "07.05.2019",
+    "date": "30.11.2023",
     "image": "da67b6210e0dfbb90d76067a.jpg",
     "id": 73,
-    "count": 1
+    "count": 2
   },
   {
     "name": "Herbata Tajska, Thai Tea",
-    "date": "12.06.2019",
+    "date": "30.11.2023",
     "image": "0110e62b7caf651ab574fa0e.jpg",
     "id": 74,
-    "count": 9
+    "count": 13
   },
   {
     "name": "kieszonki drobiowe z serem i szpinakiem",
-    "date": "17.06.2019",
+    "date": "07.09.2025",
     "image": "a8d25fd4ad41cd29cb6f5ca2.jpg",
     "id": 75,
-    "count": 1
+    "count": 3
   },
   {
     "name": "truskawki z bitą śmietaną",
-    "date": "19.06.2019",
+    "date": "30.11.2023",
     "image": "1cde6f20e575226ff0dfbb00.jpg",
     "id": 76,
+    "count": 4
+  },
+  {
+    "name": "Sałatka po Grecku",
+    "date": "12.01.2024",
+    "image": "62655b6b4f407ac6f9c7197b.jpg",
+    "id": 77,
+    "count": 5
+  },
+  {
+    "name": "gyros z frytkami",
+    "date": "30.11.2025",
+    "image": "7b73ba933509e2b1d9da5662.jpg",
+    "id": 78,
+    "count": 5
+  },
+  {
+    "name": "Bekon, fasolka, frytki",
+    "date": "30.11.2023",
+    "image": "2ddf045e2cc692920ec002fa.jpg",
+    "id": 79,
+    "count": 3
+  },
+  {
+    "name": "drożdżówki",
+    "date": "30.11.2023",
+    "image": "b7b05d12f20502a82e9ed8d8.jpg",
+    "id": 80,
+    "count": 4
+  },
+  {
+    "name": "kotlet drobiowy",
+    "date": "20.07.2024",
+    "image": "a9bfded729533ed02bf3a09f.jpg",
+    "id": 81,
+    "count": 9
+  },
+  {
+    "name": "roladki ze szpinakiem",
+    "date": "18.10.2025",
+    "image": "733e72bdc52cf49d4e07061c.jpg",
+    "id": 82,
+    "count": 8
+  },
+  {
+    "name": "Schab zapiekany z cebulą",
+    "date": "11.09.2022",
+    "image": "87a0f82fdd5ef6b3575b68e9.jpg",
+    "id": 83,
+    "count": 3
+  },
+  {
+    "name": "sałatka ryżowa z tuńczykiem",
+    "date": "16.08.2025",
+    "image": "8258304e342ce4b611cc2e8e.jpg",
+    "id": 84,
+    "count": 12
+  },
+  {
+    "name": "galareta",
+    "date": "01.08.2025",
+    "image": "0d889a6612ac041c31791818.jpg",
+    "id": 85,
+    "count": 8
+  },
+  {
+    "name": "Chruściki",
+    "date": "27.02.2025",
+    "image": "f5dae8051f9b20d06907c11e.jpg",
+    "id": 86,
+    "count": 6
+  },
+  {
+    "name": "ziemniaki zapiekane z serem",
+    "date": "30.11.2023",
+    "image": "bc735d179ed43acb95cf5a6c.jpg",
+    "id": 87,
+    "count": 3
+  },
+  {
+    "name": "kotleciki z kurczaka",
+    "date": "22.03.2025",
+    "image": "c2df9833c790874dd11a235e.jpg",
+    "id": 88,
+    "count": 19
+  },
+  {
+    "name": "zrazy",
+    "date": "04.04.2026",
+    "image": "5790471ee94635f38a4b04b8.jpg",
+    "id": 89,
+    "count": 11
+  },
+  {
+    "name": "Ziemniaki,mięso,sos cebulowy",
+    "date": "18.07.2025",
+    "image": "b0578ac853cd0651624a93fb.jpg",
+    "id": 90,
+    "count": 12
+  },
+  {
+    "name": "Cannelloni",
+    "date": "03.10.2020",
+    "image": "d46613e43f3ba0cafba1c730.jpg",
+    "id": 91,
     "count": 1
+  },
+  {
+    "name": "surówka",
+    "date": "18.10.2025",
+    "image": "fe301a3cb709a16cf300b720.jpg",
+    "id": 92,
+    "count": 39
+  },
+  {
+    "name": "fasolka",
+    "date": "07.09.2025",
+    "image": "97f9bbd50756ad7b124195e8.jpg",
+    "id": 93,
+    "count": 16
+  },
+  {
+    "name": "golonka z indyka",
+    "date": "11.02.2024",
+    "image": "8039dab2d1f73fa1bfde8017.jpg",
+    "id": 94,
+    "count": 11
+  },
+  {
+    "name": "ziemniaki papryka",
+    "date": "30.11.2023",
+    "image": "302869ebe0ae96b7ed747b90.jpg",
+    "id": 95,
+    "count": 19
+  },
+  {
+    "name": "udka z kurczaka",
+    "date": "08.03.2026",
+    "image": "911e75eb9c754a3a9a6a224c.jpg",
+    "id": 96,
+    "count": 10
+  },
+  {
+    "name": "Owoce z bitą śmietaną",
+    "date": "30.11.2023",
+    "image": "b0de64f9cc33dc449aa98742.jpg",
+    "id": 97,
+    "count": 2
+  },
+  {
+    "name": "Paluszki rybne",
+    "date": "30.11.2023",
+    "image": "10854a68da46ba2efe85807b.jpg",
+    "id": 98,
+    "count": 8
+  },
+  {
+    "name": "Kotlety z karkówki",
+    "date": "08.06.2025",
+    "image": "85de68da3f440124ea26287e.jpg",
+    "id": 99,
+    "count": 8
+  },
+  {
+    "name": "Papryka pieczona",
+    "date": "06.12.2025",
+    "image": "824386aff508527a016c8698.jpg",
+    "id": 100,
+    "count": 15
+  },
+  {
+    "name": "Owoce z bitą śmietaną",
+    "date": "30.11.2023",
+    "image": "ed972a262ecc0b51ba133d2c.jpg",
+    "id": 101,
+    "count": 3
   }
 ]
